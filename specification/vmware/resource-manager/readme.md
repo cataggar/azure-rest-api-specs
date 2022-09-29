@@ -269,8 +269,10 @@ swagger-to-sdk:
 
 ## Suppression
 ```
-directive:
-  - suppress: SECRET_PROPERTY
+suppressions:
+
+  - code: SECRET_PROPERTY
+    reason: Secrets are OK to return in a POST response.
     from:
       - Microsoft.AVS/stable/2022-05-01/vmware.json
       - Microsoft.AVS/stable/2021-12-01/vmware.json
@@ -281,8 +283,9 @@ directive:
     where:
       - $.definitions.AdminCredentials.properties.nsxtPassword
       - $.definitions.AdminCredentials.properties.vcenterPassword
-    reason: Secrets are OK to return in a POST response.
-  - suppress: ParametersOrder
+    
+  - code: ParametersOrder
+    reason: It is a breaking change to update the parameters order.
     from: vmware.json
     where:
       - $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}"].get
@@ -291,7 +294,10 @@ directive:
       - $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}"].delete
       - $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}"].delete
       - $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}"].delete
-    reason: It is a breaking change to update the parameters order.
+    
+  - code PathResourceProviderNamePascalCase
+    reason: abc
+    from: Microsoft.AVS/stable/2022-05-01/vmware.json
 ```
 
 ## TypeScript
