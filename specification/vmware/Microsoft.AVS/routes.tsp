@@ -4,6 +4,7 @@ import "./models.tsp";
 
 using TypeSpec.Rest;
 using TypeSpec.Http;
+using Azure.ResourceManager;
 
 namespace Microsoft.AVS;
 
@@ -20,9 +21,7 @@ interface LocationsOperations {
   @post
   CheckTrialAvailability is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("Azure region")
       @path
@@ -40,9 +39,7 @@ interface LocationsOperations {
   @post
   CheckQuotaAvailability is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("Azure region")
       @path
@@ -59,9 +56,7 @@ interface PrivateCloudsOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -76,9 +71,7 @@ interface PrivateCloudsOperations {
   @get
   ListInSubscription is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
     },
     PrivateCloudList
   >;
@@ -89,9 +82,7 @@ interface PrivateCloudsOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -110,9 +101,7 @@ interface PrivateCloudsOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -135,9 +124,7 @@ interface PrivateCloudsOperations {
   @patch
   Update is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -160,9 +147,7 @@ interface PrivateCloudsOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -181,9 +166,7 @@ interface PrivateCloudsOperations {
   @post
   RotateVcenterPassword is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -202,9 +185,7 @@ interface PrivateCloudsOperations {
   @post
   RotateNsxtPassword is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -223,9 +204,7 @@ interface PrivateCloudsOperations {
   @post
   ListAdminCredentials is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -246,9 +225,7 @@ interface ClustersOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -267,9 +244,7 @@ interface ClustersOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -292,9 +267,7 @@ interface ClustersOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -321,9 +294,7 @@ interface ClustersOperations {
   @patch
   Update is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -350,9 +321,7 @@ interface ClustersOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -375,9 +344,7 @@ interface ClustersOperations {
   @post
   ListZones is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -402,9 +369,7 @@ interface DatastoresOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -427,9 +392,7 @@ interface DatastoresOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -456,9 +419,7 @@ interface DatastoresOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -489,9 +450,7 @@ interface DatastoresOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -520,9 +479,7 @@ interface HcxEnterpriseSitesOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -541,9 +498,7 @@ interface HcxEnterpriseSitesOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -566,9 +521,7 @@ interface HcxEnterpriseSitesOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -595,9 +548,7 @@ interface HcxEnterpriseSitesOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -622,9 +573,7 @@ interface AuthorizationsOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -643,9 +592,7 @@ interface AuthorizationsOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -668,9 +615,7 @@ interface AuthorizationsOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -697,9 +642,7 @@ interface AuthorizationsOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -724,9 +667,7 @@ interface GlobalReachConnectionsOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -745,9 +686,7 @@ interface GlobalReachConnectionsOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -770,9 +709,7 @@ interface GlobalReachConnectionsOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -799,9 +736,7 @@ interface GlobalReachConnectionsOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -826,9 +761,7 @@ interface WorkloadNetworksOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -851,9 +784,7 @@ interface WorkloadNetworksOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -872,9 +803,7 @@ interface WorkloadNetworksOperations {
   @get
   ListSegments is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -893,9 +822,7 @@ interface WorkloadNetworksOperations {
   @get
   GetSegment is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -918,9 +845,7 @@ interface WorkloadNetworksOperations {
   @put
   CreateSegments is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -947,9 +872,7 @@ interface WorkloadNetworksOperations {
   @patch
   UpdateSegments is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -976,9 +899,7 @@ interface WorkloadNetworksOperations {
   @delete
   DeleteSegment is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1001,9 +922,7 @@ interface WorkloadNetworksOperations {
   @get
   ListDhcp is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1022,9 +941,7 @@ interface WorkloadNetworksOperations {
   @get
   GetDhcp is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1047,9 +964,7 @@ interface WorkloadNetworksOperations {
   @put
   CreateDhcp is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1076,9 +991,7 @@ interface WorkloadNetworksOperations {
   @patch
   UpdateDhcp is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1105,9 +1018,7 @@ interface WorkloadNetworksOperations {
   @delete
   DeleteDhcp is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1130,9 +1041,7 @@ interface WorkloadNetworksOperations {
   @get
   ListGateways is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1151,9 +1060,7 @@ interface WorkloadNetworksOperations {
   @get
   GetGateway is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1176,9 +1083,7 @@ interface WorkloadNetworksOperations {
   @get
   ListPortMirroring is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1197,9 +1102,7 @@ interface WorkloadNetworksOperations {
   @get
   GetPortMirroring is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1225,9 +1128,7 @@ name
   @put
   CreatePortMirroring is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1263,9 +1164,7 @@ network.
   @patch
   UpdatePortMirroring is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1295,9 +1194,7 @@ name
   @delete
   DeletePortMirroring is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1323,9 +1220,7 @@ name
   @get
   ListVMGroups is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1344,9 +1239,7 @@ name
   @get
   GetVMGroup is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1369,9 +1262,7 @@ name
   @put
   CreateVMGroup is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1398,9 +1289,7 @@ name
   @patch
   UpdateVMGroup is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1427,9 +1316,7 @@ name
   @delete
   DeleteVMGroup is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1452,9 +1339,7 @@ name
   @get
   ListVirtualMachines is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1473,9 +1358,7 @@ name
   @get
   GetVirtualMachine is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1498,9 +1381,7 @@ name
   @get
   ListDnsServices is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1519,9 +1400,7 @@ name
   @get
   GetDnsService is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1544,9 +1423,7 @@ name
   @put
   CreateDnsService is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1573,9 +1450,7 @@ name
   @patch
   UpdateDnsService is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1602,9 +1477,7 @@ name
   @delete
   DeleteDnsService is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1627,9 +1500,7 @@ name
   @get
   ListDnsZones is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1648,9 +1519,7 @@ name
   @get
   GetDnsZone is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1673,9 +1542,7 @@ name
   @put
   CreateDnsZone is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1702,9 +1569,7 @@ name
   @patch
   UpdateDnsZone is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1731,9 +1596,7 @@ name
   @delete
   DeleteDnsZone is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1756,9 +1619,7 @@ name
   @get
   ListPublicIPs is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1777,9 +1638,7 @@ name
   @get
   GetPublicIP is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1805,9 +1664,7 @@ display name
   @put
   CreatePublicIP is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1837,9 +1694,7 @@ display name
   @delete
   DeletePublicIP is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1867,9 +1722,7 @@ interface CloudLinksOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1888,9 +1741,7 @@ interface CloudLinksOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1913,9 +1764,7 @@ interface CloudLinksOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1942,9 +1791,7 @@ interface CloudLinksOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1969,9 +1816,7 @@ interface AddonsOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -1990,9 +1835,7 @@ interface AddonsOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2015,9 +1858,7 @@ interface AddonsOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2044,9 +1885,7 @@ interface AddonsOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2071,9 +1910,7 @@ interface VirtualMachinesOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2096,9 +1933,7 @@ interface VirtualMachinesOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2125,9 +1960,7 @@ interface VirtualMachinesOperations {
   @post
   RestrictMovement is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2160,9 +1993,7 @@ interface PlacementPoliciesOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2185,9 +2016,7 @@ interface PlacementPoliciesOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2214,9 +2043,7 @@ interface PlacementPoliciesOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2247,9 +2074,7 @@ interface PlacementPoliciesOperations {
   @patch
   Update is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2280,9 +2105,7 @@ interface PlacementPoliciesOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2310,9 +2133,7 @@ interface ScriptPackagesOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2330,9 +2151,7 @@ interface ScriptPackagesOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2359,9 +2178,7 @@ execution resource on a private cloud
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2386,9 +2203,7 @@ private cloud
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2417,9 +2232,7 @@ interface ScriptExecutionsOperations {
   @get
   List is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2438,9 +2251,7 @@ interface ScriptExecutionsOperations {
   @get
   Get is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2463,9 +2274,7 @@ interface ScriptExecutionsOperations {
   @put
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2492,9 +2301,7 @@ interface ScriptExecutionsOperations {
   @delete
   Delete is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
@@ -2516,9 +2323,7 @@ interface ScriptExecutionsOperations {
   @post
   GetExecutionLogs is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      ...SubscriptionIdParameter;
 
       @doc("The name of the resource group. The name is case insensitive.")
       @path
