@@ -10,7 +10,6 @@ using TypeSpec.Versioning;
 @service({
   title: "Azure VMware Solution API",
 })
-
 @doc("Azure VMware Solution API")
 @versioned(Versions)
 namespace Microsoft.AVS;

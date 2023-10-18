@@ -51,7 +51,6 @@ interface PrivateCloudsOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
     },
     PrivateCloudList
@@ -75,7 +74,6 @@ interface PrivateCloudsOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -92,7 +90,6 @@ interface PrivateCloudsOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -113,7 +110,6 @@ interface PrivateCloudsOperations {
   Update is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -134,7 +130,6 @@ interface PrivateCloudsOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -151,7 +146,6 @@ interface PrivateCloudsOperations {
   RotateVcenterPassword is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -168,7 +162,6 @@ interface PrivateCloudsOperations {
   RotateNsxtPassword is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -185,7 +178,6 @@ interface PrivateCloudsOperations {
   ListAdminCredentials is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -204,7 +196,6 @@ interface ClustersOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -221,7 +212,6 @@ interface ClustersOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -242,7 +232,6 @@ interface ClustersOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
@@ -267,7 +256,6 @@ interface ClustersOperations {
   Update is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -292,7 +280,6 @@ interface ClustersOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -313,7 +300,6 @@ interface ClustersOperations {
   ListZones is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -336,7 +322,6 @@ interface DatastoresOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -357,7 +342,6 @@ interface DatastoresOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -382,7 +366,6 @@ interface DatastoresOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -411,7 +394,6 @@ interface DatastoresOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -438,7 +420,6 @@ interface HcxEnterpriseSitesOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -455,7 +436,6 @@ interface HcxEnterpriseSitesOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -476,7 +456,6 @@ interface HcxEnterpriseSitesOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
@@ -501,7 +480,6 @@ interface HcxEnterpriseSitesOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -524,7 +502,6 @@ interface AuthorizationsOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -541,7 +518,6 @@ interface AuthorizationsOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -562,7 +538,6 @@ interface AuthorizationsOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
@@ -587,7 +562,6 @@ interface AuthorizationsOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -610,7 +584,6 @@ interface GlobalReachConnectionsOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -627,7 +600,6 @@ interface GlobalReachConnectionsOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -648,7 +620,6 @@ interface GlobalReachConnectionsOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
@@ -673,7 +644,6 @@ interface GlobalReachConnectionsOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -696,7 +666,6 @@ interface WorkloadNetworksOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -717,7 +686,6 @@ interface WorkloadNetworksOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -734,7 +702,6 @@ interface WorkloadNetworksOperations {
   ListSegments is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -751,7 +718,6 @@ interface WorkloadNetworksOperations {
   GetSegment is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -772,7 +738,6 @@ interface WorkloadNetworksOperations {
   CreateSegments is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -797,7 +762,6 @@ interface WorkloadNetworksOperations {
   UpdateSegments is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -822,7 +786,6 @@ interface WorkloadNetworksOperations {
   DeleteSegment is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -843,7 +806,6 @@ interface WorkloadNetworksOperations {
   ListDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -860,7 +822,6 @@ interface WorkloadNetworksOperations {
   GetDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
@@ -881,7 +842,6 @@ interface WorkloadNetworksOperations {
   CreateDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -906,7 +866,6 @@ interface WorkloadNetworksOperations {
   UpdateDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -931,7 +890,6 @@ interface WorkloadNetworksOperations {
   DeleteDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -952,7 +910,6 @@ interface WorkloadNetworksOperations {
   ListGateways is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -969,7 +926,6 @@ interface WorkloadNetworksOperations {
   GetGateway is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -990,7 +946,6 @@ interface WorkloadNetworksOperations {
   ListPortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1007,7 +962,6 @@ interface WorkloadNetworksOperations {
   GetPortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1031,7 +985,6 @@ name
   CreatePortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1065,7 +1018,6 @@ network.
   UpdatePortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1093,7 +1045,6 @@ name
   DeletePortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("""
@@ -1117,7 +1068,6 @@ name
   ListVMGroups is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1134,7 +1084,6 @@ name
   GetVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1155,7 +1104,6 @@ name
   CreateVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1180,7 +1128,6 @@ name
   UpdateVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1205,7 +1152,6 @@ name
   DeleteVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
@@ -1226,7 +1172,6 @@ name
   ListVirtualMachines is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1243,7 +1188,6 @@ name
   GetVirtualMachine is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1264,7 +1208,6 @@ name
   ListDnsServices is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1281,7 +1224,6 @@ name
   GetDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1302,7 +1244,6 @@ name
   CreateDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1327,7 +1268,6 @@ name
   UpdateDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1352,7 +1292,6 @@ name
   DeleteDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
@@ -1373,7 +1312,6 @@ name
   ListDnsZones is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1390,7 +1328,6 @@ name
   GetDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1411,7 +1348,6 @@ name
   CreateDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1436,7 +1372,6 @@ name
   UpdateDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1461,7 +1396,6 @@ name
   DeleteDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
@@ -1482,7 +1416,6 @@ name
   ListPublicIPs is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1499,7 +1432,6 @@ name
   GetPublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1523,7 +1455,6 @@ display name
   CreatePublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1551,7 +1482,6 @@ display name
   DeletePublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("""
@@ -1577,7 +1507,6 @@ interface CloudLinksOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1594,7 +1523,6 @@ interface CloudLinksOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1615,7 +1543,6 @@ interface CloudLinksOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
@@ -1640,7 +1567,6 @@ interface CloudLinksOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1663,7 +1589,6 @@ interface AddonsOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1680,7 +1605,6 @@ interface AddonsOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1701,7 +1625,6 @@ interface AddonsOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
@@ -1726,7 +1649,6 @@ interface AddonsOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1749,7 +1671,6 @@ interface VirtualMachinesOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1770,7 +1691,6 @@ interface VirtualMachinesOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1795,7 +1715,6 @@ interface VirtualMachinesOperations {
   RestrictMovement is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1826,7 +1745,6 @@ interface PlacementPoliciesOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1847,7 +1765,6 @@ interface PlacementPoliciesOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1872,7 +1789,6 @@ interface PlacementPoliciesOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1901,7 +1817,6 @@ interface PlacementPoliciesOperations {
   Update is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1930,7 +1845,6 @@ interface PlacementPoliciesOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1956,7 +1870,6 @@ interface ScriptPackagesOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1972,7 +1885,6 @@ interface ScriptPackagesOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -1997,7 +1909,6 @@ execution resource on a private cloud
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -2020,7 +1931,6 @@ private cloud
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -2047,7 +1957,6 @@ interface ScriptExecutionsOperations {
   List is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -2064,7 +1973,6 @@ interface ScriptExecutionsOperations {
   Get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -2085,7 +1993,6 @@ interface ScriptExecutionsOperations {
   CreateOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
@@ -2110,7 +2017,6 @@ interface ScriptExecutionsOperations {
   Delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
@@ -2130,7 +2036,6 @@ interface ScriptExecutionsOperations {
   GetExecutionLogs is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
       ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
