@@ -22,10 +22,7 @@ interface LocationsOperations {
   CheckTrialAvailability is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
-      @doc("Azure region")
-      @path
-      location: string;
+      ...LocationParameter;
 
       @doc("The sku to check for trial availability")
       @body
@@ -40,10 +37,7 @@ interface LocationsOperations {
   CheckQuotaAvailability is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
-
-      @doc("Azure region")
-      @path
-      location: string;
+      ...LocationParameter;
     },
     Quota
   >;
@@ -58,9 +52,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
     },
     PrivateCloudList
   >;
@@ -84,9 +76,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -103,9 +93,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -126,9 +114,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -149,9 +135,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -168,9 +152,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -187,9 +169,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -206,9 +186,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -227,9 +205,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -246,9 +222,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -269,9 +243,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
       @path
@@ -296,9 +268,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -323,9 +293,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -346,9 +314,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -371,9 +337,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -394,9 +358,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -421,9 +383,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -452,9 +412,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -481,9 +439,7 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -500,9 +456,7 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -523,9 +477,7 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
       @path
@@ -550,9 +502,7 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -575,9 +525,7 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -594,9 +542,7 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -617,9 +563,7 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
       @path
@@ -644,9 +588,7 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -669,9 +611,7 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -688,9 +628,7 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -711,9 +649,7 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
       @path
@@ -738,9 +674,7 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -763,9 +697,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -786,9 +718,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -805,9 +735,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -824,9 +752,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -847,9 +773,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -874,9 +798,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -901,9 +823,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -924,9 +844,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -943,9 +861,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
       @path
@@ -966,9 +882,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -993,9 +907,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1020,9 +932,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1043,9 +953,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1062,9 +970,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1085,9 +991,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1104,9 +1008,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1130,9 +1032,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1166,9 +1066,7 @@ network.
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1196,9 +1094,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("""
 NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
@@ -1222,9 +1118,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1241,9 +1135,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1264,9 +1156,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1291,9 +1181,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1318,9 +1206,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
       @path
@@ -1341,9 +1227,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1360,9 +1244,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1383,9 +1265,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1402,9 +1282,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1425,9 +1303,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1452,9 +1328,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1479,9 +1353,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
       @path
@@ -1502,9 +1374,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1521,9 +1391,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1544,9 +1412,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1571,9 +1437,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1598,9 +1462,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
       @path
@@ -1621,9 +1483,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1640,9 +1500,7 @@ name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1666,9 +1524,7 @@ display name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1696,9 +1552,7 @@ display name
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("""
 NSX Public IP Block identifier. Generally the same as the Public IP Block's
@@ -1724,9 +1578,7 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1743,9 +1595,7 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1766,9 +1616,7 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
       @path
@@ -1793,9 +1641,7 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1818,9 +1664,7 @@ interface AddonsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1837,9 +1681,7 @@ interface AddonsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1860,9 +1702,7 @@ interface AddonsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
       @path
@@ -1887,9 +1727,7 @@ interface AddonsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1912,9 +1750,7 @@ interface VirtualMachinesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1935,9 +1771,7 @@ interface VirtualMachinesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1962,9 +1796,7 @@ interface VirtualMachinesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -1995,9 +1827,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2018,9 +1848,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2045,9 +1873,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2076,9 +1902,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2107,9 +1931,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2135,9 +1957,7 @@ interface ScriptPackagesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2153,9 +1973,7 @@ interface ScriptPackagesOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2180,9 +1998,7 @@ execution resource on a private cloud
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2205,9 +2021,7 @@ private cloud
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2234,9 +2048,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2253,9 +2065,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2276,9 +2086,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("The name of the private cloud.")
       @path
@@ -2303,9 +2111,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
@@ -2325,9 +2131,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
 
-      @doc("The name of the resource group. The name is case insensitive.")
-      @path
-      resourceGroupName: string;
+      ...ResourceGroupParameter;
 
       @doc("Name of the private cloud")
       @path
