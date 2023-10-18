@@ -40,9 +40,7 @@ interface LocationsOperations {
   @post
   CheckQuotaAvailability is Azure.Core.Foundations.Operation<
     {
-      @doc("The ID of the target subscription.")
-      @path
-      subscriptionId: string;
+      subscriptionId: Azure.ResourceManager.SubscriptionIdParameter;
 
       @doc("Azure region")
       @path

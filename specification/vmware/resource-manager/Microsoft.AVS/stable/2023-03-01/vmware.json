@@ -85,9 +85,9 @@
           {
             "name": "subscriptionId",
             "in": "path",
-            "description": "The ID of the target subscription.",
+            "description": "The default subscriptionId parameter type.",
             "required": true,
-            "type": "string"
+            "type": "object"
           },
           {
             "name": "location",
