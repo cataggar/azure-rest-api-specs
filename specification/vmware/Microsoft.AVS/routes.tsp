@@ -269,10 +269,7 @@ interface DatastoresOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Name of the datastore in the private cloud cluster")
-      @path
-      datastoreName: string;
+      ...DatastoreNameParameter;
     },
     Datastore
   >;
@@ -286,10 +283,7 @@ interface DatastoresOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Name of the datastore in the private cloud cluster")
-      @path
-      datastoreName: string;
+      ...DatastoreNameParameter;
 
       @doc("A datastore in a private cloud cluster")
       @body
@@ -307,10 +301,7 @@ interface DatastoresOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Name of the datastore in the private cloud cluster")
-      @path
-      datastoreName: string;
+      ...DatastoreNameParameter;
     },
     void
   >;
@@ -394,10 +385,7 @@ interface AuthorizationsOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the ExpressRoute Circuit Authorization in the private cloud")
-      @path
-      authorizationName: string;
+      ...AuthorizationNameParameter;
     },
     ExpressRouteAuthorization
   >;
@@ -409,14 +397,8 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("The name of the private cloud.")
-      @path
-      privateCloudName: string;
-
-      @doc("Name of the ExpressRoute Circuit Authorization in the private cloud")
-      @path
-      authorizationName: string;
+      ...PrivateCloudNameParameter;
+      ...AuthorizationNameParameter;
 
       @doc("An ExpressRoute Circuit Authorization")
       @body
@@ -433,10 +415,7 @@ interface AuthorizationsOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the ExpressRoute Circuit Authorization in the private cloud")
-      @path
-      authorizationName: string;
+      ...AuthorizationNameParameter;
     },
     void
   >;
@@ -463,10 +442,7 @@ interface GlobalReachConnectionsOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the global reach connection in the private cloud")
-      @path
-      globalReachConnectionName: string;
+      ...GlobalReachConnectionNameParameter;
     },
     GlobalReachConnection
   >;
@@ -478,14 +454,8 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("The name of the private cloud.")
-      @path
-      privateCloudName: string;
-
-      @doc("Name of the global reach connection in the private cloud")
-      @path
-      globalReachConnectionName: string;
+      ...PrivateCloudNameParameter;
+      ...GlobalReachConnectionNameParameter;
 
       @doc("A global reach connection in the private cloud")
       @body
@@ -502,10 +472,7 @@ interface GlobalReachConnectionsOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the global reach connection in the private cloud")
-      @path
-      globalReachConnectionName: string;
+      ...GlobalReachConnectionNameParameter;
     },
     void
   >;
@@ -520,10 +487,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name for the workload network in the private cloud")
-      @path
-      workloadNetworkName: WorkloadNetworkName;
+      ...WorkloadNetworkNameParameter;
     },
     WorkloadNetwork
   >;
@@ -560,10 +524,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX Segment identifier. Generally the same as the Segment's display name")
-      @path
-      segmentId: string;
+      ...SegmentIdParameter;
     },
     WorkloadNetworkSegment
   >;
@@ -576,10 +537,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX Segment identifier. Generally the same as the Segment's display name")
-      @path
-      segmentId: string;
+      ...SegmentIdParameter;
 
       @doc("NSX Segment")
       @body
@@ -596,10 +554,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX Segment identifier. Generally the same as the Segment's display name")
-      @path
-      segmentId: string;
+      ...SegmentIdParameter;
 
       @doc("NSX Segment")
       @body
@@ -616,10 +571,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX Segment identifier. Generally the same as the Segment's display name")
-      @path
-      segmentId: string;
+      ...SegmentIdParameter;
     },
     void
   >;
@@ -643,11 +595,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
-      @path
-      dhcpId: string;
-
+      ...DhcpIdParameter;
       ...PrivateCloudNameParameter;
     },
     WorkloadNetworkDhcp
@@ -661,10 +609,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
-      @path
-      dhcpId: string;
+      ...DhcpIdParameter;
 
       @doc("NSX DHCP")
       @body
@@ -681,10 +626,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
-      @path
-      dhcpId: string;
+      ...DhcpIdParameter;
 
       @doc("NSX DHCP")
       @body
@@ -701,10 +643,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
-      @path
-      dhcpId: string;
+      ...DhcpIdParameter;
     },
     void
   >;
@@ -729,10 +668,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX Gateway identifier. Generally the same as the Gateway's display name")
-      @path
-      gatewayId: string;
+      ...GatewayIdParameter;
     },
     WorkloadNetworkGateway
   >;
@@ -757,13 +693,7 @@ interface WorkloadNetworksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("""
-NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
-name
-""")
-      @path
-      portMirroringId: string;
+      ...PortMirroringIdParameter;
     },
     WorkloadNetworkPortMirroring
   >;
@@ -776,13 +706,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("""
-NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
-name
-""")
-      @path
-      portMirroringId: string;
+      ...PortMirroringIdParameter;
 
       @doc("NSX port mirroring")
       @body
@@ -802,13 +726,7 @@ network.
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("""
-NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
-name
-""")
-      @path
-      portMirroringId: string;
+      ...PortMirroringIdParameter;
 
       @doc("NSX port mirroring")
       @body
@@ -824,14 +742,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("""
-NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
-name
-""")
-      @path
-      portMirroringId: string;
-
+      ...PortMirroringIdParameter;
       ...PrivateCloudNameParameter;
     },
     void
@@ -859,10 +770,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
-      @path
-      vmGroupId: string;
+      ...VmGroupIdParameter;
     },
     WorkloadNetworkVMGroup
   >;
@@ -876,10 +784,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
-      @path
-      vmGroupId: string;
+      ...VmGroupIdParameter;
 
       @doc("NSX VM Group")
       @body
@@ -897,10 +802,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
-      @path
-      vmGroupId: string;
+      ...VmGroupIdParameter;
 
       @doc("NSX VM Group")
       @body
@@ -917,11 +819,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
-      @path
-      vmGroupId: string;
-
+      ...VmGroupIdParameter;
       ...PrivateCloudNameParameter;
     },
     void
@@ -947,10 +845,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Virtual Machine identifier")
-      @path
-      virtualMachineId: string;
+      ...VirtualMachineIdParameter;
     },
     WorkloadNetworkVirtualMachine
   >;
@@ -975,10 +870,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
-      @path
-      dnsServiceId: string;
+      ...DnsServiceIdParameter;
     },
     WorkloadNetworkDnsService
   >;
@@ -991,10 +883,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
-      @path
-      dnsServiceId: string;
+      ...DnsServiceIdParameter;
 
       @doc("NSX DNS Service")
       @body
@@ -1011,10 +900,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
-      @path
-      dnsServiceId: string;
+      ...DnsServiceIdParameter;
 
       @doc("NSX DNS Service")
       @body
@@ -1030,11 +916,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
-      @path
-      dnsServiceId: string;
-
+      ...DnsServiceIdParameter;
       ...PrivateCloudNameParameter;
     },
     void
@@ -1060,10 +942,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
-      @path
-      dnsZoneId: string;
+      ...DnsZoneIdParameter;
     },
     WorkloadNetworkDnsZone
   >;
@@ -1076,10 +955,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
-      @path
-      dnsZoneId: string;
+      ...DnsZoneIdParameter;
 
       @doc("NSX DNS Zone")
       @body
@@ -1096,10 +972,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
-      @path
-      dnsZoneId: string;
+      ...DnsZoneIdParameter;
 
       @doc("NSX DNS Zone")
       @body
@@ -1115,11 +988,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
-      @path
-      dnsZoneId: string;
-
+      ...DnsZoneIdParameter;
       ...PrivateCloudNameParameter;
     },
     void
@@ -1147,14 +1016,7 @@ name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-      @doc("""
-NSX Public IP Block identifier. Generally the same as the Public IP Block's
-display name
-""")
-      @path
-      publicIPId: string;
+      ...PublicIpIdParameter;
     },
     WorkloadNetworkPublicIP
   >;
@@ -1168,14 +1030,7 @@ display name
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-      @doc("""
-NSX Public IP Block identifier. Generally the same as the Public IP Block's
-display name
-""")
-      @path
-      publicIPId: string;
+      ...PublicIpIdParameter;
 
       @doc("NSX Public IP Block")
       @body
@@ -1192,15 +1047,7 @@ display name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-      @doc("""
-NSX Public IP Block identifier. Generally the same as the Public IP Block's
-display name
-""")
-      @path
-      publicIPId: string;
-
+      ...PublicIpIdParameter;
       ...PrivateCloudNameParameter;
     },
     void
@@ -1228,10 +1075,7 @@ interface CloudLinksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the cloud link resource")
-      @path
-      cloudLinkName: string;
+      ...CloudLinkNameParameter;
     },
     CloudLink
   >;
@@ -1243,14 +1087,8 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("The name of the private cloud.")
-      @path
-      privateCloudName: string;
-
-      @doc("Name of the cloud link resource")
-      @path
-      cloudLinkName: string;
+      ...PrivateCloudNameParameter;
+      ...CloudLinkNameParameter;
 
       @doc("A cloud link in the private cloud")
       @body
@@ -1267,10 +1105,7 @@ interface CloudLinksOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the cloud link resource")
-      @path
-      cloudLinkName: string;
+      ...CloudLinkNameParameter;
     },
     void
   >;
@@ -1357,10 +1192,7 @@ interface VirtualMachinesOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Virtual Machine identifier")
-      @path
-      virtualMachineId: string;
+      ...VirtualMachineIdParameter;
     },
     VirtualMachine
   >;
@@ -1374,10 +1206,7 @@ interface VirtualMachinesOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Virtual Machine identifier")
-      @path
-      virtualMachineId: string;
+      ...VirtualMachineIdParameter;
 
       @doc("Whether VM DRS-driven movement is restricted (Enabled) or not (Disabled)")
       @body
@@ -1410,10 +1239,7 @@ interface PlacementPoliciesOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
-      @path
-      placementPolicyName: string;
+      ...PlacementPolicyNameParameter;
     },
     PlacementPolicy
   >;
@@ -1427,10 +1253,7 @@ interface PlacementPoliciesOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
-      @path
-      placementPolicyName: string;
+      ...PlacementPolicyNameParameter;
 
       @doc("A placement policy in the private cloud cluster")
       @body
@@ -1448,10 +1271,7 @@ interface PlacementPoliciesOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
-      @path
-      placementPolicyName: string;
+      ...PlacementPolicyNameParameter;
 
       @doc("The placement policy properties that may be updated")
       @body
@@ -1469,10 +1289,7 @@ interface PlacementPoliciesOperations {
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
       ...ClusterNameParameter;
-
-      @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
-      @path
-      placementPolicyName: string;
+      ...PlacementPolicyNameParameter;
     },
     void
   >;
@@ -1499,10 +1316,7 @@ interface ScriptPackagesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the script package in the private cloud")
-      @path
-      scriptPackageName: string;
+      ...ScriptPackageNameParameter;
     },
     ScriptPackage
   >;
@@ -1520,10 +1334,7 @@ execution resource on a private cloud
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the script package in the private cloud")
-      @path
-      scriptPackageName: string;
+      ...ScriptPackageNameParameter;
     },
     ScriptCmdletsList
   >;
@@ -1539,14 +1350,8 @@ private cloud
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the script package in the private cloud")
-      @path
-      scriptPackageName: string;
-
-      @doc("Name of the script cmdlet resource in the script package in the private cloud")
-      @path
-      scriptCmdletName: string;
+      ...ScriptPackageNameParameter;
+      ...ScriptCmdletNameParameter;
     },
     ScriptCmdlet
   >;
@@ -1573,10 +1378,7 @@ interface ScriptExecutionsOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the user-invoked script execution resource")
-      @path
-      scriptExecutionName: string;
+      ...ScriptExecutionNameParameter;
     },
     ScriptExecution
   >;
@@ -1588,14 +1390,8 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("The name of the private cloud.")
-      @path
-      privateCloudName: string;
-
-      @doc("Name of the user-invoked script execution resource")
-      @path
-      scriptExecutionName: string;
+      ...PrivateCloudNameParameter;
+      ...ScriptExecutionNameParameter;
 
       @doc("A script running in the private cloud")
       @body
@@ -1612,10 +1408,7 @@ interface ScriptExecutionsOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the user-invoked script execution resource")
-      @path
-      scriptExecutionName: string;
+      ...ScriptExecutionNameParameter;
     },
     void
   >;
@@ -1628,10 +1421,7 @@ interface ScriptExecutionsOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudNameParameter;
-
-      @doc("Name of the user-invoked script execution resource")
-      @path
-      scriptExecutionName: string;
+      ...ScriptExecutionNameParameter;
 
       #suppress "@azure-tools/typespec-azure-core/request-body-problem" "Can not change existing response."
       @doc("""

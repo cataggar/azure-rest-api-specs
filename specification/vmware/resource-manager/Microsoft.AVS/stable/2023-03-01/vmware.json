@@ -638,11 +638,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "authorizationName",
-            "in": "path",
-            "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AuthorizationNameParameter"
           }
         ],
         "responses": {
@@ -680,18 +676,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "authorizationName",
-            "in": "path",
-            "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AuthorizationNameParameter"
           },
           {
             "name": "authorization",
@@ -741,11 +729,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "authorizationName",
-            "in": "path",
-            "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AuthorizationNameParameter"
           }
         ],
         "responses": {
@@ -828,11 +812,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "cloudLinkName",
-            "in": "path",
-            "description": "Name of the cloud link resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/CloudLinkNameParameter"
           }
         ],
         "responses": {
@@ -870,18 +850,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "cloudLinkName",
-            "in": "path",
-            "description": "Name of the cloud link resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/CloudLinkNameParameter"
           },
           {
             "name": "cloudLink",
@@ -931,11 +903,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "cloudLinkName",
-            "in": "path",
-            "description": "Name of the cloud link resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/CloudLinkNameParameter"
           }
         ],
         "responses": {
@@ -1248,11 +1216,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "datastoreName",
-            "in": "path",
-            "description": "Name of the datastore in the private cloud cluster",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DatastoreNameParameter"
           }
         ],
         "responses": {
@@ -1296,11 +1260,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "datastoreName",
-            "in": "path",
-            "description": "Name of the datastore in the private cloud cluster",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DatastoreNameParameter"
           },
           {
             "name": "datastore",
@@ -1353,11 +1313,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "datastoreName",
-            "in": "path",
-            "description": "Name of the datastore in the private cloud cluster",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DatastoreNameParameter"
           }
         ],
         "responses": {
@@ -1489,11 +1445,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           }
         ],
         "responses": {
@@ -1537,11 +1489,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           },
           {
             "name": "placementPolicy",
@@ -1594,11 +1542,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           },
           {
             "name": "placementPolicyUpdate",
@@ -1651,11 +1595,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           }
         ],
         "responses": {
@@ -1745,11 +1685,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "virtualMachineId",
-            "in": "path",
-            "description": "Virtual Machine identifier",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VirtualMachineIdParameter"
           }
         ],
         "responses": {
@@ -1795,11 +1731,7 @@
             "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "virtualMachineId",
-            "in": "path",
-            "description": "Virtual Machine identifier",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VirtualMachineIdParameter"
           },
           {
             "name": "restrictMovement",
@@ -1891,11 +1823,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "globalReachConnectionName",
-            "in": "path",
-            "description": "Name of the global reach connection in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GlobalReachConnectionNameParameter"
           }
         ],
         "responses": {
@@ -1933,18 +1861,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "globalReachConnectionName",
-            "in": "path",
-            "description": "Name of the global reach connection in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GlobalReachConnectionNameParameter"
           },
           {
             "name": "globalReachConnection",
@@ -1994,11 +1914,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "globalReachConnectionName",
-            "in": "path",
-            "description": "Name of the global reach connection in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GlobalReachConnectionNameParameter"
           }
         ],
         "responses": {
@@ -2369,11 +2285,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           }
         ],
         "responses": {
@@ -2411,18 +2323,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           },
           {
             "name": "scriptExecution",
@@ -2472,11 +2376,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           }
         ],
         "responses": {
@@ -2516,11 +2416,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           },
           {
             "name": "scriptOutputStreamType",
@@ -2618,11 +2514,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptPackageName",
-            "in": "path",
-            "description": "Name of the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptPackageNameParameter"
           }
         ],
         "responses": {
@@ -2665,11 +2557,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptPackageName",
-            "in": "path",
-            "description": "Name of the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptPackageNameParameter"
           }
         ],
         "responses": {
@@ -2715,18 +2603,10 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptPackageName",
-            "in": "path",
-            "description": "Name of the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptPackageNameParameter"
           },
           {
-            "name": "scriptCmdletName",
-            "in": "path",
-            "description": "Name of the script cmdlet resource in the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptCmdletNameParameter"
           }
         ],
         "responses": {
@@ -2812,25 +2692,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "workloadNetworkName",
-            "in": "path",
-            "description": "Name for the workload network in the private cloud",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "default"
-            ],
-            "x-ms-enum": {
-              "name": "WorkloadNetworkName",
-              "modelAsString": true,
-              "values": [
-                {
-                  "name": "default",
-                  "value": "default",
-                  "description": "default"
-                }
-              ]
-            }
+            "$ref": "#/parameters/WorkloadNetworkNameParameter"
           }
         ],
         "responses": {
@@ -2913,11 +2775,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           },
           {
             "$ref": "#/parameters/PrivateCloudNameParameter"
@@ -2961,11 +2819,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           },
           {
             "name": "workloadNetworkDhcp",
@@ -3015,11 +2869,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           },
           {
             "name": "workloadNetworkDhcp",
@@ -3072,11 +2922,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           }
         ],
         "responses": {
@@ -3159,11 +3005,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           }
         ],
         "responses": {
@@ -3204,11 +3046,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
             "name": "workloadNetworkDnsService",
@@ -3258,11 +3096,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
             "name": "workloadNetworkDnsService",
@@ -3312,11 +3146,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
             "$ref": "#/parameters/PrivateCloudNameParameter"
@@ -3402,11 +3232,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           }
         ],
         "responses": {
@@ -3447,11 +3273,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           },
           {
             "name": "workloadNetworkDnsZone",
@@ -3501,11 +3323,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           },
           {
             "name": "workloadNetworkDnsZone",
@@ -3555,11 +3373,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           },
           {
             "$ref": "#/parameters/PrivateCloudNameParameter"
@@ -3645,11 +3459,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "gatewayId",
-            "in": "path",
-            "description": "NSX Gateway identifier. Generally the same as the Gateway's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GatewayIdParameter"
           }
         ],
         "responses": {
@@ -3735,11 +3545,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           }
         ],
         "responses": {
@@ -3780,11 +3586,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           },
           {
             "name": "workloadNetworkPortMirroring",
@@ -3834,11 +3636,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           },
           {
             "name": "workloadNetworkPortMirroring",
@@ -3888,11 +3686,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           },
           {
             "$ref": "#/parameters/PrivateCloudNameParameter"
@@ -3978,11 +3772,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "publicIPId",
-            "in": "path",
-            "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's\ndisplay name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PublicIpIdParameter"
           }
         ],
         "responses": {
@@ -4023,11 +3813,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "publicIPId",
-            "in": "path",
-            "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's\ndisplay name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PublicIpIdParameter"
           },
           {
             "name": "workloadNetworkPublicIP",
@@ -4074,11 +3860,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "publicIPId",
-            "in": "path",
-            "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's\ndisplay name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PublicIpIdParameter"
           },
           {
             "$ref": "#/parameters/PrivateCloudNameParameter"
@@ -4164,11 +3946,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           }
         ],
         "responses": {
@@ -4209,11 +3987,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           },
           {
             "name": "workloadNetworkSegment",
@@ -4263,11 +4037,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           },
           {
             "name": "workloadNetworkSegment",
@@ -4320,11 +4090,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           }
         ],
         "responses": {
@@ -4407,11 +4173,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "virtualMachineId",
-            "in": "path",
-            "description": "Virtual Machine identifier",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VirtualMachineIdParameter"
           }
         ],
         "responses": {
@@ -4497,11 +4259,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           }
         ],
         "responses": {
@@ -4542,11 +4300,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           },
           {
             "name": "workloadNetworkVMGroup",
@@ -4596,11 +4350,7 @@
             "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           },
           {
             "name": "workloadNetworkVMGroup",
@@ -4650,11 +4400,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           },
           {
             "$ref": "#/parameters/PrivateCloudNameParameter"
@@ -9241,6 +8987,15 @@
       "pattern": "^[-\\w\\._]+$",
       "x-ms-parameter-location": "method"
     },
+    "AuthorizationNameParameter": {
+      "name": "authorizationName",
+      "in": "path",
+      "description": "Name of the ExpressRoute Circuit Authorization in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
     "Azure.Core.Foundations.ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
@@ -9251,10 +9006,69 @@
       "x-ms-parameter-location": "method",
       "x-ms-client-name": "apiVersion"
     },
+    "CloudLinkNameParameter": {
+      "name": "cloudLinkName",
+      "in": "path",
+      "description": "Name of the cloud link resource.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
     "ClusterNameParameter": {
       "name": "clusterName",
       "in": "path",
       "description": "Name of the cluster in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "DatastoreNameParameter": {
+      "name": "datastoreName",
+      "in": "path",
+      "description": "Name of the datastore in the private cloud cluster.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "DhcpIdParameter": {
+      "name": "dhcpId",
+      "in": "path",
+      "description": "NSX DHCP identifier. Generally the same as the DHCP display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "DnsServiceIdParameter": {
+      "name": "dnsServiceId",
+      "in": "path",
+      "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "DnsZoneIdParameter": {
+      "name": "dnsZoneId",
+      "in": "path",
+      "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "GatewayIdParameter": {
+      "name": "gatewayId",
+      "in": "path",
+      "description": "NSX Gateway identifier. Generally the same as the Gateway's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "GlobalReachConnectionNameParameter": {
+      "name": "globalReachConnectionName",
+      "in": "path",
+      "description": "Name of the global reach connection in the private cloud.",
       "required": true,
       "type": "string",
       "pattern": "^[-\\w\\._]+$",
@@ -9269,6 +9083,23 @@
       "pattern": "^[-\\w\\._]+$",
       "x-ms-parameter-location": "method"
     },
+    "PlacementPolicyNameParameter": {
+      "name": "placementPolicyName",
+      "in": "path",
+      "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "PortMirroringIdParameter": {
+      "name": "portMirroringId",
+      "in": "path",
+      "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
     "PrivateCloudNameParameter": {
       "name": "privateCloudName",
       "in": "path",
@@ -9276,6 +9107,87 @@
       "required": true,
       "type": "string",
       "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "PublicIpIdParameter": {
+      "name": "publicIPId",
+      "in": "path",
+      "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptCmdletNameParameter": {
+      "name": "scriptCmdletName",
+      "in": "path",
+      "description": "Name of the script cmdlet resource in the script package in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptExecutionNameParameter": {
+      "name": "scriptExecutionName",
+      "in": "path",
+      "description": "Name of the user-invoked script execution resource.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptPackageNameParameter": {
+      "name": "scriptPackageName",
+      "in": "path",
+      "description": "Name of the script package in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._@]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "SegmentIdParameter": {
+      "name": "segmentId",
+      "in": "path",
+      "description": "NSX Segment identifier. Generally the same as the Segment's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "VirtualMachineIdParameter": {
+      "name": "virtualMachineId",
+      "in": "path",
+      "description": "Virtual Machine identifier.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "VmGroupIdParameter": {
+      "name": "vmGroupId",
+      "in": "path",
+      "description": "NSX VM Group identifier. Generally the same as the VM Group's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "WorkloadNetworkNameParameter": {
+      "name": "workloadNetworkName",
+      "in": "path",
+      "description": "Name of the script cmdlet resource in the script package in the private cloud.",
+      "required": true,
+      "type": "string",
+      "enum": [
+        "default"
+      ],
+      "x-ms-enum": {
+        "name": "WorkloadNetworkName",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "default",
+            "value": "default",
+            "description": "default"
+          }
+        ]
+      },
       "x-ms-parameter-location": "method"
     }
   }

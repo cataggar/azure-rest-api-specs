@@ -171,12 +171,11 @@ model ScriptOutputStreamTypeParameter {
 }
 
 @doc("The parameter for the script cmdlet name.")
-model WorkloadNetworkParameter {
+model WorkloadNetworkNameParameter {
   @path
   @doc("Name of the script cmdlet resource in the script package in the private cloud.")
-  @pattern("^[-\\w\\._]+$")
-  // TODO Can pattern be used on WorkloadNetworkName instead?
-  workloadNetworkName: WorkloadNetworkName | string;
+  // @pattern("^[-\\w\\._]+$")
+  workloadNetworkName: WorkloadNetworkName;
 }
 
 @doc("The parameter for the script cmdlet name.")
