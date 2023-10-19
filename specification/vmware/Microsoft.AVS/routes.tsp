@@ -180,10 +180,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
     },
     Cluster
   >;
@@ -195,14 +192,8 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("The name of the private cloud.")
-      @path
-      privateCloudName: string;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...PrivateCloudParameter;
+      ...ClusterNameParameter;
 
       @doc("A cluster in the private cloud")
       @body
@@ -219,10 +210,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("The cluster properties to be updated")
       @body
@@ -239,10 +227,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
     },
     void
   >;
@@ -255,10 +240,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
     },
     ClusterZoneList
   >;
@@ -273,10 +255,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
     },
     DatastoreList
   >;
@@ -289,10 +268,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Name of the datastore in the private cloud cluster")
       @path
@@ -309,10 +285,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Name of the datastore in the private cloud cluster")
       @path
@@ -333,10 +306,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Name of the datastore in the private cloud cluster")
       @path
@@ -1397,10 +1367,7 @@ interface VirtualMachinesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
     },
     VirtualMachinesList
   >;
@@ -1413,10 +1380,7 @@ interface VirtualMachinesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Virtual Machine identifier")
       @path
@@ -1433,10 +1397,7 @@ interface VirtualMachinesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Virtual Machine identifier")
       @path
@@ -1459,10 +1420,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
     },
     PlacementPoliciesList
   >;
@@ -1475,10 +1433,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
@@ -1495,10 +1450,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
@@ -1519,10 +1471,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
@@ -1543,10 +1492,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the cluster in the private cloud")
-      @path
-      clusterName: string;
+      ...ClusterNameParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
