@@ -2926,7 +2926,14 @@
             ],
             "x-ms-enum": {
               "name": "WorkloadNetworkName",
-              "modelAsString": true
+              "modelAsString": true,
+              "values": [
+                {
+                  "name": "default",
+                  "value": "default",
+                  "description": "default"
+                }
+              ]
             }
           }
         ],
@@ -4859,6 +4866,7 @@
     },
     "AddonProvisioningState": {
       "type": "string",
+      "description": "AddonProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -4870,7 +4878,44 @@
       ],
       "x-ms-enum": {
         "name": "AddonProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "AddonSrmProperties": {
@@ -4937,24 +4982,50 @@
     },
     "AffinityStrength": {
       "type": "string",
+      "description": "AffinityStrength",
       "enum": [
         "Should",
         "Must"
       ],
       "x-ms-enum": {
         "name": "AffinityStrength",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Should",
+            "value": "Should",
+            "description": "Should"
+          },
+          {
+            "name": "Must",
+            "value": "Must",
+            "description": "Must"
+          }
+        ]
       }
     },
     "AffinityType": {
       "type": "string",
+      "description": "AffinityType",
       "enum": [
         "Affinity",
         "AntiAffinity"
       ],
       "x-ms-enum": {
         "name": "AffinityType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Affinity",
+            "value": "Affinity",
+            "description": "Affinity"
+          },
+          {
+            "name": "AntiAffinity",
+            "value": "AntiAffinity",
+            "description": "AntiAffinity"
+          }
+        ]
       }
     },
     "AvailabilityProperties": {
@@ -4979,13 +5050,26 @@
     },
     "AvailabilityStrategy": {
       "type": "string",
+      "description": "AvailabilityStrategy",
       "enum": [
         "SingleZone",
         "DualZone"
       ],
       "x-ms-enum": {
         "name": "AvailabilityStrategy",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SingleZone",
+            "value": "SingleZone",
+            "description": "SingleZone"
+          },
+          {
+            "name": "DualZone",
+            "value": "DualZone",
+            "description": "DualZone"
+          }
+        ]
       }
     },
     "Azure.Core.Foundations.Error": {
@@ -5051,13 +5135,26 @@
     },
     "AzureHybridBenefitType": {
       "type": "string",
+      "description": "AzureHybridBenefitType",
       "enum": [
         "SqlHost",
         "None"
       ],
       "x-ms-enum": {
         "name": "AzureHybridBenefitType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SqlHost",
+            "value": "SqlHost",
+            "description": "SqlHost"
+          },
+          {
+            "name": "None",
+            "value": "None",
+            "description": "None"
+          }
+        ]
       }
     },
     "Circuit": {
@@ -5128,6 +5225,7 @@
     },
     "CloudLinkStatus": {
       "type": "string",
+      "description": "CloudLinkStatus",
       "enum": [
         "Active",
         "Building",
@@ -5137,7 +5235,34 @@
       ],
       "x-ms-enum": {
         "name": "CloudLinkStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Active",
+            "value": "Active",
+            "description": "Active"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Disconnected",
+            "value": "Disconnected",
+            "description": "Disconnected"
+          }
+        ]
       }
     },
     "Cluster": {
@@ -5203,6 +5328,7 @@
     },
     "ClusterProvisioningState": {
       "type": "string",
+      "description": "ClusterProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5213,7 +5339,39 @@
       ],
       "x-ms-enum": {
         "name": "ClusterProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "ClusterUpdate": {
@@ -5328,6 +5486,7 @@
     },
     "DatastoreProvisioningState": {
       "type": "string",
+      "description": "DatastoreProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5340,11 +5499,54 @@
       ],
       "x-ms-enum": {
         "name": "DatastoreProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Pending",
+            "value": "Pending",
+            "description": "Pending"
+          },
+          {
+            "name": "Creating",
+            "value": "Creating",
+            "description": "Creating"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "DatastoreStatus": {
       "type": "string",
+      "description": "DatastoreStatus",
       "enum": [
         "Unknown",
         "Accessible",
@@ -5356,7 +5558,44 @@
       ],
       "x-ms-enum": {
         "name": "DatastoreStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Unknown",
+            "value": "Unknown",
+            "description": "Unknown"
+          },
+          {
+            "name": "Accessible",
+            "value": "Accessible",
+            "description": "Accessible"
+          },
+          {
+            "name": "Inaccessible",
+            "value": "Inaccessible",
+            "description": "Inaccessible"
+          },
+          {
+            "name": "Attached",
+            "value": "Attached",
+            "description": "Attached"
+          },
+          {
+            "name": "Detached",
+            "value": "Detached",
+            "description": "Detached"
+          },
+          {
+            "name": "LostCommunication",
+            "value": "LostCommunication",
+            "description": "LostCommunication"
+          },
+          {
+            "name": "DeadOrError",
+            "value": "DeadOrError",
+            "description": "DeadOrError"
+          }
+        ]
       }
     },
     "DiskPoolVolume": {
@@ -5388,6 +5627,7 @@
     },
     "DnsServiceLogLevelEnum": {
       "type": "string",
+      "description": "DnsServiceLogLevelEnum",
       "enum": [
         "DEBUG",
         "INFO",
@@ -5397,18 +5637,58 @@
       ],
       "x-ms-enum": {
         "name": "DnsServiceLogLevelEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "DEBUG",
+            "value": "DEBUG",
+            "description": "DEBUG"
+          },
+          {
+            "name": "INFO",
+            "value": "INFO",
+            "description": "INFO"
+          },
+          {
+            "name": "WARNING",
+            "value": "WARNING",
+            "description": "WARNING"
+          },
+          {
+            "name": "ERROR",
+            "value": "ERROR",
+            "description": "ERROR"
+          },
+          {
+            "name": "FATAL",
+            "value": "FATAL",
+            "description": "FATAL"
+          }
+        ]
       }
     },
     "DnsServiceStatusEnum": {
       "type": "string",
+      "description": "DnsServiceStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "DnsServiceStatusEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
+          },
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "Encryption": {
@@ -5427,13 +5707,26 @@
     },
     "EncryptionKeyStatus": {
       "type": "string",
+      "description": "EncryptionKeyStatus",
       "enum": [
         "Connected",
         "AccessDenied"
       ],
       "x-ms-enum": {
         "name": "EncryptionKeyStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Connected",
+            "value": "Connected",
+            "description": "Connected"
+          },
+          {
+            "name": "AccessDenied",
+            "value": "AccessDenied",
+            "description": "AccessDenied"
+          }
+        ]
       }
     },
     "EncryptionKeyVaultProperties": {
@@ -5471,24 +5764,50 @@
     },
     "EncryptionState": {
       "type": "string",
+      "description": "EncryptionState",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "EncryptionState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "EncryptionVersionType": {
       "type": "string",
+      "description": "EncryptionVersionType",
       "enum": [
         "Fixed",
         "AutoDetected"
       ],
       "x-ms-enum": {
         "name": "EncryptionVersionType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Fixed",
+            "value": "Fixed",
+            "description": "Fixed"
+          },
+          {
+            "name": "AutoDetected",
+            "value": "AutoDetected",
+            "description": "AutoDetected"
+          }
+        ]
       }
     },
     "Endpoints": {
@@ -5565,6 +5884,7 @@
     },
     "ExpressRouteAuthorizationProvisioningState": {
       "type": "string",
+      "description": "ExpressRouteAuthorizationProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5573,7 +5893,29 @@
       ],
       "x-ms-enum": {
         "name": "ExpressRouteAuthorizationProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "GlobalReachConnection": {
@@ -5636,6 +5978,7 @@
     },
     "GlobalReachConnectionProvisioningState": {
       "type": "string",
+      "description": "GlobalReachConnectionProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5644,11 +5987,34 @@
       ],
       "x-ms-enum": {
         "name": "GlobalReachConnectionProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "GlobalReachConnectionStatus": {
       "type": "string",
+      "description": "GlobalReachConnectionStatus",
       "enum": [
         "Connected",
         "Connecting",
@@ -5656,7 +6022,24 @@
       ],
       "x-ms-enum": {
         "name": "GlobalReachConnectionStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Connected",
+            "value": "Connected",
+            "description": "Connected"
+          },
+          {
+            "name": "Connecting",
+            "value": "Connecting",
+            "description": "Connecting"
+          },
+          {
+            "name": "Disconnected",
+            "value": "Disconnected",
+            "description": "Disconnected"
+          }
+        ]
       }
     },
     "HcxEnterpriseSite": {
@@ -5703,6 +6086,7 @@
     },
     "HcxEnterpriseSiteStatus": {
       "type": "string",
+      "description": "HcxEnterpriseSiteStatus",
       "enum": [
         "Available",
         "Consumed",
@@ -5711,7 +6095,29 @@
       ],
       "x-ms-enum": {
         "name": "HcxEnterpriseSiteStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Available",
+            "value": "Available",
+            "description": "Available"
+          },
+          {
+            "name": "Consumed",
+            "value": "Consumed",
+            "description": "Consumed"
+          },
+          {
+            "name": "Deactivated",
+            "value": "Deactivated",
+            "description": "Deactivated"
+          },
+          {
+            "name": "Deleted",
+            "value": "Deleted",
+            "description": "Deleted"
+          }
+        ]
       }
     },
     "IdentitySource": {
@@ -5762,13 +6168,26 @@
     },
     "InternetEnum": {
       "type": "string",
+      "description": "InternetEnum",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "InternetEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "LogSpecification": {
@@ -5910,13 +6329,26 @@
     },
     "MountOptionEnum": {
       "type": "string",
+      "description": "MountOptionEnum",
       "enum": [
         "MOUNT",
         "ATTACH"
       ],
       "x-ms-enum": {
         "name": "MountOptionEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "MOUNT",
+            "value": "MOUNT",
+            "description": "MOUNT"
+          },
+          {
+            "name": "ATTACH",
+            "value": "ATTACH",
+            "description": "ATTACH"
+          }
+        ]
       }
     },
     "NetAppVolume": {
@@ -5934,13 +6366,26 @@
     },
     "NsxPublicIpQuotaRaisedEnum": {
       "type": "string",
+      "description": "NsxPublicIpQuotaRaisedEnum",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "NsxPublicIpQuotaRaisedEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "Operation": {
@@ -6009,13 +6454,26 @@
     },
     "OptionalParamEnum": {
       "type": "string",
+      "description": "OptionalParamEnum",
       "enum": [
         "Optional",
         "Required"
       ],
       "x-ms-enum": {
         "name": "OptionalParamEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Optional",
+            "value": "Optional",
+            "description": "Optional"
+          },
+          {
+            "name": "Required",
+            "value": "Required",
+            "description": "Required"
+          }
+        ]
       }
     },
     "PSCredentialExecutionParameter": {
@@ -6597,6 +7055,7 @@
     },
     "PlacementPolicyProvisioningState": {
       "type": "string",
+      "description": "PlacementPolicyProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -6607,18 +7066,63 @@
       ],
       "x-ms-enum": {
         "name": "PlacementPolicyProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "PlacementPolicyState": {
       "type": "string",
+      "description": "PlacementPolicyState",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "PlacementPolicyState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "PlacementPolicyUpdate": {
@@ -6665,6 +7169,7 @@
     },
     "PortMirroringDirectionEnum": {
       "type": "string",
+      "description": "PortMirroringDirectionEnum",
       "enum": [
         "INGRESS",
         "EGRESS",
@@ -6672,18 +7177,48 @@
       ],
       "x-ms-enum": {
         "name": "PortMirroringDirectionEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "INGRESS",
+            "value": "INGRESS",
+            "description": "INGRESS"
+          },
+          {
+            "name": "EGRESS",
+            "value": "EGRESS",
+            "description": "EGRESS"
+          },
+          {
+            "name": "BIDIRECTIONAL",
+            "value": "BIDIRECTIONAL",
+            "description": "BIDIRECTIONAL"
+          }
+        ]
       }
     },
     "PortMirroringStatusEnum": {
       "type": "string",
+      "description": "PortMirroringStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "PortMirroringStatusEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
+          },
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "PrivateCloud": {
@@ -6863,6 +7398,7 @@
     },
     "PrivateCloudProvisioningState": {
       "type": "string",
+      "description": "PrivateCloudProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -6875,7 +7411,49 @@
       ],
       "x-ms-enum": {
         "name": "PrivateCloudProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Pending",
+            "value": "Pending",
+            "description": "Pending"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "PrivateCloudUpdate": {
@@ -6958,24 +7536,50 @@
     },
     "QuotaEnabled": {
       "type": "string",
+      "description": "QuotaEnabled",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "QuotaEnabled",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "ResourceIdentityType": {
       "type": "string",
+      "description": "ResourceIdentityType",
       "enum": [
         "SystemAssigned",
         "None"
       ],
       "x-ms-enum": {
         "name": "ResourceIdentityType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SystemAssigned",
+            "value": "SystemAssigned",
+            "description": "SystemAssigned"
+          },
+          {
+            "name": "None",
+            "value": "None",
+            "description": "None"
+          }
+        ]
       }
     },
     "ScriptCmdlet": {
@@ -7174,6 +7778,7 @@
     },
     "ScriptExecutionProvisioningState": {
       "type": "string",
+      "description": "ScriptExecutionProvisioningState",
       "enum": [
         "Pending",
         "Running",
@@ -7186,11 +7791,54 @@
       ],
       "x-ms-enum": {
         "name": "ScriptExecutionProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Pending",
+            "value": "Pending",
+            "description": "Pending"
+          },
+          {
+            "name": "Running",
+            "value": "Running",
+            "description": "Running"
+          },
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelling",
+            "value": "Cancelling",
+            "description": "Cancelling"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "ScriptOutputStreamType": {
       "type": "string",
+      "description": "ScriptOutputStreamType",
       "enum": [
         "Information",
         "Warning",
@@ -7199,7 +7847,29 @@
       ],
       "x-ms-enum": {
         "name": "ScriptOutputStreamType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Information",
+            "value": "Information",
+            "description": "Information"
+          },
+          {
+            "name": "Warning",
+            "value": "Warning",
+            "description": "Warning"
+          },
+          {
+            "name": "Output",
+            "value": "Output",
+            "description": "Output"
+          },
+          {
+            "name": "Error",
+            "value": "Error",
+            "description": "Error"
+          }
+        ]
       }
     },
     "ScriptPackage": {
@@ -7285,6 +7955,7 @@
     },
     "ScriptParameterTypes": {
       "type": "string",
+      "description": "ScriptParameterTypes",
       "enum": [
         "String",
         "SecureString",
@@ -7295,7 +7966,39 @@
       ],
       "x-ms-enum": {
         "name": "ScriptParameterTypes",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "String",
+            "value": "String",
+            "description": "String"
+          },
+          {
+            "name": "SecureString",
+            "value": "SecureString",
+            "description": "SecureString"
+          },
+          {
+            "name": "Credential",
+            "value": "Credential",
+            "description": "Credential"
+          },
+          {
+            "name": "Int",
+            "value": "Int",
+            "description": "Int"
+          },
+          {
+            "name": "Bool",
+            "value": "Bool",
+            "description": "Bool"
+          },
+          {
+            "name": "Float",
+            "value": "Float",
+            "description": "Float"
+          }
+        ]
       }
     },
     "ScriptSecureStringExecutionParameter": {
@@ -7332,13 +8035,26 @@
     },
     "SegmentStatusEnum": {
       "type": "string",
+      "description": "SegmentStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "SegmentStatusEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
+          },
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "ServiceSpecification": {
@@ -7378,13 +8094,26 @@
     },
     "SslEnum": {
       "type": "string",
+      "description": "SslEnum",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "SslEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "Trial": {
@@ -7406,6 +8135,7 @@
     },
     "TrialStatus": {
       "type": "string",
+      "description": "TrialStatus",
       "enum": [
         "TrialAvailable",
         "TrialUsed",
@@ -7413,22 +8143,53 @@
       ],
       "x-ms-enum": {
         "name": "TrialStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "TrialAvailable",
+            "value": "TrialAvailable",
+            "description": "TrialAvailable"
+          },
+          {
+            "name": "TrialUsed",
+            "value": "TrialUsed",
+            "description": "TrialUsed"
+          },
+          {
+            "name": "TrialDisabled",
+            "value": "TrialDisabled",
+            "description": "TrialDisabled"
+          }
+        ]
       }
     },
     "VMGroupStatusEnum": {
       "type": "string",
+      "description": "VMGroupStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "VMGroupStatusEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
+          },
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "VMTypeEnum": {
       "type": "string",
+      "description": "VMTypeEnum",
       "enum": [
         "REGULAR",
         "EDGE",
@@ -7436,7 +8197,24 @@
       ],
       "x-ms-enum": {
         "name": "VMTypeEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "REGULAR",
+            "value": "REGULAR",
+            "description": "REGULAR"
+          },
+          {
+            "name": "EDGE",
+            "value": "EDGE",
+            "description": "EDGE"
+          },
+          {
+            "name": "SERVICE",
+            "value": "SERVICE",
+            "description": "SERVICE"
+          }
+        ]
       }
     },
     "VirtualMachine": {
@@ -7502,24 +8280,50 @@
     },
     "VirtualMachineRestrictMovementState": {
       "type": "string",
+      "description": "VirtualMachineRestrictMovementState",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "VirtualMachineRestrictMovementState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "VisibilityParameterEnum": {
       "type": "string",
+      "description": "VisibilityParameterEnum",
       "enum": [
         "Visible",
         "Hidden"
       ],
       "x-ms-enum": {
         "name": "VisibilityParameterEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Visible",
+            "value": "Visible",
+            "description": "Visible"
+          },
+          {
+            "name": "Hidden",
+            "value": "Hidden",
+            "description": "Hidden"
+          }
+        ]
       }
     },
     "VmHostPlacementPolicyProperties": {
@@ -7676,6 +8480,7 @@
     },
     "WorkloadNetworkDhcpProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkDhcpProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -7686,7 +8491,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkDhcpProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkDhcpRelay": {
@@ -7800,6 +8637,7 @@
     },
     "WorkloadNetworkDnsServiceProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkDnsServiceProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -7810,7 +8648,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkDnsServiceProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkDnsZone": {
@@ -7883,6 +8753,7 @@
     },
     "WorkloadNetworkDnsZoneProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkDnsZoneProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -7893,7 +8764,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkDnsZoneProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkGateway": {
@@ -8000,6 +8903,7 @@
     },
     "WorkloadNetworkPortMirroringProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkPortMirroringProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8010,7 +8914,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkPortMirroringProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkPublicIP": {
@@ -8065,6 +9001,7 @@
     },
     "WorkloadNetworkPublicIPProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkPublicIPProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8075,7 +9012,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkPublicIPProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkSegment": {
@@ -8157,6 +9126,7 @@
     },
     "WorkloadNetworkSegmentProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkSegmentProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8167,7 +9137,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkSegmentProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkSegmentSubnet": {
@@ -8246,6 +9248,7 @@
     },
     "WorkloadNetworkVMGroupProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkVMGroupProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8256,7 +9259,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkVMGroupProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkVirtualMachine": {

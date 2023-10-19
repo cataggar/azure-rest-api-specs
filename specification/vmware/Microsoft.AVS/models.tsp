@@ -7,346 +7,726 @@ using TypeSpec.Http;
 
 namespace Microsoft.AVS;
 
+@doc("TrialStatus")
 enum TrialStatus {
+  @doc("TrialAvailable")
   TrialAvailable,
+
+  @doc("TrialUsed")
   TrialUsed,
+
+  @doc("TrialDisabled")
   TrialDisabled,
 }
 
+@doc("QuotaEnabled")
 enum QuotaEnabled {
+  @doc("Enabled")
   Enabled,
+
+  @doc("Disabled")
   Disabled,
 }
 
+@doc("PrivateCloudProvisioningState")
 enum PrivateCloudProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Cancelled")
   Cancelled,
+
+  @doc("Pending")
   Pending,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("NsxPublicIpQuotaRaisedEnum")
 enum NsxPublicIpQuotaRaisedEnum {
+  @doc("Enabled")
   Enabled,
+
+  @doc("Disabled")
   Disabled,
 }
 
+@doc("ClusterProvisioningState")
 enum ClusterProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Cancelled")
   Cancelled,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("InternetEnum")
 enum InternetEnum {
+  @doc("Enabled")
   Enabled,
+
+  @doc("Disabled")
   Disabled,
 }
 
+@doc("SslEnum")
 enum SslEnum {
+  @doc("Enabled")
   Enabled,
+
+  @doc("Disabled")
   Disabled,
 }
 
+@doc("AvailabilityStrategy")
 enum AvailabilityStrategy {
+  @doc("SingleZone")
   SingleZone,
+
+  @doc("DualZone")
   DualZone,
 }
 
+@doc("EncryptionState")
 enum EncryptionState {
+  @doc("Enabled")
   Enabled,
+
+  @doc("Disabled")
   Disabled,
 }
 
+@doc("EncryptionKeyStatus")
 enum EncryptionKeyStatus {
+  @doc("Connected")
   Connected,
+
+  @doc("AccessDenied")
   AccessDenied,
 }
 
+@doc("EncryptionVersionType")
 enum EncryptionVersionType {
+  @doc("Fixed")
   Fixed,
+
+  @doc("AutoDetected")
   AutoDetected,
 }
 
+@doc("ResourceIdentityType")
 enum ResourceIdentityType {
+  @doc("SystemAssigned")
   SystemAssigned,
+
+  @doc("None")
   None,
 }
 
+@doc("DatastoreProvisioningState")
 enum DatastoreProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Cancelled")
   Cancelled,
+
+  @doc("Pending")
   Pending,
+
+  @doc("Creating")
   Creating,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("MountOptionEnum")
 enum MountOptionEnum {
+  @doc("MOUNT")
   MOUNT,
+
+  @doc("ATTACH")
   ATTACH,
 }
 
+@doc("DatastoreStatus")
 enum DatastoreStatus {
+  @doc("Unknown")
   Unknown,
+
+  @doc("Accessible")
   Accessible,
+
+  @doc("Inaccessible")
   Inaccessible,
+
+  @doc("Attached")
   Attached,
+
+  @doc("Detached")
   Detached,
+
+  @doc("LostCommunication")
   LostCommunication,
+
+  @doc("DeadOrError")
   DeadOrError,
 }
 
+@doc("HcxEnterpriseSiteStatus")
 enum HcxEnterpriseSiteStatus {
+  @doc("Available")
   Available,
+
+  @doc("Consumed")
   Consumed,
+
+  @doc("Deactivated")
   Deactivated,
+
+  @doc("Deleted")
   Deleted,
 }
 
+@doc("ExpressRouteAuthorizationProvisioningState")
 enum ExpressRouteAuthorizationProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("GlobalReachConnectionProvisioningState")
 enum GlobalReachConnectionProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("GlobalReachConnectionStatus")
 enum GlobalReachConnectionStatus {
+  @doc("Connected")
   Connected,
+
+  @doc("Connecting")
   Connecting,
+
+  @doc("Disconnected")
   Disconnected,
 }
 
+@doc("WorkloadNetworkName")
 enum WorkloadNetworkName {
+  @doc("default")
   default,
 }
 
+@doc("SegmentStatusEnum")
 enum SegmentStatusEnum {
+  @doc("SUCCESS")
   SUCCESS,
+
+  @doc("FAILURE")
   FAILURE,
 }
 
+@doc("WorkloadNetworkSegmentProvisioningState")
 enum WorkloadNetworkSegmentProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("DhcpTypeEnum")
 enum DhcpTypeEnum {
+  @doc("SERVER")
   SERVER,
+
+  @doc("RELAY")
   RELAY,
 }
 
+@doc("WorkloadNetworkDhcpProvisioningState")
 enum WorkloadNetworkDhcpProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("PortMirroringDirectionEnum")
 enum PortMirroringDirectionEnum {
+  @doc("INGRESS")
   INGRESS,
+
+  @doc("EGRESS")
   EGRESS,
+
+  @doc("BIDIRECTIONAL")
   BIDIRECTIONAL,
 }
 
+@doc("PortMirroringStatusEnum")
 enum PortMirroringStatusEnum {
+  @doc("SUCCESS")
   SUCCESS,
+
+  @doc("FAILURE")
   FAILURE,
 }
 
+@doc("WorkloadNetworkPortMirroringProvisioningState")
 enum WorkloadNetworkPortMirroringProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("VMGroupStatusEnum")
 enum VMGroupStatusEnum {
+  @doc("SUCCESS")
   SUCCESS,
+
+  @doc("FAILURE")
   FAILURE,
 }
 
+@doc("WorkloadNetworkVMGroupProvisioningState")
 enum WorkloadNetworkVMGroupProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("VMTypeEnum")
 enum VMTypeEnum {
+  @doc("REGULAR")
   REGULAR,
+
+  @doc("EDGE")
   EDGE,
+
+  @doc("SERVICE")
   SERVICE,
 }
 
+@doc("DnsServiceLogLevelEnum")
 enum DnsServiceLogLevelEnum {
+  @doc("DEBUG")
   DEBUG,
+
+  @doc("INFO")
   INFO,
+
+  @doc("WARNING")
   WARNING,
+
+  @doc("ERROR")
   ERROR,
+
+  @doc("FATAL")
   FATAL,
 }
 
+@doc("DnsServiceStatusEnum")
 enum DnsServiceStatusEnum {
+  @doc("SUCCESS")
   SUCCESS,
+
+  @doc("FAILURE")
   FAILURE,
 }
 
+@doc("WorkloadNetworkDnsServiceProvisioningState")
 enum WorkloadNetworkDnsServiceProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("WorkloadNetworkDnsZoneProvisioningState")
 enum WorkloadNetworkDnsZoneProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("WorkloadNetworkPublicIPProvisioningState")
 enum WorkloadNetworkPublicIPProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("CloudLinkStatus")
 enum CloudLinkStatus {
+  @doc("Active")
   Active,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Disconnected")
   Disconnected,
 }
 
+@doc("AddonType")
 enum AddonType {
+  @doc("SRM")
   SRM,
+
+  @doc("VR")
   VR,
+
+  @doc("HCX")
   HCX,
+
+  @doc("Arc")
   Arc,
 }
 
+@doc("AddonProvisioningState")
 enum AddonProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Cancelled")
   Cancelled,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("VirtualMachineRestrictMovementState")
 enum VirtualMachineRestrictMovementState {
+  @doc("Enabled")
   Enabled,
+
+  @doc("Disabled")
   Disabled,
 }
 
+@doc("PlacementPolicyType")
 enum PlacementPolicyType {
+  @doc("VmVm")
   VmVm,
+
+  @doc("VmHost")
   VmHost,
 }
 
+@doc("PlacementPolicyState")
 enum PlacementPolicyState {
+  @doc("Enabled")
   Enabled,
+
+  @doc("Disabled")
   Disabled,
 }
 
+@doc("PlacementPolicyProvisioningState")
 enum PlacementPolicyProvisioningState {
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Building")
   Building,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Updating")
   Updating,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("AffinityStrength")
 enum AffinityStrength {
+  @doc("Should")
   Should,
+
+  @doc("Must")
   Must,
 }
 
+@doc("AzureHybridBenefitType")
 enum AzureHybridBenefitType {
+  @doc("SqlHost")
   SqlHost,
+
+  @doc("None")
   None,
 }
 
+@doc("ScriptParameterTypes")
 enum ScriptParameterTypes {
+  @doc("String")
   String,
+
+  @doc("SecureString")
   SecureString,
+
+  @doc("Credential")
   Credential,
+
+  @doc("Int")
   Int,
+
+  @doc("Bool")
   Bool,
+
+  @doc("Float")
   Float,
 }
 
+@doc("VisibilityParameterEnum")
 enum VisibilityParameterEnum {
+  @doc("Visible")
   Visible,
+
+  @doc("Hidden")
   Hidden,
 }
 
+@doc("OptionalParamEnum")
 enum OptionalParamEnum {
+  @doc("Optional")
   Optional,
+
+  @doc("Required")
   Required,
 }
 
+@doc("ScriptExecutionParameterType")
 enum ScriptExecutionParameterType {
+  @doc("Value")
   Value,
+
+  @doc("SecureValue")
   SecureValue,
+
+  @doc("Credential")
   Credential,
 }
 
+@doc("ScriptExecutionProvisioningState")
 enum ScriptExecutionProvisioningState {
+  @doc("Pending")
   Pending,
+
+  @doc("Running")
   Running,
+
+  @doc("Succeeded")
   Succeeded,
+
+  @doc("Failed")
   Failed,
+
+  @doc("Cancelling")
   Cancelling,
+
+  @doc("Cancelled")
   Cancelled,
+
+  @doc("Deleting")
   Deleting,
+
+  @doc("Canceled")
   Canceled,
 }
 
+@doc("ScriptOutputStreamType")
 enum ScriptOutputStreamType {
+  @doc("Information")
   Information,
+
+  @doc("Warning")
   Warning,
+
+  @doc("Output")
   Output,
+
+  @doc("Error")
   Error,
 }
 
+@doc("AffinityType")
 enum AffinityType {
+  @doc("Affinity")
   Affinity,
+
+  @doc("AntiAffinity")
   AntiAffinity,
 }
 
@@ -654,10 +1034,12 @@ model Circuit {
   @visibility("read")
   secondarySubnet?: string;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Identifier of the ExpressRoute Circuit (Microsoft Colo only)")
   @visibility("read")
   expressRouteID?: string;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("ExpressRoute Circuit private peering identifier")
   @visibility("read")
   expressRoutePrivatePeeringID?: string;
@@ -737,9 +1119,11 @@ model IdentitySource {
   @doc("The domain's dns name")
   domain?: string;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("The base distinguished name for users")
   baseUserDN?: string;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("The base distinguished name for groups")
   baseGroupDN?: string;
 
@@ -1253,9 +1637,11 @@ model WorkloadNetworkPortMirroringProperties {
   revision?: int32;
 }
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("A list of NSX VM Groups")
 model WorkloadNetworkVMGroupsList is Azure.Core.Page<WorkloadNetworkVMGroup>;
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX VM Group")
 model WorkloadNetworkVMGroup {
   ...ProxyResource;
@@ -1264,6 +1650,7 @@ model WorkloadNetworkVMGroup {
   properties?: WorkloadNetworkVMGroupProperties;
 }
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX VM Group Properties")
 model WorkloadNetworkVMGroupProperties {
   @doc("Display name of the VM group.")
@@ -1383,9 +1770,11 @@ model WorkloadNetworkDnsZoneProperties {
   revision?: int32;
 }
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("A list of NSX Public IP Blocks")
 model WorkloadNetworkPublicIPsList is Azure.Core.Page<WorkloadNetworkPublicIP>;
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX Public IP Block")
 model WorkloadNetworkPublicIP {
   ...ProxyResource;
@@ -1394,6 +1783,7 @@ model WorkloadNetworkPublicIP {
   properties?: WorkloadNetworkPublicIPProperties;
 }
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX Public IP Block Properties")
 model WorkloadNetworkPublicIPProperties {
   @doc("Display name of the Public IP Block.")
@@ -1810,6 +2200,7 @@ model ScriptStringExecutionParameter extends ScriptExecutionParameter {
   type: "Value";
 }
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("a powershell credential object")
 model PSCredentialExecutionParameter extends ScriptExecutionParameter {
   @doc("username for login")

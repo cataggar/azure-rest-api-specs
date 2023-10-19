@@ -879,10 +879,10 @@ name
     void
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("List of vm groups in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups")
   @get
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   listVMGroups is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
@@ -892,10 +892,10 @@ name
     WorkloadNetworkVMGroupsList
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Get a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @get
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   getVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
@@ -909,10 +909,10 @@ name
     WorkloadNetworkVMGroup
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Create a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @put
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   createVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
@@ -930,10 +930,10 @@ name
     WorkloadNetworkVMGroup
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Create or update a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @patch
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   updateVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
@@ -951,10 +951,10 @@ name
     WorkloadNetworkVMGroup | void
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Delete a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @delete
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   deleteVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
@@ -1167,10 +1167,10 @@ name
     void
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("List of Public IP Blocks in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs")
   @get
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   listPublicIPs is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
@@ -1180,43 +1180,43 @@ name
     WorkloadNetworkPublicIPsList
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Get a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @get
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   getPublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
 
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       @doc("""
 NSX Public IP Block identifier. Generally the same as the Public IP Block's
 display name
 """)
       @path
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       publicIPId: string;
     },
     WorkloadNetworkPublicIP
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Create a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @put
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   createPublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
 
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       @doc("""
 NSX Public IP Block identifier. Generally the same as the Public IP Block's
 display name
 """)
       @path
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       publicIPId: string;
 
       @doc("NSX Public IP Block")
@@ -1226,21 +1226,21 @@ display name
     WorkloadNetworkPublicIP
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("Delete a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @delete
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   deletePublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
 
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       @doc("""
 NSX Public IP Block identifier. Generally the same as the Public IP Block's
 display name
 """)
       @path
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       publicIPId: string;
 
       ...PrivateCloudParameter;
@@ -1711,12 +1711,12 @@ interface ScriptExecutionsOperations {
       @path
       scriptExecutionName: string;
 
+      #suppress "@azure-tools/typespec-azure-core/request-body-problem" "Can not change existing response."
       @doc("""
 Name of the desired output stream to return. If not provided, will return all.
 An empty array will return nothing
 """)
       @body
-      #suppress "@azure-tools/typespec-azure-core/request-body-problem" "Can not change existing response."
       scriptOutputStreamType: ScriptOutputStreamType[];
     },
     ScriptExecution
