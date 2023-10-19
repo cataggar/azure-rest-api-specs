@@ -13,14 +13,14 @@ interface OperationsOperations {
   @doc("Lists all of the available operations")
   @route("/providers/Microsoft.AVS/operations")
   @get
-  List is Azure.Core.Foundations.Operation<{}, OperationList>;
+  list is Azure.Core.Foundations.Operation<{}, OperationList>;
 }
 
 interface LocationsOperations {
   @doc("Return trial status for subscription by region")
   @route("/subscriptions/{subscriptionId}/providers/Microsoft.AVS/locations/{location}/checkTrialAvailability")
   @post
-  CheckTrialAvailability is Azure.Core.Foundations.Operation<
+  checkTrialAvailability is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...LocationParameter;
@@ -35,7 +35,7 @@ interface LocationsOperations {
   @doc("Return quota for subscription by region")
   @route("/subscriptions/{subscriptionId}/providers/Microsoft.AVS/locations/{location}/checkQuotaAvailability")
   @post
-  CheckQuotaAvailability is Azure.Core.Foundations.Operation<
+  checkQuotaAvailability is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...LocationParameter;
@@ -48,7 +48,7 @@ interface PrivateCloudsOperations {
   @doc("List private clouds in a resource group")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -59,7 +59,7 @@ interface PrivateCloudsOperations {
   @doc("List private clouds in a subscription")
   @route("/subscriptions/{subscriptionId}/providers/Microsoft.AVS/privateClouds")
   @get
-  ListInSubscription is Azure.Core.Foundations.Operation<
+  listInSubscription is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
     },
@@ -69,7 +69,7 @@ interface PrivateCloudsOperations {
   @doc("Get a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -81,7 +81,7 @@ interface PrivateCloudsOperations {
   @doc("Create or update a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -97,7 +97,7 @@ interface PrivateCloudsOperations {
   @doc("Update a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @patch
-  Update is Azure.Core.Foundations.Operation<
+  update is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -113,7 +113,7 @@ interface PrivateCloudsOperations {
   @doc("Delete a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -125,7 +125,7 @@ interface PrivateCloudsOperations {
   @doc("Rotate the vCenter password")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateVcenterPassword")
   @post
-  RotateVcenterPassword is Azure.Core.Foundations.Operation<
+  rotateVcenterPassword is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -137,7 +137,7 @@ interface PrivateCloudsOperations {
   @doc("Rotate the NSX-T Manager password")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateNsxtPassword")
   @post
-  RotateNsxtPassword is Azure.Core.Foundations.Operation<
+  rotateNsxtPassword is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -149,7 +149,7 @@ interface PrivateCloudsOperations {
   @doc("List the admin credentials for the private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials")
   @post
-  ListAdminCredentials is Azure.Core.Foundations.Operation<
+  listAdminCredentials is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -163,7 +163,7 @@ interface ClustersOperations {
   @doc("List clusters in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -175,7 +175,7 @@ interface ClustersOperations {
   @doc("Get a cluster by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -191,7 +191,7 @@ interface ClustersOperations {
   @doc("Create or update a cluster in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -214,7 +214,7 @@ interface ClustersOperations {
   @doc("Update a cluster in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @patch
-  Update is Azure.Core.Foundations.Operation<
+  update is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -234,7 +234,7 @@ interface ClustersOperations {
   @doc("Delete a cluster in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -250,7 +250,7 @@ interface ClustersOperations {
   @doc("List hosts by zone in a cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/listZones")
   @post
-  ListZones is Azure.Core.Foundations.Operation<
+  listZones is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -268,7 +268,7 @@ interface DatastoresOperations {
   @doc("List datastores in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -284,7 +284,7 @@ interface DatastoresOperations {
   @doc("Get a datastore in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -304,7 +304,7 @@ interface DatastoresOperations {
   @doc("Create or update a datastore in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -328,7 +328,7 @@ interface DatastoresOperations {
   @doc("Delete a datastore in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -350,7 +350,7 @@ interface HcxEnterpriseSitesOperations {
   @doc("List HCX on-premises key in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -362,7 +362,7 @@ interface HcxEnterpriseSitesOperations {
   @doc("Get an HCX on-premises key by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -378,7 +378,7 @@ interface HcxEnterpriseSitesOperations {
   @doc("Create or update an activation key for on-premises HCX site")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -401,7 +401,7 @@ interface HcxEnterpriseSitesOperations {
   @doc("Delete HCX on-premises key in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -419,7 +419,7 @@ interface AuthorizationsOperations {
   @doc("List ExpressRoute Circuit Authorizations in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -431,7 +431,7 @@ interface AuthorizationsOperations {
   @doc("Get an ExpressRoute Circuit Authorization by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -447,7 +447,7 @@ interface AuthorizationsOperations {
   @doc("Create or update an ExpressRoute Circuit Authorization in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -470,7 +470,7 @@ interface AuthorizationsOperations {
   @doc("Delete an ExpressRoute Circuit Authorization in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -488,7 +488,7 @@ interface GlobalReachConnectionsOperations {
   @doc("List global reach connections in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -500,7 +500,7 @@ interface GlobalReachConnectionsOperations {
   @doc("Get a global reach connection by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -516,7 +516,7 @@ interface GlobalReachConnectionsOperations {
   @doc("Create or update a global reach connection in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -539,7 +539,7 @@ interface GlobalReachConnectionsOperations {
   @doc("Delete a global reach connection in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -557,7 +557,7 @@ interface WorkloadNetworksOperations {
   @doc("Get a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/{workloadNetworkName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -573,7 +573,7 @@ interface WorkloadNetworksOperations {
   @doc("List of workload networks in a private cloud.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -585,7 +585,7 @@ interface WorkloadNetworksOperations {
   @doc("List of segments in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments")
   @get
-  ListSegments is Azure.Core.Foundations.Operation<
+  listSegments is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -597,7 +597,7 @@ interface WorkloadNetworksOperations {
   @doc("Get a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @get
-  GetSegment is Azure.Core.Foundations.Operation<
+  getSegment is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -613,7 +613,7 @@ interface WorkloadNetworksOperations {
   @doc("Create a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @put
-  CreateSegments is Azure.Core.Foundations.Operation<
+  createSegments is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -633,7 +633,7 @@ interface WorkloadNetworksOperations {
   @doc("Create or update a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @patch
-  UpdateSegments is Azure.Core.Foundations.Operation<
+  updateSegments is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -653,7 +653,7 @@ interface WorkloadNetworksOperations {
   @doc("Delete a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @delete
-  DeleteSegment is Azure.Core.Foundations.Operation<
+  deleteSegment is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -669,7 +669,7 @@ interface WorkloadNetworksOperations {
   @doc("List dhcp in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations")
   @get
-  ListDhcp is Azure.Core.Foundations.Operation<
+  listDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -681,7 +681,7 @@ interface WorkloadNetworksOperations {
   @doc("Get dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @get
-  GetDhcp is Azure.Core.Foundations.Operation<
+  getDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -698,7 +698,7 @@ interface WorkloadNetworksOperations {
   @doc("Create dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @put
-  CreateDhcp is Azure.Core.Foundations.Operation<
+  createDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -718,7 +718,7 @@ interface WorkloadNetworksOperations {
   @doc("Create or update dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @patch
-  UpdateDhcp is Azure.Core.Foundations.Operation<
+  updateDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -738,7 +738,7 @@ interface WorkloadNetworksOperations {
   @doc("Delete dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @delete
-  DeleteDhcp is Azure.Core.Foundations.Operation<
+  deleteDhcp is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -754,7 +754,7 @@ interface WorkloadNetworksOperations {
   @doc("List of gateways in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways")
   @get
-  ListGateways is Azure.Core.Foundations.Operation<
+  listGateways is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -766,7 +766,7 @@ interface WorkloadNetworksOperations {
   @doc("Get a gateway by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways/{gatewayId}")
   @get
-  GetGateway is Azure.Core.Foundations.Operation<
+  getGateway is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -782,7 +782,7 @@ interface WorkloadNetworksOperations {
   @doc("List of port mirroring profiles in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles")
   @get
-  ListPortMirroring is Azure.Core.Foundations.Operation<
+  listPortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -794,7 +794,7 @@ interface WorkloadNetworksOperations {
   @doc("Get a port mirroring profile by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
   @get
-  GetPortMirroring is Azure.Core.Foundations.Operation<
+  getPortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -813,7 +813,7 @@ name
   @doc("Create a port mirroring profile by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
   @put
-  CreatePortMirroring is Azure.Core.Foundations.Operation<
+  createPortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -839,7 +839,7 @@ network.
 """)
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
   @patch
-  UpdatePortMirroring is Azure.Core.Foundations.Operation<
+  updatePortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -862,7 +862,7 @@ name
   @doc("Delete a port mirroring profile by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
   @delete
-  DeletePortMirroring is Azure.Core.Foundations.Operation<
+  deletePortMirroring is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -882,7 +882,8 @@ name
   @doc("List of vm groups in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups")
   @get
-  ListVMGroups is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  listVMGroups is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -894,7 +895,8 @@ name
   @doc("Get a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @get
-  GetVMGroup is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  getVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -910,7 +912,8 @@ name
   @doc("Create a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @put
-  CreateVMGroup is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  createVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -930,7 +933,8 @@ name
   @doc("Create or update a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @patch
-  UpdateVMGroup is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  updateVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -950,7 +954,8 @@ name
   @doc("Delete a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @delete
-  DeleteVMGroup is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  deleteVMGroup is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -967,7 +972,7 @@ name
   @doc("List of virtual machines in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines")
   @get
-  ListVirtualMachines is Azure.Core.Foundations.Operation<
+  listVirtualMachines is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -979,7 +984,7 @@ name
   @doc("Get a virtual machine by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines/{virtualMachineId}")
   @get
-  GetVirtualMachine is Azure.Core.Foundations.Operation<
+  getVirtualMachine is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -995,7 +1000,7 @@ name
   @doc("List of DNS services in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices")
   @get
-  ListDnsServices is Azure.Core.Foundations.Operation<
+  listDnsServices is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1007,7 +1012,7 @@ name
   @doc("Get a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @get
-  GetDnsService is Azure.Core.Foundations.Operation<
+  getDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1023,7 +1028,7 @@ name
   @doc("Create a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @put
-  CreateDnsService is Azure.Core.Foundations.Operation<
+  createDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1043,7 +1048,7 @@ name
   @doc("Create or update a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @patch
-  UpdateDnsService is Azure.Core.Foundations.Operation<
+  updateDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1063,7 +1068,7 @@ name
   @doc("Delete a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @delete
-  DeleteDnsService is Azure.Core.Foundations.Operation<
+  deleteDnsService is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1080,7 +1085,7 @@ name
   @doc("List of DNS zones in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones")
   @get
-  ListDnsZones is Azure.Core.Foundations.Operation<
+  listDnsZones is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1092,7 +1097,7 @@ name
   @doc("Get a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @get
-  GetDnsZone is Azure.Core.Foundations.Operation<
+  getDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1108,7 +1113,7 @@ name
   @doc("Create a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @put
-  CreateDnsZone is Azure.Core.Foundations.Operation<
+  createDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1128,7 +1133,7 @@ name
   @doc("Create or update a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @patch
-  UpdateDnsZone is Azure.Core.Foundations.Operation<
+  updateDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1148,7 +1153,7 @@ name
   @doc("Delete a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @delete
-  DeleteDnsZone is Azure.Core.Foundations.Operation<
+  deleteDnsZone is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1165,7 +1170,8 @@ name
   @doc("List of Public IP Blocks in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs")
   @get
-  ListPublicIPs is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  listPublicIPs is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1177,7 +1183,8 @@ name
   @doc("Get a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @get
-  GetPublicIP is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  getPublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1188,6 +1195,7 @@ NSX Public IP Block identifier. Generally the same as the Public IP Block's
 display name
 """)
       @path
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       publicIPId: string;
     },
     WorkloadNetworkPublicIP
@@ -1196,7 +1204,8 @@ display name
   @doc("Create a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @put
-  CreatePublicIP is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  createPublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1207,6 +1216,7 @@ NSX Public IP Block identifier. Generally the same as the Public IP Block's
 display name
 """)
       @path
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       publicIPId: string;
 
       @doc("NSX Public IP Block")
@@ -1219,7 +1229,8 @@ display name
   @doc("Delete a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @delete
-  DeletePublicIP is Azure.Core.Foundations.Operation<
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
+  deletePublicIP is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1229,6 +1240,7 @@ NSX Public IP Block identifier. Generally the same as the Public IP Block's
 display name
 """)
       @path
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
       publicIPId: string;
 
       ...PrivateCloudParameter;
@@ -1241,7 +1253,7 @@ interface CloudLinksOperations {
   @doc("List cloud link in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1253,7 +1265,7 @@ interface CloudLinksOperations {
   @doc("Get an cloud link by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1269,7 +1281,7 @@ interface CloudLinksOperations {
   @doc("Create or update a cloud link in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1292,7 +1304,7 @@ interface CloudLinksOperations {
   @doc("Delete a cloud link in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1310,7 +1322,7 @@ interface AddonsOperations {
   @doc("List addons in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1322,7 +1334,7 @@ interface AddonsOperations {
   @doc("Get an addon by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1338,7 +1350,7 @@ interface AddonsOperations {
   @doc("Create or update a addon in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1361,7 +1373,7 @@ interface AddonsOperations {
   @doc("Delete a addon in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1380,7 +1392,7 @@ interface VirtualMachinesOperations {
   @doc("List of virtual machines in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1396,7 +1408,7 @@ interface VirtualMachinesOperations {
   @doc("Get a virtual machine by id in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1416,7 +1428,7 @@ interface VirtualMachinesOperations {
   @doc("Enable or disable DRS-driven VM movement restriction")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}/restrictMovement")
   @post
-  RestrictMovement is Azure.Core.Foundations.Operation<
+  restrictMovement is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1442,7 +1454,7 @@ interface PlacementPoliciesOperations {
   @doc("List placement policies in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1458,7 +1470,7 @@ interface PlacementPoliciesOperations {
   @doc("Get a placement policy by name in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1478,7 +1490,7 @@ interface PlacementPoliciesOperations {
   @doc("Create or update a placement policy in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1502,7 +1514,7 @@ interface PlacementPoliciesOperations {
   @doc("Update a placement policy in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @patch
-  Update is Azure.Core.Foundations.Operation<
+  update is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1526,7 +1538,7 @@ interface PlacementPoliciesOperations {
   @doc("Delete a placement policy in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1548,7 +1560,7 @@ interface ScriptPackagesOperations {
   @doc("List script packages available to run on the private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1560,7 +1572,7 @@ interface ScriptPackagesOperations {
   @doc("Get a script package available to run on a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1581,7 +1593,7 @@ execution resource on a private cloud
 """)
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}/scriptCmdlets")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1600,7 +1612,7 @@ private cloud
 """)
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}/scriptCmdlets/{scriptCmdletName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1622,7 +1634,7 @@ interface ScriptExecutionsOperations {
   @doc("List script executions in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions")
   @get
-  List is Azure.Core.Foundations.Operation<
+  list is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1634,7 +1646,7 @@ interface ScriptExecutionsOperations {
   @doc("Get an script execution by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
   @get
-  Get is Azure.Core.Foundations.Operation<
+  get is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1650,7 +1662,7 @@ interface ScriptExecutionsOperations {
   @doc("Create or update a script execution in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
   @put
-  CreateOrUpdate is Azure.Core.Foundations.Operation<
+  createOrUpdate is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1673,7 +1685,7 @@ interface ScriptExecutionsOperations {
   @doc("Cancel a ScriptExecution in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
   @delete
-  Delete is Azure.Core.Foundations.Operation<
+  delete is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1689,7 +1701,7 @@ interface ScriptExecutionsOperations {
   @doc("Return the logs for a script execution resource")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}/getExecutionLogs")
   @post
-  GetExecutionLogs is Azure.Core.Foundations.Operation<
+  getExecutionLogs is Azure.Core.Foundations.Operation<
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
@@ -1704,6 +1716,7 @@ Name of the desired output stream to return. If not provided, will return all.
 An empty array will return nothing
 """)
       @body
+      #suppress "@azure-tools/typespec-azure-core/request-body-problem" "Can not change existing response."
       scriptOutputStreamType: ScriptOutputStreamType[];
     },
     ScriptExecution
