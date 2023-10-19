@@ -252,11 +252,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -295,11 +291,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "privateCloud",
@@ -347,11 +339,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "privateCloudUpdate",
@@ -399,11 +387,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -441,11 +425,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -489,11 +469,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "addonName",
@@ -598,11 +574,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "addonName",
@@ -647,11 +619,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -695,11 +663,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "authorizationName",
@@ -804,11 +768,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "authorizationName",
@@ -853,11 +813,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -901,11 +857,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "cloudLinkName",
@@ -1010,11 +962,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "cloudLinkName",
@@ -1059,11 +1007,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -1107,11 +1051,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1216,11 +1156,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1275,11 +1211,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1324,11 +1256,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1379,11 +1307,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1436,11 +1360,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1502,11 +1422,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1558,11 +1474,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1610,11 +1522,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1665,11 +1573,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1722,11 +1626,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1788,11 +1688,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1854,11 +1750,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1910,11 +1802,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -1965,11 +1853,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -2024,11 +1908,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "clusterName",
@@ -2089,11 +1969,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -2137,11 +2013,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "globalReachConnectionName",
@@ -2246,11 +2118,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "globalReachConnectionName",
@@ -2295,11 +2163,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -2343,11 +2207,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "hcxEnterpriseSiteName",
@@ -2452,11 +2312,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "hcxEnterpriseSiteName",
@@ -2501,11 +2357,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -2546,11 +2398,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -2588,11 +2436,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -2630,11 +2474,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -2678,11 +2518,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "scriptExecutionName",
@@ -2787,11 +2623,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "scriptExecutionName",
@@ -2835,11 +2667,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "scriptExecutionName",
@@ -2898,11 +2726,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -2945,11 +2769,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "scriptPackageName",
@@ -2996,11 +2816,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "scriptPackageName",
@@ -3050,11 +2866,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "scriptPackageName",
@@ -3109,11 +2921,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -3157,11 +2965,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "workloadNetworkName",
@@ -3216,11 +3020,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -3271,11 +3071,7 @@
             "type": "string"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -3314,11 +3110,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dhcpId",
@@ -3373,11 +3165,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dhcpId",
@@ -3435,11 +3223,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dhcpId",
@@ -3484,11 +3268,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -3532,11 +3312,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dnsServiceId",
@@ -3582,11 +3358,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dnsServiceId",
@@ -3641,11 +3413,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dnsServiceId",
@@ -3710,11 +3478,7 @@
             "type": "string"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -3752,11 +3516,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -3800,11 +3560,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dnsZoneId",
@@ -3850,11 +3606,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dnsZoneId",
@@ -3909,11 +3661,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "dnsZoneId",
@@ -3978,11 +3726,7 @@
             "type": "string"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4020,11 +3764,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4068,11 +3808,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "gatewayId",
@@ -4120,11 +3856,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4168,11 +3900,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "portMirroringId",
@@ -4218,11 +3946,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "portMirroringId",
@@ -4277,11 +4001,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "portMirroringId",
@@ -4346,11 +4066,7 @@
             "type": "string"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4388,11 +4104,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4436,11 +4148,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "publicIPId",
@@ -4486,11 +4194,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "publicIPId",
@@ -4552,11 +4256,7 @@
             "type": "string"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4594,11 +4294,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4642,11 +4338,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "segmentId",
@@ -4692,11 +4384,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "segmentId",
@@ -4751,11 +4439,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "segmentId",
@@ -4813,11 +4497,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "segmentId",
@@ -4862,11 +4542,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -4910,11 +4586,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "virtualMachineId",
@@ -4962,11 +4634,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -5010,11 +4678,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "vmGroupId",
@@ -5060,11 +4724,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "vmGroupId",
@@ -5119,11 +4779,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
             "name": "vmGroupId",
@@ -5188,11 +4844,7 @@
             "type": "string"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "Name of the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           }
         ],
         "responses": {
@@ -8748,6 +8400,14 @@
       "minLength": 1,
       "x-ms-parameter-location": "method",
       "x-ms-client-name": "apiVersion"
+    },
+    "PrivateCloudParameter": {
+      "name": "privateCloudName",
+      "in": "path",
+      "description": "Name of the private cloud",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
     }
   }
 }

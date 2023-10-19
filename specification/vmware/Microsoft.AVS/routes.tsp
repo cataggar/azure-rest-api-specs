@@ -1,6 +1,7 @@
 import "@azure-tools/typespec-azure-core";
 import "@typespec/rest";
 import "./models.tsp";
+import "./parameters.tsp";
 
 using TypeSpec.Rest;
 using TypeSpec.Http;
@@ -75,10 +76,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     PrivateCloud
   >;
@@ -91,10 +89,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("The private cloud")
       @body
@@ -111,10 +106,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("The private cloud properties to be updated")
       @body
@@ -131,10 +123,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -147,10 +136,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -163,10 +149,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -179,10 +162,7 @@ interface PrivateCloudsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     AdminCredentials
   >;
@@ -197,10 +177,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     ClusterList
   >;
@@ -213,10 +190,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -257,10 +231,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -281,10 +252,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -301,10 +269,7 @@ interface ClustersOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -323,10 +288,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -343,10 +305,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -367,10 +326,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -395,10 +351,7 @@ interface DatastoresOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -421,10 +374,7 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     HcxEnterpriseSiteList
   >;
@@ -437,10 +387,7 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the HCX Enterprise Site in the private cloud")
       @path
@@ -481,10 +428,7 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the HCX Enterprise Site in the private cloud")
       @path
@@ -503,10 +447,7 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     ExpressRouteAuthorizationList
   >;
@@ -519,10 +460,7 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the ExpressRoute Circuit Authorization in the private cloud")
       @path
@@ -563,10 +501,7 @@ interface AuthorizationsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the ExpressRoute Circuit Authorization in the private cloud")
       @path
@@ -585,10 +520,7 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     GlobalReachConnectionList
   >;
@@ -601,10 +533,7 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the global reach connection in the private cloud")
       @path
@@ -645,10 +574,7 @@ interface GlobalReachConnectionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the global reach connection in the private cloud")
       @path
@@ -667,10 +593,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name for the workload network in the private cloud")
       @path
@@ -687,10 +610,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkList
   >;
@@ -703,10 +623,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkSegmentsList
   >;
@@ -719,10 +636,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX Segment identifier. Generally the same as the Segment's display name")
       @path
@@ -739,10 +653,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX Segment identifier. Generally the same as the Segment's display name")
       @path
@@ -763,10 +674,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX Segment identifier. Generally the same as the Segment's display name")
       @path
@@ -787,10 +695,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX Segment identifier. Generally the same as the Segment's display name")
       @path
@@ -807,10 +712,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkDhcpList
   >;
@@ -828,9 +730,7 @@ interface WorkloadNetworksOperations {
       @path
       dhcpId: string;
 
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkDhcp
   >;
@@ -843,10 +743,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
       @path
@@ -867,10 +764,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
       @path
@@ -891,10 +785,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DHCP identifier. Generally the same as the DHCP display name")
       @path
@@ -911,10 +802,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkGatewayList
   >;
@@ -927,10 +815,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX Gateway identifier. Generally the same as the Gateway's display name")
       @path
@@ -947,10 +832,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkPortMirroringList
   >;
@@ -963,10 +845,7 @@ interface WorkloadNetworksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("""
 NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
@@ -986,10 +865,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("""
 NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
@@ -1019,10 +895,7 @@ network.
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("""
 NSX Port Mirroring identifier. Generally the same as the Port Mirroring display
@@ -1054,9 +927,7 @@ name
       @path
       portMirroringId: string;
 
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -1069,10 +940,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkVMGroupsList
   >;
@@ -1085,10 +953,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
       @path
@@ -1105,10 +970,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
       @path
@@ -1129,10 +991,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX VM Group identifier. Generally the same as the VM Group's display name")
       @path
@@ -1158,9 +1017,7 @@ name
       @path
       vmGroupId: string;
 
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -1173,10 +1030,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkVirtualMachinesList
   >;
@@ -1189,10 +1043,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Virtual Machine identifier")
       @path
@@ -1209,10 +1060,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkDnsServicesList
   >;
@@ -1225,10 +1073,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
       @path
@@ -1245,10 +1090,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
       @path
@@ -1269,10 +1111,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DNS Service identifier. Generally the same as the DNS Service's display name")
       @path
@@ -1298,9 +1137,7 @@ name
       @path
       dnsServiceId: string;
 
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -1313,10 +1150,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkDnsZonesList
   >;
@@ -1329,10 +1163,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
       @path
@@ -1349,10 +1180,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
       @path
@@ -1373,10 +1201,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("NSX DNS Zone identifier. Generally the same as the DNS Zone's display name")
       @path
@@ -1402,9 +1227,7 @@ name
       @path
       dnsZoneId: string;
 
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -1417,10 +1240,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     WorkloadNetworkPublicIPsList
   >;
@@ -1433,10 +1253,7 @@ name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("""
 NSX Public IP Block identifier. Generally the same as the Public IP Block's
@@ -1456,10 +1273,7 @@ display name
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("""
 NSX Public IP Block identifier. Generally the same as the Public IP Block's
@@ -1491,9 +1305,7 @@ display name
       @path
       publicIPId: string;
 
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     void
   >;
@@ -1508,10 +1320,7 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     CloudLinkList
   >;
@@ -1524,10 +1333,7 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cloud link resource")
       @path
@@ -1568,10 +1374,7 @@ interface CloudLinksOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cloud link resource")
       @path
@@ -1590,10 +1393,7 @@ interface AddonsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     AddonList
   >;
@@ -1606,10 +1406,7 @@ interface AddonsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the addon for the private cloud")
       @path
@@ -1650,10 +1447,7 @@ interface AddonsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the addon for the private cloud")
       @path
@@ -1672,10 +1466,7 @@ interface VirtualMachinesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1692,10 +1483,7 @@ interface VirtualMachinesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1716,10 +1504,7 @@ interface VirtualMachinesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1746,10 +1531,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1766,10 +1548,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1790,10 +1569,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1818,10 +1594,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1846,10 +1619,7 @@ interface PlacementPoliciesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the cluster in the private cloud")
       @path
@@ -1871,10 +1641,7 @@ interface ScriptPackagesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     ScriptPackagesList
   >;
@@ -1886,10 +1653,7 @@ interface ScriptPackagesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the script package in the private cloud")
       @path
@@ -1910,10 +1674,7 @@ execution resource on a private cloud
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the script package in the private cloud")
       @path
@@ -1932,10 +1693,7 @@ private cloud
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the script package in the private cloud")
       @path
@@ -1958,10 +1716,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
     },
     ScriptExecutionsList
   >;
@@ -1974,10 +1729,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the user-invoked script execution resource")
       @path
@@ -2018,10 +1770,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the user-invoked script execution resource")
       @path
@@ -2037,10 +1786,7 @@ interface ScriptExecutionsOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("Name of the private cloud")
-      @path
-      privateCloudName: string;
+      ...PrivateCloudParameter;
 
       @doc("Name of the user-invoked script execution resource")
       @path
