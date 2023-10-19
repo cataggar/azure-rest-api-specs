@@ -7,6 +7,6 @@ namespace Microsoft.AVS;
 model PrivateCloudParameter {
   @path
   @doc("Name of the private cloud")
-  // @pattern("^[-\\w\\._]+$");
+  @pattern("^[-\\w\\._]+$")
   privateCloudName: string;
 }

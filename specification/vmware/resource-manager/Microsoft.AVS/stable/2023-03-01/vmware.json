@@ -8407,6 +8407,7 @@
       "description": "Name of the private cloud",
       "required": true,
       "type": "string",
+      "pattern": "^[-\\w\\._]+$",
       "x-ms-parameter-location": "method"
     }
   }
