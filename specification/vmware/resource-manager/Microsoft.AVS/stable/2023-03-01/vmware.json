@@ -160,7 +160,6 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.AVS/privateClouds": {
       "get": {
         "operationId": "PrivateCloudsOperations_ListInSubscription",
-        "summary": "List private clouds in a subscription",
         "description": "List private clouds in a subscription",
         "parameters": [
           {
@@ -198,7 +197,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds": {
       "get": {
         "operationId": "PrivateCloudsOperations_List",
-        "summary": "List private clouds in a resource group",
         "description": "List private clouds in a resource group",
         "parameters": [
           {
@@ -239,7 +237,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}": {
       "get": {
         "operationId": "PrivateCloudsOperations_Get",
-        "summary": "Get a private cloud",
         "description": "Get a private cloud",
         "parameters": [
           {
@@ -278,7 +275,6 @@
       },
       "put": {
         "operationId": "PrivateCloudsOperations_CreateOrUpdate",
-        "summary": "Create or update a private cloud",
         "description": "Create or update a private cloud",
         "parameters": [
           {
@@ -326,7 +322,6 @@
       },
       "patch": {
         "operationId": "PrivateCloudsOperations_Update",
-        "summary": "Update a private cloud",
         "description": "Update a private cloud",
         "parameters": [
           {
@@ -374,7 +369,6 @@
       },
       "delete": {
         "operationId": "PrivateCloudsOperations_Delete",
-        "summary": "Delete a private cloud",
         "description": "Delete a private cloud",
         "parameters": [
           {
@@ -412,7 +406,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons": {
       "get": {
         "operationId": "AddonsOperations_List",
-        "summary": "List addons in a private cloud",
         "description": "List addons in a private cloud",
         "parameters": [
           {
@@ -456,7 +449,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}": {
       "get": {
         "operationId": "AddonsOperations_Get",
-        "summary": "Get an addon by name in a private cloud",
         "description": "Get an addon by name in a private cloud",
         "parameters": [
           {
@@ -502,7 +494,6 @@
       },
       "put": {
         "operationId": "AddonsOperations_CreateOrUpdate",
-        "summary": "Create or update a addon in a private cloud",
         "description": "Create or update a addon in a private cloud",
         "parameters": [
           {
@@ -561,7 +552,6 @@
       },
       "delete": {
         "operationId": "AddonsOperations_Delete",
-        "summary": "Delete a addon in a private cloud",
         "description": "Delete a addon in a private cloud",
         "parameters": [
           {
@@ -606,7 +596,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations": {
       "get": {
         "operationId": "AuthorizationsOperations_List",
-        "summary": "List ExpressRoute Circuit Authorizations in a private cloud",
         "description": "List ExpressRoute Circuit Authorizations in a private cloud",
         "parameters": [
           {
@@ -650,7 +639,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}": {
       "get": {
         "operationId": "AuthorizationsOperations_Get",
-        "summary": "Get an ExpressRoute Circuit Authorization by name in a private cloud",
         "description": "Get an ExpressRoute Circuit Authorization by name in a private cloud",
         "parameters": [
           {
@@ -696,7 +684,6 @@
       },
       "put": {
         "operationId": "AuthorizationsOperations_CreateOrUpdate",
-        "summary": "Create or update an ExpressRoute Circuit Authorization in a private cloud",
         "description": "Create or update an ExpressRoute Circuit Authorization in a private cloud",
         "parameters": [
           {
@@ -755,7 +742,6 @@
       },
       "delete": {
         "operationId": "AuthorizationsOperations_Delete",
-        "summary": "Delete an ExpressRoute Circuit Authorization in a private cloud",
         "description": "Delete an ExpressRoute Circuit Authorization in a private cloud",
         "parameters": [
           {
@@ -800,7 +786,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks": {
       "get": {
         "operationId": "CloudLinksOperations_List",
-        "summary": "List cloud link in a private cloud",
         "description": "List cloud link in a private cloud",
         "parameters": [
           {
@@ -844,7 +829,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}": {
       "get": {
         "operationId": "CloudLinksOperations_Get",
-        "summary": "Get an cloud link by name in a private cloud",
         "description": "Get an cloud link by name in a private cloud",
         "parameters": [
           {
@@ -890,7 +874,6 @@
       },
       "put": {
         "operationId": "CloudLinksOperations_CreateOrUpdate",
-        "summary": "Create or update a cloud link in a private cloud",
         "description": "Create or update a cloud link in a private cloud",
         "parameters": [
           {
@@ -949,7 +932,6 @@
       },
       "delete": {
         "operationId": "CloudLinksOperations_Delete",
-        "summary": "Delete a cloud link in a private cloud",
         "description": "Delete a cloud link in a private cloud",
         "parameters": [
           {
@@ -994,7 +976,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters": {
       "get": {
         "operationId": "ClustersOperations_List",
-        "summary": "List clusters in a private cloud",
         "description": "List clusters in a private cloud",
         "parameters": [
           {
@@ -1038,7 +1019,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}": {
       "get": {
         "operationId": "ClustersOperations_Get",
-        "summary": "Get a cluster by name in a private cloud",
         "description": "Get a cluster by name in a private cloud",
         "parameters": [
           {
@@ -1084,7 +1064,6 @@
       },
       "put": {
         "operationId": "ClustersOperations_CreateOrUpdate",
-        "summary": "Create or update a cluster in a private cloud",
         "description": "Create or update a cluster in a private cloud",
         "parameters": [
           {
@@ -1143,7 +1122,6 @@
       },
       "patch": {
         "operationId": "ClustersOperations_Update",
-        "summary": "Update a cluster in a private cloud",
         "description": "Update a cluster in a private cloud",
         "parameters": [
           {
@@ -1198,7 +1176,6 @@
       },
       "delete": {
         "operationId": "ClustersOperations_Delete",
-        "summary": "Delete a cluster in a private cloud",
         "description": "Delete a cluster in a private cloud",
         "parameters": [
           {
@@ -1243,7 +1220,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores": {
       "get": {
         "operationId": "DatastoresOperations_List",
-        "summary": "List datastores in a private cloud cluster",
         "description": "List datastores in a private cloud cluster",
         "parameters": [
           {
@@ -1294,7 +1270,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}": {
       "get": {
         "operationId": "DatastoresOperations_Get",
-        "summary": "Get a datastore in a private cloud cluster",
         "description": "Get a datastore in a private cloud cluster",
         "parameters": [
           {
@@ -1347,7 +1322,6 @@
       },
       "put": {
         "operationId": "DatastoresOperations_CreateOrUpdate",
-        "summary": "Create or update a datastore in a private cloud cluster",
         "description": "Create or update a datastore in a private cloud cluster",
         "parameters": [
           {
@@ -1409,7 +1383,6 @@
       },
       "delete": {
         "operationId": "DatastoresOperations_Delete",
-        "summary": "Delete a datastore in a private cloud cluster",
         "description": "Delete a datastore in a private cloud cluster",
         "parameters": [
           {
@@ -1461,7 +1434,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/listZones": {
       "post": {
         "operationId": "ClustersOperations_ListZones",
-        "summary": "List hosts by zone in a cluster",
         "description": "List hosts by zone in a cluster",
         "parameters": [
           {
@@ -1509,7 +1481,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies": {
       "get": {
         "operationId": "PlacementPoliciesOperations_List",
-        "summary": "List placement policies in a private cloud cluster",
         "description": "List placement policies in a private cloud cluster",
         "parameters": [
           {
@@ -1560,7 +1531,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}": {
       "get": {
         "operationId": "PlacementPoliciesOperations_Get",
-        "summary": "Get a placement policy by name in a private cloud cluster",
         "description": "Get a placement policy by name in a private cloud cluster",
         "parameters": [
           {
@@ -1613,7 +1583,6 @@
       },
       "put": {
         "operationId": "PlacementPoliciesOperations_CreateOrUpdate",
-        "summary": "Create or update a placement policy in a private cloud cluster",
         "description": "Create or update a placement policy in a private cloud cluster",
         "parameters": [
           {
@@ -1675,7 +1644,6 @@
       },
       "patch": {
         "operationId": "PlacementPoliciesOperations_Update",
-        "summary": "Update a placement policy in a private cloud cluster",
         "description": "Update a placement policy in a private cloud cluster",
         "parameters": [
           {
@@ -1737,7 +1705,6 @@
       },
       "delete": {
         "operationId": "PlacementPoliciesOperations_Delete",
-        "summary": "Delete a placement policy in a private cloud cluster",
         "description": "Delete a placement policy in a private cloud cluster",
         "parameters": [
           {
@@ -1840,7 +1807,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}": {
       "get": {
         "operationId": "VirtualMachinesOperations_Get",
-        "summary": "Get a virtual machine by id in a private cloud cluster",
         "description": "Get a virtual machine by id in a private cloud cluster",
         "parameters": [
           {
@@ -1895,7 +1861,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}/restrictMovement": {
       "post": {
         "operationId": "VirtualMachinesOperations_RestrictMovement",
-        "summary": "Enable or disable DRS-driven VM movement restriction",
         "description": "Enable or disable DRS-driven VM movement restriction",
         "parameters": [
           {
@@ -1956,7 +1921,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections": {
       "get": {
         "operationId": "GlobalReachConnectionsOperations_List",
-        "summary": "List global reach connections in a private cloud",
         "description": "List global reach connections in a private cloud",
         "parameters": [
           {
@@ -2000,7 +1964,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}": {
       "get": {
         "operationId": "GlobalReachConnectionsOperations_Get",
-        "summary": "Get a global reach connection by name in a private cloud",
         "description": "Get a global reach connection by name in a private cloud",
         "parameters": [
           {
@@ -2046,7 +2009,6 @@
       },
       "put": {
         "operationId": "GlobalReachConnectionsOperations_CreateOrUpdate",
-        "summary": "Create or update a global reach connection in a private cloud",
         "description": "Create or update a global reach connection in a private cloud",
         "parameters": [
           {
@@ -2105,7 +2067,6 @@
       },
       "delete": {
         "operationId": "GlobalReachConnectionsOperations_Delete",
-        "summary": "Delete a global reach connection in a private cloud",
         "description": "Delete a global reach connection in a private cloud",
         "parameters": [
           {
@@ -2150,7 +2111,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites": {
       "get": {
         "operationId": "HcxEnterpriseSitesOperations_List",
-        "summary": "List HCX on-premises key in a private cloud",
         "description": "List HCX on-premises key in a private cloud",
         "parameters": [
           {
@@ -2194,7 +2154,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}": {
       "get": {
         "operationId": "HcxEnterpriseSitesOperations_Get",
-        "summary": "Get an HCX on-premises key by name in a private cloud",
         "description": "Get an HCX on-premises key by name in a private cloud",
         "parameters": [
           {
@@ -2240,7 +2199,6 @@
       },
       "put": {
         "operationId": "HcxEnterpriseSitesOperations_CreateOrUpdate",
-        "summary": "Create or update an activation key for on-premises HCX site",
         "description": "Create or update an activation key for on-premises HCX site",
         "parameters": [
           {
@@ -2299,7 +2257,6 @@
       },
       "delete": {
         "operationId": "HcxEnterpriseSitesOperations_Delete",
-        "summary": "Delete HCX on-premises key in a private cloud",
         "description": "Delete HCX on-premises key in a private cloud",
         "parameters": [
           {
@@ -2344,7 +2301,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials": {
       "post": {
         "operationId": "PrivateCloudsOperations_ListAdminCredentials",
-        "summary": "List the admin credentials for the private cloud",
         "description": "List the admin credentials for the private cloud",
         "parameters": [
           {
@@ -2385,7 +2341,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateNsxtPassword": {
       "post": {
         "operationId": "PrivateCloudsOperations_RotateNsxtPassword",
-        "summary": "Rotate the NSX-T Manager password",
         "description": "Rotate the NSX-T Manager password",
         "parameters": [
           {
@@ -2423,7 +2378,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateVcenterPassword": {
       "post": {
         "operationId": "PrivateCloudsOperations_RotateVcenterPassword",
-        "summary": "Rotate the vCenter password",
         "description": "Rotate the vCenter password",
         "parameters": [
           {
@@ -2461,7 +2415,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions": {
       "get": {
         "operationId": "ScriptExecutionsOperations_List",
-        "summary": "List script executions in a private cloud",
         "description": "List script executions in a private cloud",
         "parameters": [
           {
@@ -2505,7 +2458,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}": {
       "get": {
         "operationId": "ScriptExecutionsOperations_Get",
-        "summary": "Get an script execution by name in a private cloud",
         "description": "Get an script execution by name in a private cloud",
         "parameters": [
           {
@@ -2551,7 +2503,6 @@
       },
       "put": {
         "operationId": "ScriptExecutionsOperations_CreateOrUpdate",
-        "summary": "Create or update a script execution in a private cloud",
         "description": "Create or update a script execution in a private cloud",
         "parameters": [
           {
@@ -2610,7 +2561,6 @@
       },
       "delete": {
         "operationId": "ScriptExecutionsOperations_Delete",
-        "summary": "Cancel a ScriptExecution in a private cloud",
         "description": "Cancel a ScriptExecution in a private cloud",
         "parameters": [
           {
@@ -2908,7 +2858,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks": {
       "get": {
         "operationId": "WorkloadNetworksOperations_List",
-        "summary": "List of workload networks in a private cloud.",
         "description": "List of workload networks in a private cloud.",
         "parameters": [
           {
@@ -2952,7 +2901,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/{workloadNetworkName}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_Get",
-        "summary": "Get a private cloud workload network.",
         "description": "Get a private cloud workload network.",
         "parameters": [
           {
@@ -3007,7 +2955,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListDhcp",
-        "summary": "List dhcp in a private cloud workload network.",
         "description": "List dhcp in a private cloud workload network.",
         "parameters": [
           {
@@ -3051,7 +2998,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetDhcp",
-        "summary": "Get dhcp by id in a private cloud workload network.",
         "description": "Get dhcp by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3097,7 +3043,6 @@
       },
       "put": {
         "operationId": "WorkloadNetworksOperations_CreateDhcp",
-        "summary": "Create dhcp by id in a private cloud workload network.",
         "description": "Create dhcp by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3152,7 +3097,6 @@
       },
       "patch": {
         "operationId": "WorkloadNetworksOperations_UpdateDhcp",
-        "summary": "Create or update dhcp by id in a private cloud workload network.",
         "description": "Create or update dhcp by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3210,7 +3154,6 @@
       },
       "delete": {
         "operationId": "WorkloadNetworksOperations_DeleteDhcp",
-        "summary": "Delete dhcp by id in a private cloud workload network.",
         "description": "Delete dhcp by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3255,7 +3198,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListDnsServices",
-        "summary": "List of DNS services in a private cloud workload network.",
         "description": "List of DNS services in a private cloud workload network.",
         "parameters": [
           {
@@ -3299,7 +3241,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetDnsService",
-        "summary": "Get a DNS service by id in a private cloud workload network.",
         "description": "Get a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3345,7 +3286,6 @@
       },
       "put": {
         "operationId": "WorkloadNetworksOperations_CreateDnsService",
-        "summary": "Create a DNS service by id in a private cloud workload network.",
         "description": "Create a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3400,7 +3340,6 @@
       },
       "patch": {
         "operationId": "WorkloadNetworksOperations_UpdateDnsService",
-        "summary": "Create or update a DNS service by id in a private cloud workload network.",
         "description": "Create or update a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3458,7 +3397,6 @@
       },
       "delete": {
         "operationId": "WorkloadNetworksOperations_DeleteDnsService",
-        "summary": "Delete a DNS service by id in a private cloud workload network.",
         "description": "Delete a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3503,7 +3441,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListDnsZones",
-        "summary": "List of DNS zones in a private cloud workload network.",
         "description": "List of DNS zones in a private cloud workload network.",
         "parameters": [
           {
@@ -3547,7 +3484,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetDnsZone",
-        "summary": "Get a DNS zone by id in a private cloud workload network.",
         "description": "Get a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3593,7 +3529,6 @@
       },
       "put": {
         "operationId": "WorkloadNetworksOperations_CreateDnsZone",
-        "summary": "Create a DNS zone by id in a private cloud workload network.",
         "description": "Create a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3648,7 +3583,6 @@
       },
       "patch": {
         "operationId": "WorkloadNetworksOperations_UpdateDnsZone",
-        "summary": "Create or update a DNS zone by id in a private cloud workload network.",
         "description": "Create or update a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3706,7 +3640,6 @@
       },
       "delete": {
         "operationId": "WorkloadNetworksOperations_DeleteDnsZone",
-        "summary": "Delete a DNS zone by id in a private cloud workload network.",
         "description": "Delete a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3751,7 +3684,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListGateways",
-        "summary": "List of gateways in a private cloud workload network.",
         "description": "List of gateways in a private cloud workload network.",
         "parameters": [
           {
@@ -3795,7 +3727,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways/{gatewayId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetGateway",
-        "summary": "Get a gateway by id in a private cloud workload network.",
         "description": "Get a gateway by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3843,7 +3774,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListPortMirroring",
-        "summary": "List of port mirroring profiles in a private cloud workload network.",
         "description": "List of port mirroring profiles in a private cloud workload network.",
         "parameters": [
           {
@@ -3887,7 +3817,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetPortMirroring",
-        "summary": "Get a port mirroring profile by id in a private cloud workload network.",
         "description": "Get a port mirroring profile by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3933,7 +3862,6 @@
       },
       "put": {
         "operationId": "WorkloadNetworksOperations_CreatePortMirroring",
-        "summary": "Create a port mirroring profile by id in a private cloud workload network.",
         "description": "Create a port mirroring profile by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3988,7 +3916,6 @@
       },
       "patch": {
         "operationId": "WorkloadNetworksOperations_UpdatePortMirroring",
-        "summary": "Create or update a port mirroring profile by id in a private cloud workload\nnetwork.",
         "description": "Create or update a port mirroring profile by id in a private cloud workload\nnetwork.",
         "parameters": [
           {
@@ -4046,7 +3973,6 @@
       },
       "delete": {
         "operationId": "WorkloadNetworksOperations_DeletePortMirroring",
-        "summary": "Delete a port mirroring profile by id in a private cloud workload network.",
         "description": "Delete a port mirroring profile by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4091,7 +4017,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListPublicIPs",
-        "summary": "List of Public IP Blocks in a private cloud workload network.",
         "description": "List of Public IP Blocks in a private cloud workload network.",
         "parameters": [
           {
@@ -4135,7 +4060,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetPublicIp",
-        "summary": "Get a Public IP Block by id in a private cloud workload network.",
         "description": "Get a Public IP Block by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4181,7 +4105,6 @@
       },
       "put": {
         "operationId": "WorkloadNetworksOperations_CreatePublicIp",
-        "summary": "Create a Public IP Block by id in a private cloud workload network.",
         "description": "Create a Public IP Block by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4236,7 +4159,6 @@
       },
       "delete": {
         "operationId": "WorkloadNetworksOperations_DeletePublicIp",
-        "summary": "Delete a Public IP Block by id in a private cloud workload network.",
         "description": "Delete a Public IP Block by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4281,7 +4203,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListSegments",
-        "summary": "List of segments in a private cloud workload network.",
         "description": "List of segments in a private cloud workload network.",
         "parameters": [
           {
@@ -4325,7 +4246,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetSegment",
-        "summary": "Get a segment by id in a private cloud workload network.",
         "description": "Get a segment by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4371,7 +4291,6 @@
       },
       "put": {
         "operationId": "WorkloadNetworksOperations_CreateSegments",
-        "summary": "Create a segment by id in a private cloud workload network.",
         "description": "Create a segment by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4426,7 +4345,6 @@
       },
       "patch": {
         "operationId": "WorkloadNetworksOperations_UpdateSegments",
-        "summary": "Create or update a segment by id in a private cloud workload network.",
         "description": "Create or update a segment by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4484,7 +4402,6 @@
       },
       "delete": {
         "operationId": "WorkloadNetworksOperations_DeleteSegment",
-        "summary": "Delete a segment by id in a private cloud workload network.",
         "description": "Delete a segment by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4529,7 +4446,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListVirtualMachines",
-        "summary": "List of virtual machines in a private cloud workload network.",
         "description": "List of virtual machines in a private cloud workload network.",
         "parameters": [
           {
@@ -4573,7 +4489,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines/{virtualMachineId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetVirtualMachine",
-        "summary": "Get a virtual machine by id in a private cloud workload network.",
         "description": "Get a virtual machine by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4621,7 +4536,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups": {
       "get": {
         "operationId": "WorkloadNetworksOperations_ListVmGroups",
-        "summary": "List of vm groups in a private cloud workload network.",
         "description": "List of vm groups in a private cloud workload network.",
         "parameters": [
           {
@@ -4665,7 +4579,6 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}": {
       "get": {
         "operationId": "WorkloadNetworksOperations_GetVmGroup",
-        "summary": "Get a vm group by id in a private cloud workload network.",
         "description": "Get a vm group by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4711,7 +4624,6 @@
       },
       "put": {
         "operationId": "WorkloadNetworksOperations_CreateVmGroup",
-        "summary": "Create a vm group by id in a private cloud workload network.",
         "description": "Create a vm group by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4766,7 +4678,6 @@
       },
       "patch": {
         "operationId": "WorkloadNetworksOperations_UpdateVmGroup",
-        "summary": "Create or update a vm group by id in a private cloud workload network.",
         "description": "Create or update a vm group by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4824,7 +4735,6 @@
       },
       "delete": {
         "operationId": "WorkloadNetworksOperations_DeleteVmGroup",
-        "summary": "Delete a vm group by id in a private cloud workload network.",
         "description": "Delete a vm group by id in a private cloud workload network.",
         "parameters": [
           {

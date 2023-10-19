@@ -45,7 +45,6 @@ interface LocationsOperations {
 }
 
 interface PrivateCloudsOperations {
-  @summary("List private clouds in a resource group")
   @doc("List private clouds in a resource group")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds")
   @get
@@ -57,7 +56,6 @@ interface PrivateCloudsOperations {
     PrivateCloudList
   >;
 
-  @summary("List private clouds in a subscription")
   @doc("List private clouds in a subscription")
   @route("/subscriptions/{subscriptionId}/providers/Microsoft.AVS/privateClouds")
   @get
@@ -68,7 +66,6 @@ interface PrivateCloudsOperations {
     PrivateCloudList
   >;
 
-  @summary("Get a private cloud")
   @doc("Get a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @get
@@ -81,7 +78,6 @@ interface PrivateCloudsOperations {
     PrivateCloud
   >;
 
-  @summary("Create or update a private cloud")
   @doc("Create or update a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @put
@@ -98,7 +94,6 @@ interface PrivateCloudsOperations {
     PrivateCloud
   >;
 
-  @summary("Update a private cloud")
   @doc("Update a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @patch
@@ -115,7 +110,6 @@ interface PrivateCloudsOperations {
     PrivateCloud
   >;
 
-  @summary("Delete a private cloud")
   @doc("Delete a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
   @delete
@@ -128,7 +122,6 @@ interface PrivateCloudsOperations {
     void
   >;
 
-  @summary("Rotate the vCenter password")
   @doc("Rotate the vCenter password")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateVcenterPassword")
   @post
@@ -141,7 +134,6 @@ interface PrivateCloudsOperations {
     void
   >;
 
-  @summary("Rotate the NSX-T Manager password")
   @doc("Rotate the NSX-T Manager password")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateNsxtPassword")
   @post
@@ -154,7 +146,6 @@ interface PrivateCloudsOperations {
     void
   >;
 
-  @summary("List the admin credentials for the private cloud")
   @doc("List the admin credentials for the private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials")
   @post
@@ -169,7 +160,6 @@ interface PrivateCloudsOperations {
 }
 
 interface ClustersOperations {
-  @summary("List clusters in a private cloud")
   @doc("List clusters in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters")
   @get
@@ -182,7 +172,6 @@ interface ClustersOperations {
     ClusterList
   >;
 
-  @summary("Get a cluster by name in a private cloud")
   @doc("Get a cluster by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @get
@@ -199,7 +188,6 @@ interface ClustersOperations {
     Cluster
   >;
 
-  @summary("Create or update a cluster in a private cloud")
   @doc("Create or update a cluster in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @put
@@ -223,7 +211,6 @@ interface ClustersOperations {
     Cluster
   >;
 
-  @summary("Update a cluster in a private cloud")
   @doc("Update a cluster in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @patch
@@ -244,7 +231,6 @@ interface ClustersOperations {
     Cluster
   >;
 
-  @summary("Delete a cluster in a private cloud")
   @doc("Delete a cluster in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
   @delete
@@ -261,7 +247,6 @@ interface ClustersOperations {
     void
   >;
 
-  @summary("List hosts by zone in a cluster")
   @doc("List hosts by zone in a cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/listZones")
   @post
@@ -280,7 +265,6 @@ interface ClustersOperations {
 }
 
 interface DatastoresOperations {
-  @summary("List datastores in a private cloud cluster")
   @doc("List datastores in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores")
   @get
@@ -297,7 +281,6 @@ interface DatastoresOperations {
     DatastoreList
   >;
 
-  @summary("Get a datastore in a private cloud cluster")
   @doc("Get a datastore in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
   @get
@@ -318,7 +301,6 @@ interface DatastoresOperations {
     Datastore
   >;
 
-  @summary("Create or update a datastore in a private cloud cluster")
   @doc("Create or update a datastore in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
   @put
@@ -343,7 +325,6 @@ interface DatastoresOperations {
     Datastore
   >;
 
-  @summary("Delete a datastore in a private cloud cluster")
   @doc("Delete a datastore in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
   @delete
@@ -366,7 +347,6 @@ interface DatastoresOperations {
 }
 
 interface HcxEnterpriseSitesOperations {
-  @summary("List HCX on-premises key in a private cloud")
   @doc("List HCX on-premises key in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites")
   @get
@@ -379,7 +359,6 @@ interface HcxEnterpriseSitesOperations {
     HcxEnterpriseSiteList
   >;
 
-  @summary("Get an HCX on-premises key by name in a private cloud")
   @doc("Get an HCX on-premises key by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
   @get
@@ -396,7 +375,6 @@ interface HcxEnterpriseSitesOperations {
     HcxEnterpriseSite
   >;
 
-  @summary("Create or update an activation key for on-premises HCX site")
   @doc("Create or update an activation key for on-premises HCX site")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
   @put
@@ -420,7 +398,6 @@ interface HcxEnterpriseSitesOperations {
     HcxEnterpriseSite
   >;
 
-  @summary("Delete HCX on-premises key in a private cloud")
   @doc("Delete HCX on-premises key in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
   @delete
@@ -439,7 +416,6 @@ interface HcxEnterpriseSitesOperations {
 }
 
 interface AuthorizationsOperations {
-  @summary("List ExpressRoute Circuit Authorizations in a private cloud")
   @doc("List ExpressRoute Circuit Authorizations in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations")
   @get
@@ -452,7 +428,6 @@ interface AuthorizationsOperations {
     ExpressRouteAuthorizationList
   >;
 
-  @summary("Get an ExpressRoute Circuit Authorization by name in a private cloud")
   @doc("Get an ExpressRoute Circuit Authorization by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
   @get
@@ -469,7 +444,6 @@ interface AuthorizationsOperations {
     ExpressRouteAuthorization
   >;
 
-  @summary("Create or update an ExpressRoute Circuit Authorization in a private cloud")
   @doc("Create or update an ExpressRoute Circuit Authorization in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
   @put
@@ -493,7 +467,6 @@ interface AuthorizationsOperations {
     ExpressRouteAuthorization
   >;
 
-  @summary("Delete an ExpressRoute Circuit Authorization in a private cloud")
   @doc("Delete an ExpressRoute Circuit Authorization in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
   @delete
@@ -512,7 +485,6 @@ interface AuthorizationsOperations {
 }
 
 interface GlobalReachConnectionsOperations {
-  @summary("List global reach connections in a private cloud")
   @doc("List global reach connections in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections")
   @get
@@ -525,7 +497,6 @@ interface GlobalReachConnectionsOperations {
     GlobalReachConnectionList
   >;
 
-  @summary("Get a global reach connection by name in a private cloud")
   @doc("Get a global reach connection by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
   @get
@@ -542,7 +513,6 @@ interface GlobalReachConnectionsOperations {
     GlobalReachConnection
   >;
 
-  @summary("Create or update a global reach connection in a private cloud")
   @doc("Create or update a global reach connection in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
   @put
@@ -566,7 +536,6 @@ interface GlobalReachConnectionsOperations {
     GlobalReachConnection
   >;
 
-  @summary("Delete a global reach connection in a private cloud")
   @doc("Delete a global reach connection in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
   @delete
@@ -585,7 +554,6 @@ interface GlobalReachConnectionsOperations {
 }
 
 interface WorkloadNetworksOperations {
-  @summary("Get a private cloud workload network.")
   @doc("Get a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/{workloadNetworkName}")
   @get
@@ -602,7 +570,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetwork
   >;
 
-  @summary("List of workload networks in a private cloud.")
   @doc("List of workload networks in a private cloud.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks")
   @get
@@ -615,7 +582,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkList
   >;
 
-  @summary("List of segments in a private cloud workload network.")
   @doc("List of segments in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments")
   @get
@@ -628,7 +594,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkSegmentsList
   >;
 
-  @summary("Get a segment by id in a private cloud workload network.")
   @doc("Get a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @get
@@ -645,7 +610,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkSegment
   >;
 
-  @summary("Create a segment by id in a private cloud workload network.")
   @doc("Create a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @put
@@ -666,7 +630,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkSegment
   >;
 
-  @summary("Create or update a segment by id in a private cloud workload network.")
   @doc("Create or update a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @patch
@@ -687,7 +650,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkSegment | void
   >;
 
-  @summary("Delete a segment by id in a private cloud workload network.")
   @doc("Delete a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
   @delete
@@ -704,7 +666,6 @@ interface WorkloadNetworksOperations {
     void
   >;
 
-  @summary("List dhcp in a private cloud workload network.")
   @doc("List dhcp in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations")
   @get
@@ -717,7 +678,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkDhcpList
   >;
 
-  @summary("Get dhcp by id in a private cloud workload network.")
   @doc("Get dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @get
@@ -735,7 +695,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkDhcp
   >;
 
-  @summary("Create dhcp by id in a private cloud workload network.")
   @doc("Create dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @put
@@ -756,7 +715,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkDhcp
   >;
 
-  @summary("Create or update dhcp by id in a private cloud workload network.")
   @doc("Create or update dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @patch
@@ -777,7 +735,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkDhcp | void
   >;
 
-  @summary("Delete dhcp by id in a private cloud workload network.")
   @doc("Delete dhcp by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
   @delete
@@ -794,7 +751,6 @@ interface WorkloadNetworksOperations {
     void
   >;
 
-  @summary("List of gateways in a private cloud workload network.")
   @doc("List of gateways in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways")
   @get
@@ -807,7 +763,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkGatewayList
   >;
 
-  @summary("Get a gateway by id in a private cloud workload network.")
   @doc("Get a gateway by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways/{gatewayId}")
   @get
@@ -824,7 +779,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkGateway
   >;
 
-  @summary("List of port mirroring profiles in a private cloud workload network.")
   @doc("List of port mirroring profiles in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles")
   @get
@@ -837,7 +791,6 @@ interface WorkloadNetworksOperations {
     WorkloadNetworkPortMirroringList
   >;
 
-  @summary("Get a port mirroring profile by id in a private cloud workload network.")
   @doc("Get a port mirroring profile by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
   @get
@@ -857,7 +810,6 @@ name
     WorkloadNetworkPortMirroring
   >;
 
-  @summary("Create a port mirroring profile by id in a private cloud workload network.")
   @doc("Create a port mirroring profile by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
   @put
@@ -881,10 +833,6 @@ name
     WorkloadNetworkPortMirroring
   >;
 
-  @summary("""
-Create or update a port mirroring profile by id in a private cloud workload
-network.
-""")
   @doc("""
 Create or update a port mirroring profile by id in a private cloud workload
 network.
@@ -911,7 +859,6 @@ name
     WorkloadNetworkPortMirroring | void
   >;
 
-  @summary("Delete a port mirroring profile by id in a private cloud workload network.")
   @doc("Delete a port mirroring profile by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
   @delete
@@ -932,7 +879,6 @@ name
     void
   >;
 
-  @summary("List of vm groups in a private cloud workload network.")
   @doc("List of vm groups in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups")
   @get
@@ -945,7 +891,6 @@ name
     WorkloadNetworkVMGroupsList
   >;
 
-  @summary("Get a vm group by id in a private cloud workload network.")
   @doc("Get a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @get
@@ -962,7 +907,6 @@ name
     WorkloadNetworkVMGroup
   >;
 
-  @summary("Create a vm group by id in a private cloud workload network.")
   @doc("Create a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @put
@@ -983,7 +927,6 @@ name
     WorkloadNetworkVMGroup
   >;
 
-  @summary("Create or update a vm group by id in a private cloud workload network.")
   @doc("Create or update a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @patch
@@ -1004,7 +947,6 @@ name
     WorkloadNetworkVMGroup | void
   >;
 
-  @summary("Delete a vm group by id in a private cloud workload network.")
   @doc("Delete a vm group by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
   @delete
@@ -1022,7 +964,6 @@ name
     void
   >;
 
-  @summary("List of virtual machines in a private cloud workload network.")
   @doc("List of virtual machines in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines")
   @get
@@ -1035,7 +976,6 @@ name
     WorkloadNetworkVirtualMachinesList
   >;
 
-  @summary("Get a virtual machine by id in a private cloud workload network.")
   @doc("Get a virtual machine by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines/{virtualMachineId}")
   @get
@@ -1052,7 +992,6 @@ name
     WorkloadNetworkVirtualMachine
   >;
 
-  @summary("List of DNS services in a private cloud workload network.")
   @doc("List of DNS services in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices")
   @get
@@ -1065,7 +1004,6 @@ name
     WorkloadNetworkDnsServicesList
   >;
 
-  @summary("Get a DNS service by id in a private cloud workload network.")
   @doc("Get a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @get
@@ -1082,7 +1020,6 @@ name
     WorkloadNetworkDnsService
   >;
 
-  @summary("Create a DNS service by id in a private cloud workload network.")
   @doc("Create a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @put
@@ -1103,7 +1040,6 @@ name
     WorkloadNetworkDnsService
   >;
 
-  @summary("Create or update a DNS service by id in a private cloud workload network.")
   @doc("Create or update a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @patch
@@ -1124,7 +1060,6 @@ name
     WorkloadNetworkDnsService | void
   >;
 
-  @summary("Delete a DNS service by id in a private cloud workload network.")
   @doc("Delete a DNS service by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
   @delete
@@ -1142,7 +1077,6 @@ name
     void
   >;
 
-  @summary("List of DNS zones in a private cloud workload network.")
   @doc("List of DNS zones in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones")
   @get
@@ -1155,7 +1089,6 @@ name
     WorkloadNetworkDnsZonesList
   >;
 
-  @summary("Get a DNS zone by id in a private cloud workload network.")
   @doc("Get a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @get
@@ -1172,7 +1105,6 @@ name
     WorkloadNetworkDnsZone
   >;
 
-  @summary("Create a DNS zone by id in a private cloud workload network.")
   @doc("Create a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @put
@@ -1193,7 +1125,6 @@ name
     WorkloadNetworkDnsZone
   >;
 
-  @summary("Create or update a DNS zone by id in a private cloud workload network.")
   @doc("Create or update a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @patch
@@ -1214,7 +1145,6 @@ name
     WorkloadNetworkDnsZone | void
   >;
 
-  @summary("Delete a DNS zone by id in a private cloud workload network.")
   @doc("Delete a DNS zone by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
   @delete
@@ -1232,7 +1162,6 @@ name
     void
   >;
 
-  @summary("List of Public IP Blocks in a private cloud workload network.")
   @doc("List of Public IP Blocks in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs")
   @get
@@ -1245,7 +1174,6 @@ name
     WorkloadNetworkPublicIPsList
   >;
 
-  @summary("Get a Public IP Block by id in a private cloud workload network.")
   @doc("Get a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @get
@@ -1265,7 +1193,6 @@ display name
     WorkloadNetworkPublicIP
   >;
 
-  @summary("Create a Public IP Block by id in a private cloud workload network.")
   @doc("Create a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @put
@@ -1289,7 +1216,6 @@ display name
     WorkloadNetworkPublicIP
   >;
 
-  @summary("Delete a Public IP Block by id in a private cloud workload network.")
   @doc("Delete a Public IP Block by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
   @delete
@@ -1312,7 +1238,6 @@ display name
 }
 
 interface CloudLinksOperations {
-  @summary("List cloud link in a private cloud")
   @doc("List cloud link in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks")
   @get
@@ -1325,7 +1250,6 @@ interface CloudLinksOperations {
     CloudLinkList
   >;
 
-  @summary("Get an cloud link by name in a private cloud")
   @doc("Get an cloud link by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
   @get
@@ -1342,7 +1266,6 @@ interface CloudLinksOperations {
     CloudLink
   >;
 
-  @summary("Create or update a cloud link in a private cloud")
   @doc("Create or update a cloud link in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
   @put
@@ -1366,7 +1289,6 @@ interface CloudLinksOperations {
     CloudLink
   >;
 
-  @summary("Delete a cloud link in a private cloud")
   @doc("Delete a cloud link in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
   @delete
@@ -1385,7 +1307,6 @@ interface CloudLinksOperations {
 }
 
 interface AddonsOperations {
-  @summary("List addons in a private cloud")
   @doc("List addons in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons")
   @get
@@ -1398,7 +1319,6 @@ interface AddonsOperations {
     AddonList
   >;
 
-  @summary("Get an addon by name in a private cloud")
   @doc("Get an addon by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
   @get
@@ -1415,7 +1335,6 @@ interface AddonsOperations {
     Addon
   >;
 
-  @summary("Create or update a addon in a private cloud")
   @doc("Create or update a addon in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
   @put
@@ -1439,7 +1358,6 @@ interface AddonsOperations {
     Addon
   >;
 
-  @summary("Delete a addon in a private cloud")
   @doc("Delete a addon in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
   @delete
@@ -1475,7 +1393,6 @@ interface VirtualMachinesOperations {
     VirtualMachinesList
   >;
 
-  @summary("Get a virtual machine by id in a private cloud cluster")
   @doc("Get a virtual machine by id in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}")
   @get
@@ -1496,7 +1413,6 @@ interface VirtualMachinesOperations {
     VirtualMachine
   >;
 
-  @summary("Enable or disable DRS-driven VM movement restriction")
   @doc("Enable or disable DRS-driven VM movement restriction")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}/restrictMovement")
   @post
@@ -1523,7 +1439,6 @@ interface VirtualMachinesOperations {
 }
 
 interface PlacementPoliciesOperations {
-  @summary("List placement policies in a private cloud cluster")
   @doc("List placement policies in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies")
   @get
@@ -1540,7 +1455,6 @@ interface PlacementPoliciesOperations {
     PlacementPoliciesList
   >;
 
-  @summary("Get a placement policy by name in a private cloud cluster")
   @doc("Get a placement policy by name in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @get
@@ -1561,7 +1475,6 @@ interface PlacementPoliciesOperations {
     PlacementPolicy
   >;
 
-  @summary("Create or update a placement policy in a private cloud cluster")
   @doc("Create or update a placement policy in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @put
@@ -1586,7 +1499,6 @@ interface PlacementPoliciesOperations {
     PlacementPolicy
   >;
 
-  @summary("Update a placement policy in a private cloud cluster")
   @doc("Update a placement policy in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @patch
@@ -1611,7 +1523,6 @@ interface PlacementPoliciesOperations {
     PlacementPolicy
   >;
 
-  @summary("Delete a placement policy in a private cloud cluster")
   @doc("Delete a placement policy in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
   @delete
@@ -1708,7 +1619,6 @@ private cloud
 }
 
 interface ScriptExecutionsOperations {
-  @summary("List script executions in a private cloud")
   @doc("List script executions in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions")
   @get
@@ -1721,7 +1631,6 @@ interface ScriptExecutionsOperations {
     ScriptExecutionsList
   >;
 
-  @summary("Get an script execution by name in a private cloud")
   @doc("Get an script execution by name in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
   @get
@@ -1738,7 +1647,6 @@ interface ScriptExecutionsOperations {
     ScriptExecution
   >;
 
-  @summary("Create or update a script execution in a private cloud")
   @doc("Create or update a script execution in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
   @put
@@ -1762,7 +1670,6 @@ interface ScriptExecutionsOperations {
     ScriptExecution
   >;
 
-  @summary("Cancel a ScriptExecution in a private cloud")
   @doc("Cancel a ScriptExecution in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
   @delete
