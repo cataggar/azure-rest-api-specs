@@ -38,34 +38,35 @@
       }
     }
   },
-  "tags": [],
+  "tags": [
+    {
+      "name": "Operations"
+    }
+  ],
   "paths": {
     "/providers/Microsoft.AVS/operations": {
       "get": {
-        "operationId": "OperationsOperations_List",
-        "description": "Lists all of the available operations",
+        "operationId": "Operations_List",
+        "tags": [
+          "Operations"
+        ],
+        "description": "List the operations for the provider",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedOperation"
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/OperationListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -5832,24 +5833,6 @@
         ]
       }
     },
-    "LogSpecification": {
-      "type": "object",
-      "description": "Specifications of the Log for Azure Monitoring",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the log"
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Localized friendly display name of the log"
-        },
-        "blobDuration": {
-          "type": "string",
-          "description": "Blob duration of the log"
-        }
-      }
-    },
     "ManagementCluster": {
       "type": "object",
       "description": "The properties of a management cluster",
@@ -5876,96 +5859,6 @@
           "items": {
             "type": "string"
           }
-        }
-      }
-    },
-    "MetricDimension": {
-      "type": "object",
-      "description": "Specifications of the Dimension of metrics",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the dimension"
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Localized friendly display name of the dimension"
-        },
-        "internalName": {
-          "type": "string",
-          "description": "Name of the dimension as it appears in MDM"
-        },
-        "toBeExportedForShoebox": {
-          "type": "boolean",
-          "description": "A boolean flag indicating whether this dimension should be included for the\nshoebox export scenario"
-        }
-      }
-    },
-    "MetricSpecification": {
-      "type": "object",
-      "description": "Specifications of the Metrics for Azure Monitoring",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the metric"
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Localized friendly display name of the metric"
-        },
-        "displayDescription": {
-          "type": "string",
-          "description": "Localized friendly description of the metric"
-        },
-        "unit": {
-          "type": "string",
-          "description": "Unit that makes sense for the metric"
-        },
-        "category": {
-          "type": "string",
-          "description": "Name of the metric category that the metric belongs to. A metric can only\nbelong to a single category."
-        },
-        "aggregationType": {
-          "type": "string",
-          "description": "Only provide one value for this field. Valid values: Average, Minimum, Maximum,\nTotal, Count."
-        },
-        "supportedAggregationTypes": {
-          "type": "array",
-          "description": "Supported aggregation types",
-          "items": {
-            "type": "string"
-          }
-        },
-        "supportedTimeGrainTypes": {
-          "type": "array",
-          "description": "Supported time grain types",
-          "items": {
-            "type": "string"
-          }
-        },
-        "fillGapWithZero": {
-          "type": "boolean",
-          "description": "Optional. If set to true, then zero will be returned for time duration where no\nmetric is emitted/published."
-        },
-        "dimensions": {
-          "type": "array",
-          "description": "Dimensions of the metric",
-          "items": {
-            "$ref": "#/definitions/MetricDimension"
-          },
-          "x-ms-identifiers": []
-        },
-        "enableRegionalMdmAccount": {
-          "type": "string",
-          "description": "Whether or not the service is using regional MDM accounts."
-        },
-        "sourceMdmAccount": {
-          "type": "string",
-          "description": "The name of the MDM account."
-        },
-        "sourceMdmNamespace": {
-          "type": "string",
-          "description": "The name of the MDM namespace."
         }
       }
     },
@@ -6028,70 +5921,6 @@
             "description": "Disabled"
           }
         ]
-      }
-    },
-    "Operation": {
-      "type": "object",
-      "description": "A REST API operation",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the operation being performed on this object",
-          "readOnly": true
-        },
-        "display": {
-          "$ref": "#/definitions/OperationDisplay",
-          "description": "Contains the localized display information for this operation",
-          "readOnly": true
-        },
-        "isDataAction": {
-          "type": "boolean",
-          "description": "Gets or sets a value indicating whether the operation is a data action or not"
-        },
-        "origin": {
-          "type": "string",
-          "description": "Origin of the operation"
-        },
-        "properties": {
-          "$ref": "#/definitions/OperationProperties",
-          "description": "Properties of the operation"
-        }
-      }
-    },
-    "OperationDisplay": {
-      "type": "object",
-      "description": "Contains the localized display information for this operation",
-      "properties": {
-        "provider": {
-          "type": "string",
-          "description": "Localized friendly form of the resource provider name",
-          "readOnly": true
-        },
-        "resource": {
-          "type": "string",
-          "description": "Localized friendly form of the resource type related to this operation",
-          "readOnly": true
-        },
-        "operation": {
-          "type": "string",
-          "description": "Localized friendly name for the operation",
-          "readOnly": true
-        },
-        "description": {
-          "type": "string",
-          "description": "Localized friendly description for the operation",
-          "readOnly": true
-        }
-      }
-    },
-    "OperationProperties": {
-      "type": "object",
-      "description": "Extra Operation properties",
-      "properties": {
-        "serviceSpecification": {
-          "$ref": "#/definitions/ServiceSpecification",
-          "description": "Service specifications of the operation"
-        }
       }
     },
     "OptionalParamEnum": {
@@ -6274,28 +6103,6 @@
           "items": {
             "$ref": "#/definitions/HcxEnterpriseSite"
           }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedOperation": {
-      "type": "object",
-      "description": "Pageable list of operations",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The Operation items on this page",
-          "items": {
-            "$ref": "#/definitions/Operation"
-          },
-          "x-ms-identifiers": []
         },
         "nextLink": {
           "type": "string",
@@ -7697,28 +7504,6 @@
             "description": "FAILURE"
           }
         ]
-      }
-    },
-    "ServiceSpecification": {
-      "type": "object",
-      "description": "Service specification payload",
-      "properties": {
-        "logSpecifications": {
-          "type": "array",
-          "description": "Specifications of the Log for Azure Monitoring",
-          "items": {
-            "$ref": "#/definitions/LogSpecification"
-          },
-          "x-ms-identifiers": []
-        },
-        "metricSpecifications": {
-          "type": "array",
-          "description": "Specifications of the Metrics for Azure Monitoring",
-          "items": {
-            "$ref": "#/definitions/MetricSpecification"
-          },
-          "x-ms-identifiers": []
-        }
       }
     },
     "Sku": {

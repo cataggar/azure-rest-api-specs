@@ -9,12 +9,7 @@ using Azure.ResourceManager;
 
 namespace Microsoft.AVS;
 
-interface OperationsOperations {
-  @doc("Lists all of the available operations")
-  @route("/providers/Microsoft.AVS/operations")
-  @get
-  list is Azure.Core.Foundations.Operation<{}, OperationList>;
-}
+interface Operations extends Azure.ResourceManager.Operations {}
 
 interface LocationsOperations {
   @doc("Return trial status for subscription by region")
