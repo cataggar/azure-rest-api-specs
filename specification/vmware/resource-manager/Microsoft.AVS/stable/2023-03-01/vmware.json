@@ -1034,11 +1034,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           }
         ],
         "responses": {
@@ -1076,18 +1072,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "cluster",
@@ -1137,11 +1125,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "clusterUpdate",
@@ -1191,11 +1175,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           }
         ],
         "responses": {
@@ -1235,11 +1215,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           }
         ],
         "responses": {
@@ -1285,11 +1261,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "datastoreName",
@@ -1337,11 +1309,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "datastoreName",
@@ -1398,11 +1366,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "datastoreName",
@@ -1449,11 +1413,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           }
         ],
         "responses": {
@@ -1496,11 +1456,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           }
         ],
         "responses": {
@@ -1546,11 +1502,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "placementPolicyName",
@@ -1598,11 +1550,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "placementPolicyName",
@@ -1659,11 +1607,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "placementPolicyName",
@@ -1720,11 +1664,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "placementPolicyName",
@@ -1772,11 +1712,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           }
         ],
         "responses": {
@@ -1822,11 +1758,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "virtualMachineId",
@@ -1876,11 +1808,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterParameter"
           },
           {
             "name": "virtualMachineId",
@@ -2169,11 +2097,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "hcxEnterpriseSiteName",
-            "in": "path",
-            "description": "Name of the HCX Enterprise Site in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/HcxEnterpriseSiteParameter"
           }
         ],
         "responses": {
@@ -2211,18 +2135,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "hcxEnterpriseSiteName",
-            "in": "path",
-            "description": "Name of the HCX Enterprise Site in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/HcxEnterpriseSiteParameter"
           },
           {
             "name": "hcxEnterpriseSite",
@@ -2272,11 +2188,7 @@
             "$ref": "#/parameters/PrivateCloudParameter"
           },
           {
-            "name": "hcxEnterpriseSiteName",
-            "in": "path",
-            "description": "Name of the HCX Enterprise Site in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/HcxEnterpriseSiteParameter"
           }
         ],
         "responses": {
@@ -9345,6 +9257,24 @@
       "minLength": 1,
       "x-ms-parameter-location": "method",
       "x-ms-client-name": "apiVersion"
+    },
+    "ClusterParameter": {
+      "name": "clusterName",
+      "in": "path",
+      "description": "Name of the cluster in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "HcxEnterpriseSiteParameter": {
+      "name": "hcxEnterpriseSiteName",
+      "in": "path",
+      "description": "Name of the HCX Enterprise Site in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
     },
     "PrivateCloudParameter": {
       "name": "privateCloudName",

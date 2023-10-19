@@ -12,11 +12,19 @@ model PrivateCloudParameter {
 }
 
 @doc("The parameter for the cluster name.")
-model ClusterNameParameter {
+model ClusterParameter {
   @path
   @doc("Name of the cluster in the private cloud.")
   @pattern("^[-\\w\\._]+$")
   clusterName: string;
+}
+
+@doc("The parameter for the cluster name.")
+model HcxEnterpriseSiteParameter {
+  @path
+  @doc("Name of the HCX Enterprise Site in the private cloud.")
+  @pattern("^[-\\w\\._]+$")
+  hcxEnterpriseSiteName: string;
 }
 
 //   "hcxEnterpriseSiteName": {

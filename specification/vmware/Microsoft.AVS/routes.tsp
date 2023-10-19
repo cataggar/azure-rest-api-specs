@@ -180,7 +180,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
     },
     Cluster
   >;
@@ -193,7 +193,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("A cluster in the private cloud")
       @body
@@ -210,7 +210,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("The cluster properties to be updated")
       @body
@@ -227,7 +227,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
     },
     void
   >;
@@ -240,7 +240,7 @@ interface ClustersOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
     },
     ClusterZoneList
   >;
@@ -255,7 +255,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
     },
     DatastoreList
   >;
@@ -268,7 +268,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Name of the datastore in the private cloud cluster")
       @path
@@ -285,7 +285,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Name of the datastore in the private cloud cluster")
       @path
@@ -306,7 +306,7 @@ interface DatastoresOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Name of the datastore in the private cloud cluster")
       @path
@@ -337,10 +337,7 @@ interface HcxEnterpriseSitesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the HCX Enterprise Site in the private cloud")
-      @path
-      hcxEnterpriseSiteName: string;
+      ...HcxEnterpriseSiteParameter;
     },
     HcxEnterpriseSite
   >;
@@ -352,14 +349,8 @@ interface HcxEnterpriseSitesOperations {
     {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
-
-      @doc("The name of the private cloud.")
-      @path
-      privateCloudName: string;
-
-      @doc("Name of the HCX Enterprise Site in the private cloud")
-      @path
-      hcxEnterpriseSiteName: string;
+      ...PrivateCloudParameter;
+      ...HcxEnterpriseSiteParameter;
 
       @doc("The HCX Enterprise Site")
       @body
@@ -376,10 +367,7 @@ interface HcxEnterpriseSitesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-
-      @doc("Name of the HCX Enterprise Site in the private cloud")
-      @path
-      hcxEnterpriseSiteName: string;
+      ...HcxEnterpriseSiteParameter;
     },
     void
   >;
@@ -1367,7 +1355,7 @@ interface VirtualMachinesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
     },
     VirtualMachinesList
   >;
@@ -1380,7 +1368,7 @@ interface VirtualMachinesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Virtual Machine identifier")
       @path
@@ -1397,7 +1385,7 @@ interface VirtualMachinesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Virtual Machine identifier")
       @path
@@ -1420,7 +1408,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
     },
     PlacementPoliciesList
   >;
@@ -1433,7 +1421,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
@@ -1450,7 +1438,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
@@ -1471,7 +1459,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
@@ -1492,7 +1480,7 @@ interface PlacementPoliciesOperations {
       ...SubscriptionIdParameter;
       ...ResourceGroupParameter;
       ...PrivateCloudParameter;
-      ...ClusterNameParameter;
+      ...ClusterParameter;
 
       @doc("Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy")
       @path
