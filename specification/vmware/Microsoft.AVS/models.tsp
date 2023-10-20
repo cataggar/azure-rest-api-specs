@@ -731,51 +731,6 @@ enum AffinityType {
   AntiAffinity,
 }
 
-@doc("""
-Common error response for all Azure Resource Manager APIs to return error
-details for failed operations. (This also follows the OData error response
-format.).
-""")
-@error
-model ErrorResponse {
-  @doc("The error object.")
-  error?: ErrorDetail;
-}
-
-@doc("The error detail.")
-model ErrorDetail {
-  @doc("The error code.")
-  @visibility("read")
-  code?: string;
-
-  @doc("The error message.")
-  @visibility("read")
-  message?: string;
-
-  @doc("The error target.")
-  @visibility("read")
-  target?: string;
-
-  @doc("The error details.")
-  @visibility("read")
-  details?: ErrorDetail[];
-
-  @doc("The error additional info.")
-  @visibility("read")
-  additionalInfo?: ErrorAdditionalInfo[];
-}
-
-@doc("The resource management error additional info.")
-model ErrorAdditionalInfo {
-  @doc("The additional info type.")
-  @visibility("read")
-  type?: string;
-
-  @doc("The additional info.")
-  @visibility("read")
-  info?: unknown;
-}
-
 @doc("The resource model definition representing SKU")
 model Sku {
   @doc("The name of the SKU.")
@@ -1912,17 +1867,14 @@ errors or powershell threw an exception
 
   @doc("Time the script execution was submitted")
   @visibility("read")
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   submittedAt?: utcDateTime;
 
   @doc("Time the script execution was started")
   @visibility("read")
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   startedAt?: utcDateTime;
 
   @doc("Time the script execution was finished")
   @visibility("read")
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   finishedAt?: utcDateTime;
 
   @doc("The state of the script execution resource")
@@ -1932,6 +1884,7 @@ errors or powershell threw an exception
   @doc("Standard output stream from the powershell execution")
   output?: string[];
 
+  #suppress "@azure-tools/typespec-azure-core/bad-record-type" "It is unknown."
   @doc("User-defined dictionary.")
   namedOutputs?: Record<unknown>;
 
