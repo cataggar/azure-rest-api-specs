@@ -38,34 +38,35 @@
       }
     }
   },
-  "tags": [],
+  "tags": [
+    {
+      "name": "Operations"
+    }
+  ],
   "paths": {
     "/providers/Microsoft.AVS/operations": {
       "get": {
-        "operationId": "OperationsOperations_List",
-        "description": "Lists all of the available operations",
+        "operationId": "Operations_List",
+        "tags": [
+          "Operations"
+        ],
+        "description": "List the operations for the provider",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedOperation"
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/OperationListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -249,7 +250,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -287,7 +288,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
             "name": "privateCloud",
@@ -334,7 +335,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
             "name": "privateCloudUpdate",
@@ -381,7 +382,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -418,7 +419,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -461,14 +462,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "addonName",
-            "in": "path",
-            "description": "Name of the addon for the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AddonNameParameter"
           }
         ],
         "responses": {
@@ -506,18 +503,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "addonName",
-            "in": "path",
-            "description": "Name of the addon for the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AddonNameParameter"
           },
           {
             "name": "addon",
@@ -564,14 +553,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "addonName",
-            "in": "path",
-            "description": "Name of the addon for the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AddonNameParameter"
           }
         ],
         "responses": {
@@ -608,7 +593,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -651,14 +636,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "authorizationName",
-            "in": "path",
-            "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AuthorizationNameParameter"
           }
         ],
         "responses": {
@@ -696,18 +677,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "authorizationName",
-            "in": "path",
-            "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AuthorizationNameParameter"
           },
           {
             "name": "authorization",
@@ -754,14 +727,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "authorizationName",
-            "in": "path",
-            "description": "Name of the ExpressRoute Circuit Authorization in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/AuthorizationNameParameter"
           }
         ],
         "responses": {
@@ -798,7 +767,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -841,14 +810,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "cloudLinkName",
-            "in": "path",
-            "description": "Name of the cloud link resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/CloudLinkNameParameter"
           }
         ],
         "responses": {
@@ -886,18 +851,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "cloudLinkName",
-            "in": "path",
-            "description": "Name of the cloud link resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/CloudLinkNameParameter"
           },
           {
             "name": "cloudLink",
@@ -944,14 +901,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "cloudLinkName",
-            "in": "path",
-            "description": "Name of the cloud link resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/CloudLinkNameParameter"
           }
         ],
         "responses": {
@@ -988,7 +941,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -1031,14 +984,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           }
         ],
         "responses": {
@@ -1076,18 +1025,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "name": "cluster",
@@ -1134,14 +1075,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
             "name": "clusterUpdate",
@@ -1188,14 +1125,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           }
         ],
         "responses": {
@@ -1232,14 +1165,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           }
         ],
         "responses": {
@@ -1282,21 +1211,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "datastoreName",
-            "in": "path",
-            "description": "Name of the datastore in the private cloud cluster",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DatastoreNameParameter"
           }
         ],
         "responses": {
@@ -1334,21 +1255,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "datastoreName",
-            "in": "path",
-            "description": "Name of the datastore in the private cloud cluster",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DatastoreNameParameter"
           },
           {
             "name": "datastore",
@@ -1395,21 +1308,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "datastoreName",
-            "in": "path",
-            "description": "Name of the datastore in the private cloud cluster",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DatastoreNameParameter"
           }
         ],
         "responses": {
@@ -1446,14 +1351,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           }
         ],
         "responses": {
@@ -1493,14 +1394,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           }
         ],
         "responses": {
@@ -1543,21 +1440,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           }
         ],
         "responses": {
@@ -1595,21 +1484,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           },
           {
             "name": "placementPolicy",
@@ -1656,21 +1537,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           },
           {
             "name": "placementPolicyUpdate",
@@ -1717,21 +1590,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "placementPolicyName",
-            "in": "path",
-            "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PlacementPolicyNameParameter"
           }
         ],
         "responses": {
@@ -1769,14 +1634,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           }
         ],
         "responses": {
@@ -1819,21 +1680,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "virtualMachineId",
-            "in": "path",
-            "description": "Virtual Machine identifier",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VirtualMachineIdParameter"
           }
         ],
         "responses": {
@@ -1873,21 +1726,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "clusterName",
-            "in": "path",
-            "description": "Name of the cluster in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ClusterNameParameter"
           },
           {
-            "name": "virtualMachineId",
-            "in": "path",
-            "description": "Virtual Machine identifier",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VirtualMachineIdParameter"
           },
           {
             "name": "restrictMovement",
@@ -1933,7 +1778,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -1976,14 +1821,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "globalReachConnectionName",
-            "in": "path",
-            "description": "Name of the global reach connection in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GlobalReachConnectionNameParameter"
           }
         ],
         "responses": {
@@ -2021,18 +1862,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "globalReachConnectionName",
-            "in": "path",
-            "description": "Name of the global reach connection in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GlobalReachConnectionNameParameter"
           },
           {
             "name": "globalReachConnection",
@@ -2079,14 +1912,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "globalReachConnectionName",
-            "in": "path",
-            "description": "Name of the global reach connection in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GlobalReachConnectionNameParameter"
           }
         ],
         "responses": {
@@ -2123,7 +1952,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -2166,14 +1995,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "hcxEnterpriseSiteName",
-            "in": "path",
-            "description": "Name of the HCX Enterprise Site in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/HcxEnterpriseSiteNameParameter"
           }
         ],
         "responses": {
@@ -2211,18 +2036,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "hcxEnterpriseSiteName",
-            "in": "path",
-            "description": "Name of the HCX Enterprise Site in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/HcxEnterpriseSiteNameParameter"
           },
           {
             "name": "hcxEnterpriseSite",
@@ -2269,14 +2086,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "hcxEnterpriseSiteName",
-            "in": "path",
-            "description": "Name of the HCX Enterprise Site in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/HcxEnterpriseSiteNameParameter"
           }
         ],
         "responses": {
@@ -2313,7 +2126,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -2353,7 +2166,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -2390,7 +2203,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -2427,7 +2240,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -2470,14 +2283,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           }
         ],
         "responses": {
@@ -2515,18 +2324,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "privateCloudName",
-            "in": "path",
-            "description": "The name of the private cloud.",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           },
           {
             "name": "scriptExecution",
@@ -2573,14 +2374,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           }
         ],
         "responses": {
@@ -2617,14 +2414,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptExecutionName",
-            "in": "path",
-            "description": "Name of the user-invoked script execution resource",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptExecutionNameParameter"
           },
           {
             "name": "scriptOutputStreamType",
@@ -2676,7 +2469,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -2719,14 +2512,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptPackageName",
-            "in": "path",
-            "description": "Name of the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptPackageNameParameter"
           }
         ],
         "responses": {
@@ -2766,14 +2555,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptPackageName",
-            "in": "path",
-            "description": "Name of the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptPackageNameParameter"
           }
         ],
         "responses": {
@@ -2816,21 +2601,13 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "scriptPackageName",
-            "in": "path",
-            "description": "Name of the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptPackageNameParameter"
           },
           {
-            "name": "scriptCmdletName",
-            "in": "path",
-            "description": "Name of the script cmdlet resource in the script package in the private cloud",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/ScriptCmdletNameParameter"
           }
         ],
         "responses": {
@@ -2870,7 +2647,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -2913,21 +2690,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "workloadNetworkName",
-            "in": "path",
-            "description": "Name for the workload network in the private cloud",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "default"
-            ],
-            "x-ms-enum": {
-              "name": "WorkloadNetworkName",
-              "modelAsString": true
-            }
+            "$ref": "#/parameters/WorkloadNetworkNameParameter"
           }
         ],
         "responses": {
@@ -2967,7 +2733,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3010,14 +2776,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3055,14 +2817,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           },
           {
             "name": "workloadNetworkDhcp",
@@ -3109,14 +2867,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           },
           {
             "name": "workloadNetworkDhcp",
@@ -3166,14 +2920,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dhcpId",
-            "in": "path",
-            "description": "NSX DHCP identifier. Generally the same as the DHCP display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DhcpIdParameter"
           }
         ],
         "responses": {
@@ -3210,7 +2960,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3253,14 +3003,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           }
         ],
         "responses": {
@@ -3298,14 +3044,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
             "name": "workloadNetworkDnsService",
@@ -3352,14 +3094,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
             "name": "workloadNetworkDnsService",
@@ -3409,14 +3147,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "dnsServiceId",
-            "in": "path",
-            "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3453,7 +3187,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3496,14 +3230,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           }
         ],
         "responses": {
@@ -3541,14 +3271,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           },
           {
             "name": "workloadNetworkDnsZone",
@@ -3595,14 +3321,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           },
           {
             "name": "workloadNetworkDnsZone",
@@ -3652,14 +3374,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "dnsZoneId",
-            "in": "path",
-            "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/DnsZoneIdParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3696,7 +3414,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3739,14 +3457,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "gatewayId",
-            "in": "path",
-            "description": "NSX Gateway identifier. Generally the same as the Gateway's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/GatewayIdParameter"
           }
         ],
         "responses": {
@@ -3786,7 +3500,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -3829,14 +3543,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           }
         ],
         "responses": {
@@ -3874,14 +3584,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           },
           {
             "name": "workloadNetworkPortMirroring",
@@ -3928,14 +3634,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           },
           {
             "name": "workloadNetworkPortMirroring",
@@ -3985,14 +3687,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "portMirroringId",
-            "in": "path",
-            "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display\nname",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PortMirroringIdParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -4029,7 +3727,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -4072,14 +3770,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "publicIPId",
-            "in": "path",
-            "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's\ndisplay name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PublicIpIdParameter"
           }
         ],
         "responses": {
@@ -4117,14 +3811,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "publicIPId",
-            "in": "path",
-            "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's\ndisplay name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PublicIpIdParameter"
           },
           {
             "name": "workloadNetworkPublicIP",
@@ -4171,14 +3861,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "publicIPId",
-            "in": "path",
-            "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's\ndisplay name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/PublicIpIdParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -4215,7 +3901,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -4258,14 +3944,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           }
         ],
         "responses": {
@@ -4303,14 +3985,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           },
           {
             "name": "workloadNetworkSegment",
@@ -4357,14 +4035,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           },
           {
             "name": "workloadNetworkSegment",
@@ -4414,14 +4088,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "segmentId",
-            "in": "path",
-            "description": "NSX Segment identifier. Generally the same as the Segment's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/SegmentIdParameter"
           }
         ],
         "responses": {
@@ -4458,7 +4128,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -4501,14 +4171,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "virtualMachineId",
-            "in": "path",
-            "description": "Virtual Machine identifier",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VirtualMachineIdParameter"
           }
         ],
         "responses": {
@@ -4548,7 +4214,7 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -4591,14 +4257,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           }
         ],
         "responses": {
@@ -4636,14 +4298,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           },
           {
             "name": "workloadNetworkVMGroup",
@@ -4690,14 +4348,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           },
           {
             "name": "workloadNetworkVMGroup",
@@ -4747,14 +4401,10 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "vmGroupId",
-            "in": "path",
-            "description": "NSX VM Group identifier. Generally the same as the VM Group's display name",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/VmGroupIdParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudParameter"
+            "$ref": "#/parameters/PrivateCloudNameParameter"
           }
         ],
         "responses": {
@@ -4859,6 +4509,7 @@
     },
     "AddonProvisioningState": {
       "type": "string",
+      "description": "AddonProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -4870,7 +4521,44 @@
       ],
       "x-ms-enum": {
         "name": "AddonProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "AddonSrmProperties": {
@@ -4937,24 +4625,50 @@
     },
     "AffinityStrength": {
       "type": "string",
+      "description": "AffinityStrength",
       "enum": [
         "Should",
         "Must"
       ],
       "x-ms-enum": {
         "name": "AffinityStrength",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Should",
+            "value": "Should",
+            "description": "Should"
+          },
+          {
+            "name": "Must",
+            "value": "Must",
+            "description": "Must"
+          }
+        ]
       }
     },
     "AffinityType": {
       "type": "string",
+      "description": "AffinityType",
       "enum": [
         "Affinity",
         "AntiAffinity"
       ],
       "x-ms-enum": {
         "name": "AffinityType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Affinity",
+            "value": "Affinity",
+            "description": "Affinity"
+          },
+          {
+            "name": "AntiAffinity",
+            "value": "AntiAffinity",
+            "description": "AntiAffinity"
+          }
+        ]
       }
     },
     "AvailabilityProperties": {
@@ -4979,13 +4693,26 @@
     },
     "AvailabilityStrategy": {
       "type": "string",
+      "description": "AvailabilityStrategy",
       "enum": [
         "SingleZone",
         "DualZone"
       ],
       "x-ms-enum": {
         "name": "AvailabilityStrategy",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SingleZone",
+            "value": "SingleZone",
+            "description": "SingleZone"
+          },
+          {
+            "name": "DualZone",
+            "value": "DualZone",
+            "description": "DualZone"
+          }
+        ]
       }
     },
     "Azure.Core.Foundations.Error": {
@@ -5051,13 +4778,26 @@
     },
     "AzureHybridBenefitType": {
       "type": "string",
+      "description": "AzureHybridBenefitType",
       "enum": [
         "SqlHost",
         "None"
       ],
       "x-ms-enum": {
         "name": "AzureHybridBenefitType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SqlHost",
+            "value": "SqlHost",
+            "description": "SqlHost"
+          },
+          {
+            "name": "None",
+            "value": "None",
+            "description": "None"
+          }
+        ]
       }
     },
     "Circuit": {
@@ -5128,6 +4868,7 @@
     },
     "CloudLinkStatus": {
       "type": "string",
+      "description": "CloudLinkStatus",
       "enum": [
         "Active",
         "Building",
@@ -5137,7 +4878,34 @@
       ],
       "x-ms-enum": {
         "name": "CloudLinkStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Active",
+            "value": "Active",
+            "description": "Active"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Disconnected",
+            "value": "Disconnected",
+            "description": "Disconnected"
+          }
+        ]
       }
     },
     "Cluster": {
@@ -5203,6 +4971,7 @@
     },
     "ClusterProvisioningState": {
       "type": "string",
+      "description": "ClusterProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5213,7 +4982,39 @@
       ],
       "x-ms-enum": {
         "name": "ClusterProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "ClusterUpdate": {
@@ -5328,6 +5129,7 @@
     },
     "DatastoreProvisioningState": {
       "type": "string",
+      "description": "DatastoreProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5340,11 +5142,54 @@
       ],
       "x-ms-enum": {
         "name": "DatastoreProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Pending",
+            "value": "Pending",
+            "description": "Pending"
+          },
+          {
+            "name": "Creating",
+            "value": "Creating",
+            "description": "Creating"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "DatastoreStatus": {
       "type": "string",
+      "description": "DatastoreStatus",
       "enum": [
         "Unknown",
         "Accessible",
@@ -5356,7 +5201,44 @@
       ],
       "x-ms-enum": {
         "name": "DatastoreStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Unknown",
+            "value": "Unknown",
+            "description": "Unknown"
+          },
+          {
+            "name": "Accessible",
+            "value": "Accessible",
+            "description": "Accessible"
+          },
+          {
+            "name": "Inaccessible",
+            "value": "Inaccessible",
+            "description": "Inaccessible"
+          },
+          {
+            "name": "Attached",
+            "value": "Attached",
+            "description": "Attached"
+          },
+          {
+            "name": "Detached",
+            "value": "Detached",
+            "description": "Detached"
+          },
+          {
+            "name": "LostCommunication",
+            "value": "LostCommunication",
+            "description": "LostCommunication"
+          },
+          {
+            "name": "DeadOrError",
+            "value": "DeadOrError",
+            "description": "DeadOrError"
+          }
+        ]
       }
     },
     "DiskPoolVolume": {
@@ -5388,6 +5270,7 @@
     },
     "DnsServiceLogLevelEnum": {
       "type": "string",
+      "description": "DnsServiceLogLevelEnum",
       "enum": [
         "DEBUG",
         "INFO",
@@ -5397,18 +5280,58 @@
       ],
       "x-ms-enum": {
         "name": "DnsServiceLogLevelEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "DEBUG",
+            "value": "DEBUG",
+            "description": "DEBUG"
+          },
+          {
+            "name": "INFO",
+            "value": "INFO",
+            "description": "INFO"
+          },
+          {
+            "name": "WARNING",
+            "value": "WARNING",
+            "description": "WARNING"
+          },
+          {
+            "name": "ERROR",
+            "value": "ERROR",
+            "description": "ERROR"
+          },
+          {
+            "name": "FATAL",
+            "value": "FATAL",
+            "description": "FATAL"
+          }
+        ]
       }
     },
     "DnsServiceStatusEnum": {
       "type": "string",
+      "description": "DnsServiceStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "DnsServiceStatusEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
+          },
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "Encryption": {
@@ -5427,13 +5350,26 @@
     },
     "EncryptionKeyStatus": {
       "type": "string",
+      "description": "EncryptionKeyStatus",
       "enum": [
         "Connected",
         "AccessDenied"
       ],
       "x-ms-enum": {
         "name": "EncryptionKeyStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Connected",
+            "value": "Connected",
+            "description": "Connected"
+          },
+          {
+            "name": "AccessDenied",
+            "value": "AccessDenied",
+            "description": "AccessDenied"
+          }
+        ]
       }
     },
     "EncryptionKeyVaultProperties": {
@@ -5471,24 +5407,50 @@
     },
     "EncryptionState": {
       "type": "string",
+      "description": "EncryptionState",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "EncryptionState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "EncryptionVersionType": {
       "type": "string",
+      "description": "EncryptionVersionType",
       "enum": [
         "Fixed",
         "AutoDetected"
       ],
       "x-ms-enum": {
         "name": "EncryptionVersionType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Fixed",
+            "value": "Fixed",
+            "description": "Fixed"
+          },
+          {
+            "name": "AutoDetected",
+            "value": "AutoDetected",
+            "description": "AutoDetected"
+          }
+        ]
       }
     },
     "Endpoints": {
@@ -5565,6 +5527,7 @@
     },
     "ExpressRouteAuthorizationProvisioningState": {
       "type": "string",
+      "description": "ExpressRouteAuthorizationProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5573,7 +5536,29 @@
       ],
       "x-ms-enum": {
         "name": "ExpressRouteAuthorizationProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "GlobalReachConnection": {
@@ -5636,6 +5621,7 @@
     },
     "GlobalReachConnectionProvisioningState": {
       "type": "string",
+      "description": "GlobalReachConnectionProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -5644,11 +5630,34 @@
       ],
       "x-ms-enum": {
         "name": "GlobalReachConnectionProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "GlobalReachConnectionStatus": {
       "type": "string",
+      "description": "GlobalReachConnectionStatus",
       "enum": [
         "Connected",
         "Connecting",
@@ -5656,7 +5665,24 @@
       ],
       "x-ms-enum": {
         "name": "GlobalReachConnectionStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Connected",
+            "value": "Connected",
+            "description": "Connected"
+          },
+          {
+            "name": "Connecting",
+            "value": "Connecting",
+            "description": "Connecting"
+          },
+          {
+            "name": "Disconnected",
+            "value": "Disconnected",
+            "description": "Disconnected"
+          }
+        ]
       }
     },
     "HcxEnterpriseSite": {
@@ -5703,6 +5729,7 @@
     },
     "HcxEnterpriseSiteStatus": {
       "type": "string",
+      "description": "HcxEnterpriseSiteStatus",
       "enum": [
         "Available",
         "Consumed",
@@ -5711,7 +5738,29 @@
       ],
       "x-ms-enum": {
         "name": "HcxEnterpriseSiteStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Available",
+            "value": "Available",
+            "description": "Available"
+          },
+          {
+            "name": "Consumed",
+            "value": "Consumed",
+            "description": "Consumed"
+          },
+          {
+            "name": "Deactivated",
+            "value": "Deactivated",
+            "description": "Deactivated"
+          },
+          {
+            "name": "Deleted",
+            "value": "Deleted",
+            "description": "Deleted"
+          }
+        ]
       }
     },
     "IdentitySource": {
@@ -5762,31 +5811,26 @@
     },
     "InternetEnum": {
       "type": "string",
+      "description": "InternetEnum",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "InternetEnum",
-        "modelAsString": true
-      }
-    },
-    "LogSpecification": {
-      "type": "object",
-      "description": "Specifications of the Log for Azure Monitoring",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the log"
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Localized friendly display name of the log"
-        },
-        "blobDuration": {
-          "type": "string",
-          "description": "Blob duration of the log"
-        }
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "ManagementCluster": {
@@ -5818,105 +5862,28 @@
         }
       }
     },
-    "MetricDimension": {
-      "type": "object",
-      "description": "Specifications of the Dimension of metrics",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the dimension"
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Localized friendly display name of the dimension"
-        },
-        "internalName": {
-          "type": "string",
-          "description": "Name of the dimension as it appears in MDM"
-        },
-        "toBeExportedForShoebox": {
-          "type": "boolean",
-          "description": "A boolean flag indicating whether this dimension should be included for the\nshoebox export scenario"
-        }
-      }
-    },
-    "MetricSpecification": {
-      "type": "object",
-      "description": "Specifications of the Metrics for Azure Monitoring",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the metric"
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Localized friendly display name of the metric"
-        },
-        "displayDescription": {
-          "type": "string",
-          "description": "Localized friendly description of the metric"
-        },
-        "unit": {
-          "type": "string",
-          "description": "Unit that makes sense for the metric"
-        },
-        "category": {
-          "type": "string",
-          "description": "Name of the metric category that the metric belongs to. A metric can only\nbelong to a single category."
-        },
-        "aggregationType": {
-          "type": "string",
-          "description": "Only provide one value for this field. Valid values: Average, Minimum, Maximum,\nTotal, Count."
-        },
-        "supportedAggregationTypes": {
-          "type": "array",
-          "description": "Supported aggregation types",
-          "items": {
-            "type": "string"
-          }
-        },
-        "supportedTimeGrainTypes": {
-          "type": "array",
-          "description": "Supported time grain types",
-          "items": {
-            "type": "string"
-          }
-        },
-        "fillGapWithZero": {
-          "type": "boolean",
-          "description": "Optional. If set to true, then zero will be returned for time duration where no\nmetric is emitted/published."
-        },
-        "dimensions": {
-          "type": "array",
-          "description": "Dimensions of the metric",
-          "items": {
-            "$ref": "#/definitions/MetricDimension"
-          },
-          "x-ms-identifiers": []
-        },
-        "enableRegionalMdmAccount": {
-          "type": "string",
-          "description": "Whether or not the service is using regional MDM accounts."
-        },
-        "sourceMdmAccount": {
-          "type": "string",
-          "description": "The name of the MDM account."
-        },
-        "sourceMdmNamespace": {
-          "type": "string",
-          "description": "The name of the MDM namespace."
-        }
-      }
-    },
     "MountOptionEnum": {
       "type": "string",
+      "description": "MountOptionEnum",
       "enum": [
         "MOUNT",
         "ATTACH"
       ],
       "x-ms-enum": {
         "name": "MountOptionEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "MOUNT",
+            "value": "MOUNT",
+            "description": "MOUNT"
+          },
+          {
+            "name": "ATTACH",
+            "value": "ATTACH",
+            "description": "ATTACH"
+          }
+        ]
       }
     },
     "NetAppVolume": {
@@ -5934,88 +5901,50 @@
     },
     "NsxPublicIpQuotaRaisedEnum": {
       "type": "string",
+      "description": "NsxPublicIpQuotaRaisedEnum",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "NsxPublicIpQuotaRaisedEnum",
-        "modelAsString": true
-      }
-    },
-    "Operation": {
-      "type": "object",
-      "description": "A REST API operation",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "Name of the operation being performed on this object",
-          "readOnly": true
-        },
-        "display": {
-          "$ref": "#/definitions/OperationDisplay",
-          "description": "Contains the localized display information for this operation",
-          "readOnly": true
-        },
-        "isDataAction": {
-          "type": "boolean",
-          "description": "Gets or sets a value indicating whether the operation is a data action or not"
-        },
-        "origin": {
-          "type": "string",
-          "description": "Origin of the operation"
-        },
-        "properties": {
-          "$ref": "#/definitions/OperationProperties",
-          "description": "Properties of the operation"
-        }
-      }
-    },
-    "OperationDisplay": {
-      "type": "object",
-      "description": "Contains the localized display information for this operation",
-      "properties": {
-        "provider": {
-          "type": "string",
-          "description": "Localized friendly form of the resource provider name",
-          "readOnly": true
-        },
-        "resource": {
-          "type": "string",
-          "description": "Localized friendly form of the resource type related to this operation",
-          "readOnly": true
-        },
-        "operation": {
-          "type": "string",
-          "description": "Localized friendly name for the operation",
-          "readOnly": true
-        },
-        "description": {
-          "type": "string",
-          "description": "Localized friendly description for the operation",
-          "readOnly": true
-        }
-      }
-    },
-    "OperationProperties": {
-      "type": "object",
-      "description": "Extra Operation properties",
-      "properties": {
-        "serviceSpecification": {
-          "$ref": "#/definitions/ServiceSpecification",
-          "description": "Service specifications of the operation"
-        }
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "OptionalParamEnum": {
       "type": "string",
+      "description": "OptionalParamEnum",
       "enum": [
         "Optional",
         "Required"
       ],
       "x-ms-enum": {
         "name": "OptionalParamEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Optional",
+            "value": "Optional",
+            "description": "Optional"
+          },
+          {
+            "name": "Required",
+            "value": "Required",
+            "description": "Required"
+          }
+        ]
       }
     },
     "PSCredentialExecutionParameter": {
@@ -6174,28 +6103,6 @@
           "items": {
             "$ref": "#/definitions/HcxEnterpriseSite"
           }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedOperation": {
-      "type": "object",
-      "description": "Pageable list of operations",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The Operation items on this page",
-          "items": {
-            "$ref": "#/definitions/Operation"
-          },
-          "x-ms-identifiers": []
         },
         "nextLink": {
           "type": "string",
@@ -6597,6 +6504,7 @@
     },
     "PlacementPolicyProvisioningState": {
       "type": "string",
+      "description": "PlacementPolicyProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -6607,18 +6515,63 @@
       ],
       "x-ms-enum": {
         "name": "PlacementPolicyProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "PlacementPolicyState": {
       "type": "string",
+      "description": "PlacementPolicyState",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "PlacementPolicyState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "PlacementPolicyUpdate": {
@@ -6665,6 +6618,7 @@
     },
     "PortMirroringDirectionEnum": {
       "type": "string",
+      "description": "PortMirroringDirectionEnum",
       "enum": [
         "INGRESS",
         "EGRESS",
@@ -6672,18 +6626,48 @@
       ],
       "x-ms-enum": {
         "name": "PortMirroringDirectionEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "INGRESS",
+            "value": "INGRESS",
+            "description": "INGRESS"
+          },
+          {
+            "name": "EGRESS",
+            "value": "EGRESS",
+            "description": "EGRESS"
+          },
+          {
+            "name": "BIDIRECTIONAL",
+            "value": "BIDIRECTIONAL",
+            "description": "BIDIRECTIONAL"
+          }
+        ]
       }
     },
     "PortMirroringStatusEnum": {
       "type": "string",
+      "description": "PortMirroringStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "PortMirroringStatusEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
+          },
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "PrivateCloud": {
@@ -6863,6 +6847,7 @@
     },
     "PrivateCloudProvisioningState": {
       "type": "string",
+      "description": "PrivateCloudProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -6875,7 +6860,49 @@
       ],
       "x-ms-enum": {
         "name": "PrivateCloudProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Pending",
+            "value": "Pending",
+            "description": "Pending"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "PrivateCloudUpdate": {
@@ -6958,24 +6985,50 @@
     },
     "QuotaEnabled": {
       "type": "string",
+      "description": "QuotaEnabled",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "QuotaEnabled",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "ResourceIdentityType": {
       "type": "string",
+      "description": "ResourceIdentityType",
       "enum": [
         "SystemAssigned",
         "None"
       ],
       "x-ms-enum": {
         "name": "ResourceIdentityType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SystemAssigned",
+            "value": "SystemAssigned",
+            "description": "SystemAssigned"
+          },
+          {
+            "name": "None",
+            "value": "None",
+            "description": "None"
+          }
+        ]
       }
     },
     "ScriptCmdlet": {
@@ -7174,6 +7227,7 @@
     },
     "ScriptExecutionProvisioningState": {
       "type": "string",
+      "description": "ScriptExecutionProvisioningState",
       "enum": [
         "Pending",
         "Running",
@@ -7186,11 +7240,54 @@
       ],
       "x-ms-enum": {
         "name": "ScriptExecutionProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Pending",
+            "value": "Pending",
+            "description": "Pending"
+          },
+          {
+            "name": "Running",
+            "value": "Running",
+            "description": "Running"
+          },
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Cancelling",
+            "value": "Cancelling",
+            "description": "Cancelling"
+          },
+          {
+            "name": "Cancelled",
+            "value": "Cancelled",
+            "description": "Cancelled"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "ScriptOutputStreamType": {
       "type": "string",
+      "description": "ScriptOutputStreamType",
       "enum": [
         "Information",
         "Warning",
@@ -7199,7 +7296,29 @@
       ],
       "x-ms-enum": {
         "name": "ScriptOutputStreamType",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Information",
+            "value": "Information",
+            "description": "Information"
+          },
+          {
+            "name": "Warning",
+            "value": "Warning",
+            "description": "Warning"
+          },
+          {
+            "name": "Output",
+            "value": "Output",
+            "description": "Output"
+          },
+          {
+            "name": "Error",
+            "value": "Error",
+            "description": "Error"
+          }
+        ]
       }
     },
     "ScriptPackage": {
@@ -7285,6 +7404,7 @@
     },
     "ScriptParameterTypes": {
       "type": "string",
+      "description": "ScriptParameterTypes",
       "enum": [
         "String",
         "SecureString",
@@ -7295,7 +7415,39 @@
       ],
       "x-ms-enum": {
         "name": "ScriptParameterTypes",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "String",
+            "value": "String",
+            "description": "String"
+          },
+          {
+            "name": "SecureString",
+            "value": "SecureString",
+            "description": "SecureString"
+          },
+          {
+            "name": "Credential",
+            "value": "Credential",
+            "description": "Credential"
+          },
+          {
+            "name": "Int",
+            "value": "Int",
+            "description": "Int"
+          },
+          {
+            "name": "Bool",
+            "value": "Bool",
+            "description": "Bool"
+          },
+          {
+            "name": "Float",
+            "value": "Float",
+            "description": "Float"
+          }
+        ]
       }
     },
     "ScriptSecureStringExecutionParameter": {
@@ -7332,35 +7484,26 @@
     },
     "SegmentStatusEnum": {
       "type": "string",
+      "description": "SegmentStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "SegmentStatusEnum",
-        "modelAsString": true
-      }
-    },
-    "ServiceSpecification": {
-      "type": "object",
-      "description": "Service specification payload",
-      "properties": {
-        "logSpecifications": {
-          "type": "array",
-          "description": "Specifications of the Log for Azure Monitoring",
-          "items": {
-            "$ref": "#/definitions/LogSpecification"
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
           },
-          "x-ms-identifiers": []
-        },
-        "metricSpecifications": {
-          "type": "array",
-          "description": "Specifications of the Metrics for Azure Monitoring",
-          "items": {
-            "$ref": "#/definitions/MetricSpecification"
-          },
-          "x-ms-identifiers": []
-        }
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "Sku": {
@@ -7378,13 +7521,26 @@
     },
     "SslEnum": {
       "type": "string",
+      "description": "SslEnum",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "SslEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "Trial": {
@@ -7406,6 +7562,7 @@
     },
     "TrialStatus": {
       "type": "string",
+      "description": "TrialStatus",
       "enum": [
         "TrialAvailable",
         "TrialUsed",
@@ -7413,22 +7570,53 @@
       ],
       "x-ms-enum": {
         "name": "TrialStatus",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "TrialAvailable",
+            "value": "TrialAvailable",
+            "description": "TrialAvailable"
+          },
+          {
+            "name": "TrialUsed",
+            "value": "TrialUsed",
+            "description": "TrialUsed"
+          },
+          {
+            "name": "TrialDisabled",
+            "value": "TrialDisabled",
+            "description": "TrialDisabled"
+          }
+        ]
       }
     },
     "VMGroupStatusEnum": {
       "type": "string",
+      "description": "VMGroupStatusEnum",
       "enum": [
         "SUCCESS",
         "FAILURE"
       ],
       "x-ms-enum": {
         "name": "VMGroupStatusEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "SUCCESS",
+            "value": "SUCCESS",
+            "description": "SUCCESS"
+          },
+          {
+            "name": "FAILURE",
+            "value": "FAILURE",
+            "description": "FAILURE"
+          }
+        ]
       }
     },
     "VMTypeEnum": {
       "type": "string",
+      "description": "VMTypeEnum",
       "enum": [
         "REGULAR",
         "EDGE",
@@ -7436,7 +7624,24 @@
       ],
       "x-ms-enum": {
         "name": "VMTypeEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "REGULAR",
+            "value": "REGULAR",
+            "description": "REGULAR"
+          },
+          {
+            "name": "EDGE",
+            "value": "EDGE",
+            "description": "EDGE"
+          },
+          {
+            "name": "SERVICE",
+            "value": "SERVICE",
+            "description": "SERVICE"
+          }
+        ]
       }
     },
     "VirtualMachine": {
@@ -7502,24 +7707,50 @@
     },
     "VirtualMachineRestrictMovementState": {
       "type": "string",
+      "description": "VirtualMachineRestrictMovementState",
       "enum": [
         "Enabled",
         "Disabled"
       ],
       "x-ms-enum": {
         "name": "VirtualMachineRestrictMovementState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Enabled",
+            "value": "Enabled",
+            "description": "Enabled"
+          },
+          {
+            "name": "Disabled",
+            "value": "Disabled",
+            "description": "Disabled"
+          }
+        ]
       }
     },
     "VisibilityParameterEnum": {
       "type": "string",
+      "description": "VisibilityParameterEnum",
       "enum": [
         "Visible",
         "Hidden"
       ],
       "x-ms-enum": {
         "name": "VisibilityParameterEnum",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Visible",
+            "value": "Visible",
+            "description": "Visible"
+          },
+          {
+            "name": "Hidden",
+            "value": "Hidden",
+            "description": "Hidden"
+          }
+        ]
       }
     },
     "VmHostPlacementPolicyProperties": {
@@ -7676,6 +7907,7 @@
     },
     "WorkloadNetworkDhcpProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkDhcpProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -7686,7 +7918,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkDhcpProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkDhcpRelay": {
@@ -7800,6 +8064,7 @@
     },
     "WorkloadNetworkDnsServiceProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkDnsServiceProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -7810,7 +8075,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkDnsServiceProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkDnsZone": {
@@ -7883,6 +8180,7 @@
     },
     "WorkloadNetworkDnsZoneProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkDnsZoneProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -7893,7 +8191,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkDnsZoneProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkGateway": {
@@ -8000,6 +8330,7 @@
     },
     "WorkloadNetworkPortMirroringProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkPortMirroringProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8010,7 +8341,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkPortMirroringProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkPublicIP": {
@@ -8065,6 +8428,7 @@
     },
     "WorkloadNetworkPublicIPProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkPublicIPProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8075,7 +8439,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkPublicIPProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkSegment": {
@@ -8157,6 +8553,7 @@
     },
     "WorkloadNetworkSegmentProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkSegmentProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8167,7 +8564,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkSegmentProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkSegmentSubnet": {
@@ -8246,6 +8675,7 @@
     },
     "WorkloadNetworkVMGroupProvisioningState": {
       "type": "string",
+      "description": "WorkloadNetworkVMGroupProvisioningState",
       "enum": [
         "Succeeded",
         "Failed",
@@ -8256,7 +8686,39 @@
       ],
       "x-ms-enum": {
         "name": "WorkloadNetworkVMGroupProvisioningState",
-        "modelAsString": true
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Succeeded"
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Failed"
+          },
+          {
+            "name": "Building",
+            "value": "Building",
+            "description": "Building"
+          },
+          {
+            "name": "Deleting",
+            "value": "Deleting",
+            "description": "Deleting"
+          },
+          {
+            "name": "Updating",
+            "value": "Updating",
+            "description": "Updating"
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Canceled"
+          }
+        ]
       }
     },
     "WorkloadNetworkVirtualMachine": {
@@ -8301,6 +8763,24 @@
     }
   },
   "parameters": {
+    "AddonNameParameter": {
+      "name": "addonName",
+      "in": "path",
+      "description": "Name of the addon for the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "AuthorizationNameParameter": {
+      "name": "authorizationName",
+      "in": "path",
+      "description": "Name of the ExpressRoute Circuit Authorization in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
     "Azure.Core.Foundations.ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
@@ -8311,13 +8791,188 @@
       "x-ms-parameter-location": "method",
       "x-ms-client-name": "apiVersion"
     },
-    "PrivateCloudParameter": {
+    "CloudLinkNameParameter": {
+      "name": "cloudLinkName",
+      "in": "path",
+      "description": "Name of the cloud link resource.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "ClusterNameParameter": {
+      "name": "clusterName",
+      "in": "path",
+      "description": "Name of the cluster in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "DatastoreNameParameter": {
+      "name": "datastoreName",
+      "in": "path",
+      "description": "Name of the datastore in the private cloud cluster.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "DhcpIdParameter": {
+      "name": "dhcpId",
+      "in": "path",
+      "description": "NSX DHCP identifier. Generally the same as the DHCP display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "DnsServiceIdParameter": {
+      "name": "dnsServiceId",
+      "in": "path",
+      "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "DnsZoneIdParameter": {
+      "name": "dnsZoneId",
+      "in": "path",
+      "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "GatewayIdParameter": {
+      "name": "gatewayId",
+      "in": "path",
+      "description": "NSX Gateway identifier. Generally the same as the Gateway's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "GlobalReachConnectionNameParameter": {
+      "name": "globalReachConnectionName",
+      "in": "path",
+      "description": "Name of the global reach connection in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "HcxEnterpriseSiteNameParameter": {
+      "name": "hcxEnterpriseSiteName",
+      "in": "path",
+      "description": "Name of the HCX Enterprise Site in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "PlacementPolicyNameParameter": {
+      "name": "placementPolicyName",
+      "in": "path",
+      "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "PortMirroringIdParameter": {
+      "name": "portMirroringId",
+      "in": "path",
+      "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "PrivateCloudNameParameter": {
       "name": "privateCloudName",
       "in": "path",
       "description": "Name of the private cloud",
       "required": true,
       "type": "string",
       "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "PublicIpIdParameter": {
+      "name": "publicIPId",
+      "in": "path",
+      "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptCmdletNameParameter": {
+      "name": "scriptCmdletName",
+      "in": "path",
+      "description": "Name of the script cmdlet resource in the script package in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptExecutionNameParameter": {
+      "name": "scriptExecutionName",
+      "in": "path",
+      "description": "Name of the user-invoked script execution resource.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "ScriptPackageNameParameter": {
+      "name": "scriptPackageName",
+      "in": "path",
+      "description": "Name of the script package in the private cloud.",
+      "required": true,
+      "type": "string",
+      "pattern": "^[-\\w\\._@]+$",
+      "x-ms-parameter-location": "method"
+    },
+    "SegmentIdParameter": {
+      "name": "segmentId",
+      "in": "path",
+      "description": "NSX Segment identifier. Generally the same as the Segment's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "VirtualMachineIdParameter": {
+      "name": "virtualMachineId",
+      "in": "path",
+      "description": "Virtual Machine identifier.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "VmGroupIdParameter": {
+      "name": "vmGroupId",
+      "in": "path",
+      "description": "NSX VM Group identifier. Generally the same as the VM Group's display name.",
+      "required": true,
+      "type": "string",
+      "x-ms-parameter-location": "method"
+    },
+    "WorkloadNetworkNameParameter": {
+      "name": "workloadNetworkName",
+      "in": "path",
+      "description": "Name of the script cmdlet resource in the script package in the private cloud.",
+      "required": true,
+      "type": "string",
+      "enum": [
+        "default"
+      ],
+      "x-ms-enum": {
+        "name": "WorkloadNetworkName",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "default",
+            "value": "default",
+            "description": "default"
+          }
+        ]
+      },
       "x-ms-parameter-location": "method"
     }
   }

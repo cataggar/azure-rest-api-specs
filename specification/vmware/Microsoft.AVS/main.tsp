@@ -6,6 +6,7 @@ using Azure.ResourceManager;
 using TypeSpec.Http;
 using TypeSpec.Versioning;
 
+#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @armProviderNamespace("Microsoft.AVS")
 @service({
   title: "Azure VMware Solution API",
