@@ -1,4 +1,6 @@
 {
+  "title": "WorkloadNetworks_CreateVMGroups",
+  "operationId": "WorkloadNetworks_CreateVMGroups",
   "parameters": {
     "api-version": "2023-03-01",
     "subscriptionId": "00000000-0000-0000-0000-000000000000",
