@@ -1520,7 +1520,8 @@ model WorkloadNetworkDnsServicesList
   is Azure.Core.Page<WorkloadNetworkDnsService>;
 
 @doc("NSX DNS Service")
-model WorkloadNetworkDnsService is WorkloadNetworkDnsServiceProperties {
+model WorkloadNetworkDnsService
+  is ProxyResource<WorkloadNetworkDnsServiceProperties> {
   @doc("ID of the DNS service.")
   @pattern("^[-\\w\\._]+$")
   @key("dnsServiceId")

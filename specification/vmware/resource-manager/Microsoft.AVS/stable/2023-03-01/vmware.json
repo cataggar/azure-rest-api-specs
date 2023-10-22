@@ -3035,46 +3035,6 @@
           }
         }
       },
-      "delete": {
-        "operationId": "WorkloadNetworksOperations_DeleteDnsService",
-        "description": "Delete a DNS service by id in a private cloud workload network.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/DnsServiceIdParameter"
-          },
-          {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}/{name}": {
       "put": {
         "operationId": "WorkloadNetworksOperations_CreateDnsService",
         "description": "Create a DNS service by id in a private cloud workload network.",
@@ -3095,20 +3055,12 @@
             "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
-            "name": "name",
-            "in": "path",
-            "description": "ID of the DNS service.",
-            "required": true,
-            "type": "string",
-            "pattern": "^[-\\w\\._]+$"
-          },
-          {
             "name": "workloadNetworkDnsService",
             "in": "body",
             "description": "NSX DNS Service",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkDnsServiceCreateOrUpdate"
+              "$ref": "#/definitions/WorkloadNetworkDnsService"
             }
           }
         ],
@@ -3153,14 +3105,6 @@
             "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
-            "name": "name",
-            "in": "path",
-            "description": "ID of the DNS service.",
-            "required": true,
-            "type": "string",
-            "pattern": "^[-\\w\\._]+$"
-          },
-          {
             "name": "workloadNetworkDnsService",
             "in": "body",
             "description": "NSX DNS Service",
@@ -3177,6 +3121,44 @@
               "$ref": "#/definitions/WorkloadNetworkDnsService"
             }
           },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful. "
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "WorkloadNetworksOperations_DeleteDnsService",
+        "description": "Delete a DNS service by id in a private cloud workload network.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/DnsServiceIdParameter"
+          },
+          {
+            "$ref": "#/parameters/PrivateCloudNameParameter"
+          }
+        ],
+        "responses": {
           "204": {
             "description": "There is no content to send for this request, but the headers may be useful. "
           },
@@ -6277,8 +6259,7 @@
           "description": "The WorkloadNetworkDnsService items on this page",
           "items": {
             "$ref": "#/definitions/WorkloadNetworkDnsService"
-          },
-          "x-ms-identifiers": []
+          }
         },
         "nextLink": {
           "type": "string",
@@ -7946,6 +7927,26 @@
       "type": "object",
       "description": "NSX DNS Service",
       "properties": {
+        "properties": {
+          "$ref": "#/definitions/WorkloadNetworkDnsServiceProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "WorkloadNetworkDnsServiceProperties": {
+      "type": "object",
+      "description": "NSX DNS Service Properties",
+      "properties": {
         "displayName": {
           "type": "string",
           "description": "Display name of the DNS Service."
@@ -7978,48 +7979,6 @@
           "$ref": "#/definitions/WorkloadNetworkDnsServiceProvisioningState",
           "description": "The provisioning state",
           "readOnly": true
-        },
-        "revision": {
-          "type": "integer",
-          "format": "int32",
-          "description": "NSX revision number."
-        },
-        "name": {
-          "type": "string",
-          "description": "ID of the DNS service.",
-          "pattern": "^[-\\w\\._]+$"
-        }
-      },
-      "required": [
-        "name"
-      ]
-    },
-    "WorkloadNetworkDnsServiceCreateOrUpdate": {
-      "type": "object",
-      "description": "NSX DNS Service",
-      "properties": {
-        "displayName": {
-          "type": "string",
-          "description": "Display name of the DNS Service."
-        },
-        "dnsServiceIp": {
-          "type": "string",
-          "description": "DNS service IP of the DNS Service."
-        },
-        "defaultDnsZone": {
-          "type": "string",
-          "description": "Default DNS zone of the DNS Service."
-        },
-        "fqdnZones": {
-          "type": "array",
-          "description": "FQDN zones of the DNS Service.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "logLevel": {
-          "$ref": "#/definitions/DnsServiceLogLevelEnum",
-          "description": "DNS Service log level."
         },
         "revision": {
           "type": "integer",
@@ -8079,36 +8038,11 @@
     "WorkloadNetworkDnsServiceUpdate": {
       "type": "object",
       "description": "NSX DNS Service",
-      "properties": {
-        "displayName": {
-          "type": "string",
-          "description": "Display name of the DNS Service."
-        },
-        "dnsServiceIp": {
-          "type": "string",
-          "description": "DNS service IP of the DNS Service."
-        },
-        "defaultDnsZone": {
-          "type": "string",
-          "description": "Default DNS zone of the DNS Service."
-        },
-        "fqdnZones": {
-          "type": "array",
-          "description": "FQDN zones of the DNS Service.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "logLevel": {
-          "$ref": "#/definitions/DnsServiceLogLevelEnum",
-          "description": "DNS Service log level."
-        },
-        "revision": {
-          "type": "integer",
-          "format": "int32",
-          "description": "NSX revision number."
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
-      }
+      ]
     },
     "WorkloadNetworkDnsZone": {
       "type": "object",
