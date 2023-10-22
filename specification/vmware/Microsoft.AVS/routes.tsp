@@ -44,50 +44,9 @@ interface PrivateClouds {
   list is ArmResourceListByParent<PrivateCloud>;
   listInSubscription is ArmListBySubscription<PrivateCloud>;
   get is ArmResourceRead<PrivateCloud>;
-
-  @doc("Create or update a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-
-      @doc("The private cloud")
-      @body
-      privateCloud: PrivateCloud;
-    },
-    PrivateCloud
-  >;
-
-  @doc("Update a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
-  @patch
-  update is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-
-      @doc("The private cloud properties to be updated")
-      @body
-      privateCloudUpdate: PrivateCloudUpdate;
-    },
-    PrivateCloud
-  >;
-
-  @doc("Delete a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<PrivateCloud>;
+  update is ArmResourcePatchAsync<PrivateCloud, PrivateCloudUpdateProperties>;
+  delete is ArmResourceDeleteAsync<PrivateCloud>;
 
   @doc("Rotate the vCenter password")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateVcenterPassword")
