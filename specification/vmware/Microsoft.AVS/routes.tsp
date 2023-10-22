@@ -11,7 +11,7 @@ namespace Microsoft.AVS;
 
 interface Operations extends Azure.ResourceManager.Operations {}
 
-interface LocationsOperations {
+interface Locations {
   @doc("Return trial status for subscription by region")
   @route("/subscriptions/{subscriptionId}/providers/Microsoft.AVS/locations/{location}/checkTrialAvailability")
   @post
@@ -39,39 +39,11 @@ interface LocationsOperations {
   >;
 }
 
-interface PrivateCloudsOperations {
-  @doc("List private clouds in a resource group")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-    },
-    PrivateCloudList
-  >;
-
-  @doc("List private clouds in a subscription")
-  @route("/subscriptions/{subscriptionId}/providers/Microsoft.AVS/privateClouds")
-  @get
-  listInSubscription is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-    },
-    PrivateCloudList
-  >;
-
-  @doc("Get a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    PrivateCloud
-  >;
+@armResourceOperations
+interface PrivateClouds {
+  list is ArmResourceListByParent<PrivateCloud>;
+  listInSubscription is ArmListBySubscription<PrivateCloud>;
+  get is ArmResourceRead<PrivateCloud>;
 
   @doc("Create or update a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}")
@@ -241,7 +213,7 @@ interface ClustersOperations {
   >;
 }
 
-interface DatastoresOperations {
+interface Datastores {
   @doc("List datastores in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores")
   @get
@@ -302,7 +274,7 @@ interface DatastoresOperations {
   >;
 }
 
-interface HcxEnterpriseSitesOperations {
+interface HcxEnterpriseSites {
   @doc("List HCX on-premises key in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites")
   @get
@@ -359,7 +331,7 @@ interface HcxEnterpriseSitesOperations {
   >;
 }
 
-interface AuthorizationsOperations {
+interface Authorizations {
   @doc("List ExpressRoute Circuit Authorizations in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations")
   @get
@@ -416,7 +388,7 @@ interface AuthorizationsOperations {
   >;
 }
 
-interface GlobalReachConnectionsOperations {
+interface GlobalReachConnections {
   @doc("List global reach connections in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections")
   @get
@@ -473,7 +445,7 @@ interface GlobalReachConnectionsOperations {
   >;
 }
 
-interface WorkloadNetworksOperations {
+interface WorkloadNetworks {
   @doc("Get a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/{workloadNetworkName}")
   @get
@@ -1049,7 +1021,7 @@ network.
   >;
 }
 
-interface CloudLinksOperations {
+interface CloudLinks {
   @doc("List cloud link in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks")
   @get
@@ -1106,7 +1078,7 @@ interface CloudLinksOperations {
   >;
 }
 
-interface AddonsOperations {
+interface Addons {
   @doc("List addons in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons")
   @get
@@ -1163,7 +1135,7 @@ interface AddonsOperations {
   >;
 }
 
-interface VirtualMachinesOperations {
+interface VirtualMachines {
   @summary("List of virtual machines in a private cloud cluster")
   @doc("List of virtual machines in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines")
@@ -1211,7 +1183,7 @@ interface VirtualMachinesOperations {
   >;
 }
 
-interface PlacementPoliciesOperations {
+interface PlacementPolicies {
   @doc("List placement policies in a private cloud cluster")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies")
   @get
@@ -1290,7 +1262,7 @@ interface PlacementPoliciesOperations {
   >;
 }
 
-interface ScriptPackagesOperations {
+interface ScriptPackages {
   @doc("List script packages available to run on the private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages")
   @get
@@ -1317,7 +1289,7 @@ interface ScriptPackagesOperations {
   >;
 }
 
-interface ScriptCmdletsOperations {
+interface ScriptCmdlets {
   @doc("""
 List script cmdlet resources available for a private cloud to create a script
 execution resource on a private cloud
@@ -1352,7 +1324,7 @@ private cloud
   >;
 }
 
-interface ScriptExecutionsOperations {
+interface ScriptExecutions {
   @doc("List script executions in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions")
   @get
