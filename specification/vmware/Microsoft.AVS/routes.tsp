@@ -85,7 +85,7 @@ interface PrivateClouds {
   >;
 }
 
-interface ClustersOperations {
+interface Clusters {
   @doc("List clusters in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters")
   @get

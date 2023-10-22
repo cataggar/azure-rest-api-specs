@@ -1104,7 +1104,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters": {
       "get": {
-        "operationId": "ClustersOperations_List",
+        "operationId": "Clusters_List",
         "description": "List clusters in a private cloud",
         "parameters": [
           {
@@ -1140,6 +1140,11 @@
             }
           }
         },
+        "x-ms-examples": {
+          "Clusters_List": {
+            "$ref": "./examples/Clusters_List.json"
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -1147,7 +1152,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}": {
       "get": {
-        "operationId": "ClustersOperations_Get",
+        "operationId": "Clusters_Get",
         "description": "Get a cluster by name in a private cloud",
         "parameters": [
           {
@@ -1185,10 +1190,15 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "Clusters_Get": {
+            "$ref": "./examples/Clusters_Get.json"
+          }
         }
       },
       "put": {
-        "operationId": "ClustersOperations_CreateOrUpdate",
+        "operationId": "Clusters_CreateOrUpdate",
         "description": "Create or update a cluster in a private cloud",
         "parameters": [
           {
@@ -1235,10 +1245,15 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "Clusters_CreateOrUpdate": {
+            "$ref": "./examples/Clusters_CreateOrUpdate.json"
+          }
         }
       },
       "patch": {
-        "operationId": "ClustersOperations_Update",
+        "operationId": "Clusters_Update",
         "description": "Update a cluster in a private cloud",
         "parameters": [
           {
@@ -1285,10 +1300,15 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "Clusters_Update": {
+            "$ref": "./examples/Clusters_Update.json"
+          }
         }
       },
       "delete": {
-        "operationId": "ClustersOperations_Delete",
+        "operationId": "Clusters_Delete",
         "description": "Delete a cluster in a private cloud",
         "parameters": [
           {
@@ -1322,6 +1342,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "Clusters_Create": {
+            "$ref": "./examples/CloudLinks_CreateOrUpdate.json"
+          },
+          "Clusters_Delete": {
+            "$ref": "./examples/Clusters_Delete.json"
           }
         }
       }
@@ -1534,7 +1562,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/listZones": {
       "post": {
-        "operationId": "ClustersOperations_ListZones",
+        "operationId": "Clusters_ListZones",
         "description": "List hosts by zone in a cluster",
         "parameters": [
           {
@@ -1571,6 +1599,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "Clusters_ListZones": {
+            "$ref": "./examples/Clusters_ListZones.json"
+          },
+          "Clusters_ListZones_Stretched": {
+            "$ref": "./examples/Clusters_ListZones_Stretched.json"
           }
         }
       }
