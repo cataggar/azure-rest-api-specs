@@ -1054,6 +1054,7 @@ model PrivateCloudUpdate {
 model ClusterList is Azure.Core.Page<Cluster>;
 
 @doc("A cluster resource")
+@parentResource(PrivateCloud)
 model Cluster is ProxyResource<ClusterProperties> {
   @doc("Name of the cluster")
   @pattern("^[-\\w\\._]+$")
@@ -1107,6 +1108,7 @@ model ClusterZone {
 model DatastoreList is Azure.Core.Page<Datastore>;
 
 @doc("A datastore resource")
+@parentResource(Cluster)
 model Datastore is ProxyResource<DatastoreProperties> {
   @doc("Name of the datastore")
   @pattern("^[-\\w\\._]+$")
@@ -1181,6 +1183,7 @@ model AdminCredentials {
 model HcxEnterpriseSiteList is Azure.Core.Page<HcxEnterpriseSite>;
 
 @doc("An HCX Enterprise Site resource")
+@parentResource(PrivateCloud)
 model HcxEnterpriseSite is ProxyResource<HcxEnterpriseSiteProperties> {
   @doc("Name of the HCX Enterprise Site")
   @pattern("^[-\\w\\._]+$")
@@ -1206,6 +1209,7 @@ model ExpressRouteAuthorizationList
   is Azure.Core.Page<ExpressRouteAuthorization>;
 
 @doc("ExpressRoute Circuit Authorization")
+@parentResource(PrivateCloud)
 model ExpressRouteAuthorization
   is ProxyResource<ExpressRouteAuthorizationProperties> {
   @doc("Name of the ExpressRoute Circuit Authorization")
@@ -1238,6 +1242,7 @@ model ExpressRouteAuthorizationProperties {
 model GlobalReachConnectionList is Azure.Core.Page<GlobalReachConnection>;
 
 @doc("A global reach connection resource")
+@parentResource(PrivateCloud)
 model GlobalReachConnection is ProxyResource<GlobalReachConnectionProperties> {
   @doc("Name of the global reach connection")
   @pattern("^[-\\w\\._]+$")
@@ -1284,6 +1289,7 @@ global reach connection
 }
 
 @doc("Workload Network")
+@parentResource(PrivateCloud)
 model WorkloadNetwork is ProxyResource<WorkloadNetworkProperties> {
   @doc("Name of the global reach connection")
   @key("workloadNetworkName")
@@ -1302,6 +1308,7 @@ model WorkloadNetworkList is Azure.Core.Page<WorkloadNetwork>;
 model WorkloadNetworkSegmentsList is Azure.Core.Page<WorkloadNetworkSegment>;
 
 @doc("NSX Segment")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkSegment
   is ProxyResource<WorkloadNetworkSegmentProperties> {
   @doc("The ID of the NSX Segment")
@@ -1358,6 +1365,7 @@ model WorkloadNetworkSegmentPortVif {
 model WorkloadNetworkDhcpList is Azure.Core.Page<WorkloadNetworkDhcp>;
 
 @doc("NSX DHCP")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkDhcp is ProxyResource<WorkloadNetworkDhcpEntity> {
   @doc("The ID of the DHCP configuration")
   @pattern("^[-\\w\\._]+$")
@@ -1392,6 +1400,7 @@ model WorkloadNetworkDhcpEntity {
 model WorkloadNetworkGatewayList is Azure.Core.Page<WorkloadNetworkGateway>;
 
 @doc("NSX Gateway.")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkGateway
   is ProxyResource<WorkloadNetworkGatewayProperties> {
   @doc("The ID of the NSX Gateway")
@@ -1417,6 +1426,7 @@ model WorkloadNetworkPortMirroringList
   is Azure.Core.Page<WorkloadNetworkPortMirroring>;
 
 @doc("NSX Port Mirroring")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkPortMirroring
   is ProxyResource<WorkloadNetworkPortMirroringProperties> {
   @doc("ID of the NSX port mirroring profile.")
@@ -1459,6 +1469,7 @@ model WorkloadNetworkVMGroupsList is Azure.Core.Page<WorkloadNetworkVMGroup>;
 
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX VM Group")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkVMGroup
   is ProxyResource<WorkloadNetworkVMGroupProperties> {
   @doc("ID of the VM group.")
@@ -1495,6 +1506,7 @@ model WorkloadNetworkVirtualMachinesList
   is Azure.Core.Page<WorkloadNetworkVirtualMachine>;
 
 @doc("NSX Virtual Machine")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkVirtualMachine
   is ProxyResource<WorkloadNetworkVirtualMachineProperties> {
   @doc("ID of the virtual machine.")
@@ -1520,6 +1532,7 @@ model WorkloadNetworkDnsServicesList
   is Azure.Core.Page<WorkloadNetworkDnsService>;
 
 @doc("NSX DNS Service")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkDnsService
   is ProxyResource<WorkloadNetworkDnsServiceProperties> {
   @doc("ID of the DNS service.")
@@ -1563,6 +1576,7 @@ model WorkloadNetworkDnsServiceProperties {
 model WorkloadNetworkDnsZonesList is Azure.Core.Page<WorkloadNetworkDnsZone>;
 
 @doc("NSX DNS Zone")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkDnsZone
   is ProxyResource<WorkloadNetworkDnsZoneProperties> {
   @doc("ID of the DNS zone.")
@@ -1604,6 +1618,7 @@ model WorkloadNetworkPublicIPsList is Azure.Core.Page<WorkloadNetworkPublicIP>;
 
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX Public IP Block")
+@parentResource(WorkloadNetwork)
 model WorkloadNetworkPublicIP
   is ProxyResource<WorkloadNetworkPublicIPProperties> {
   @doc("ID of the DNS zone.")
@@ -1636,6 +1651,7 @@ model WorkloadNetworkPublicIPProperties {
 model CloudLinkList is Azure.Core.Page<CloudLink>;
 
 @doc("A cloud link resource")
+@parentResource(PrivateCloud)
 model CloudLink is ProxyResource<CloudLinkProperties> {
   @doc("Name of the cloud link.")
   @pattern("^[-\\w\\._]+$")
@@ -1659,6 +1675,7 @@ model CloudLinkProperties {
 model AddonList is Azure.Core.Page<Addon>;
 
 @doc("An addon resource")
+@parentResource(PrivateCloud)
 model Addon is ProxyResource<AddonProperties> {
   @doc("Name of the addon.")
   @pattern("^[-\\w\\._]+$")
@@ -1680,6 +1697,7 @@ model AddonProperties {
 model VirtualMachinesList is Azure.Core.Page<VirtualMachine>;
 
 @doc("Virtual Machine")
+@parentResource(Cluster)
 model VirtualMachine is ProxyResource<VirtualMachineProperties> {
   @doc("ID of the virtual machine.")
   @pattern("^[-\\w\\._]+$")
@@ -1718,6 +1736,7 @@ model VirtualMachineRestrictMovement {
 model PlacementPoliciesList is Azure.Core.Page<PlacementPolicy>;
 
 @doc("A vSphere Distributed Resource Scheduler (DRS) placement policy")
+@parentResource(Cluster)
 model PlacementPolicy is ProxyResource<PlacementPolicyProperties> {
   @doc("Name of the placement policy.")
   @pattern("^[-\\w\\._]+$")
@@ -1769,6 +1788,7 @@ model PlacementPolicyUpdateProperties {
 model ScriptPackagesList is Azure.Core.Page<ScriptPackage>;
 
 @doc("Script Package resources available for execution")
+@parentResource(PrivateCloud)
 model ScriptPackage is ProxyResource<ScriptPackageProperties> {
   @doc("Name of the script package.")
   @pattern("^[-\\w\\._@]+$")
@@ -1801,6 +1821,7 @@ model ScriptPackageProperties {
 model ScriptCmdletsList is Azure.Core.Page<ScriptCmdlet>;
 
 @doc("A cmdlet available for script execution")
+@parentResource(ScriptPackage)
 model ScriptCmdlet is ProxyResource<ScriptCmdletProperties> {
   @doc("Name of the script cmdlet.")
   @pattern("^[-\\w\\._]+$")
@@ -1857,6 +1878,7 @@ when executing
 model ScriptExecutionsList is Azure.Core.Page<ScriptExecution>;
 
 @doc("An instance of a script executed by a user - custom or AVS")
+@parentResource(PrivateCloud)
 model ScriptExecution is ProxyResource<ScriptExecutionProperties> {
   @doc("Name of the script cmdlet.")
   @pattern("^[-\\w\\._]+$")
