@@ -2878,7 +2878,7 @@
             "description": "NSX DHCP",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkDhcp"
+              "$ref": "#/definitions/WorkloadNetworkDhcpUpdate"
             }
           }
         ],
@@ -3030,6 +3030,46 @@
           }
         }
       },
+      "delete": {
+        "operationId": "WorkloadNetworksOperations_DeleteDnsService",
+        "description": "Delete a DNS service by id in a private cloud workload network.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/DnsServiceIdParameter"
+          },
+          {
+            "$ref": "#/parameters/PrivateCloudNameParameter"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful. "
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "String error code indicating what went wrong."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}/{name}": {
       "put": {
         "operationId": "WorkloadNetworksOperations_CreateDnsService",
         "description": "Create a DNS service by id in a private cloud workload network.",
@@ -3050,12 +3090,20 @@
             "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
+            "name": "name",
+            "in": "path",
+            "description": "ID of the DNS service.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          {
             "name": "workloadNetworkDnsService",
             "in": "body",
             "description": "NSX DNS Service",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkDnsService"
+              "$ref": "#/definitions/WorkloadNetworkDnsServiceCreateOrUpdate"
             }
           }
         ],
@@ -3100,12 +3148,20 @@
             "$ref": "#/parameters/DnsServiceIdParameter"
           },
           {
+            "name": "name",
+            "in": "path",
+            "description": "ID of the DNS service.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          {
             "name": "workloadNetworkDnsService",
             "in": "body",
             "description": "NSX DNS Service",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkDnsService"
+              "$ref": "#/definitions/WorkloadNetworkDnsServiceUpdate"
             }
           }
         ],
@@ -3116,44 +3172,6 @@
               "$ref": "#/definitions/WorkloadNetworkDnsService"
             }
           },
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "operationId": "WorkloadNetworksOperations_DeleteDnsService",
-        "description": "Delete a DNS service by id in a private cloud workload network.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/DnsServiceIdParameter"
-          },
-          {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
-          }
-        ],
-        "responses": {
           "204": {
             "description": "There is no content to send for this request, but the headers may be useful. "
           },
@@ -3332,7 +3350,7 @@
             "description": "NSX DNS Zone",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkDnsZone"
+              "$ref": "#/definitions/WorkloadNetworkDnsZoneUpdate"
             }
           }
         ],
@@ -3645,7 +3663,7 @@
             "description": "NSX port mirroring",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkPortMirroring"
+              "$ref": "#/definitions/WorkloadNetworkPortMirroringUpdate"
             }
           }
         ],
@@ -4046,7 +4064,7 @@
             "description": "NSX Segment",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkSegment"
+              "$ref": "#/definitions/WorkloadNetworkSegmentUpdate"
             }
           }
         ],
@@ -4359,7 +4377,7 @@
             "description": "NSX VM Group",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WorkloadNetworkVMGroup"
+              "$ref": "#/definitions/WorkloadNetworkVMGroupUpdate"
             }
           }
         ],
@@ -4432,26 +4450,21 @@
       "type": "object",
       "description": "An addon resource",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/AddonProperties",
-          "description": "The properties of an addon resource"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "AddonArcProperties": {
       "type": "object",
@@ -4830,26 +4843,21 @@
       "type": "object",
       "description": "A cloud link resource",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/CloudLinkProperties",
-          "description": "The properties of a cloud link."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "CloudLinkProperties": {
       "type": "object",
@@ -4912,32 +4920,27 @@
       "type": "object",
       "description": "A cluster resource",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
+        "properties": {
+          "$ref": "#/definitions/ClusterProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         },
         "sku": {
           "$ref": "#/definitions/Sku",
           "description": "The cluster SKU"
-        },
-        "properties": {
-          "$ref": "#/definitions/ClusterProperties",
-          "description": "The properties of a cluster resource"
         }
       },
       "required": [
         "sku"
+      ],
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
       ]
     },
     "ClusterProperties": {
@@ -5082,26 +5085,21 @@
       "type": "object",
       "description": "A datastore resource",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/DatastoreProperties",
-          "description": "The properties of a datastore resource"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "DatastoreProperties": {
       "type": "object",
@@ -5478,27 +5476,21 @@
       "type": "object",
       "description": "ExpressRoute Circuit Authorization",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/ExpressRouteAuthorizationProperties",
-          "description": "The properties of an ExpressRoute Circuit Authorization resource",
-          "readOnly": true
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "ExpressRouteAuthorizationProperties": {
       "type": "object",
@@ -5565,26 +5557,21 @@
       "type": "object",
       "description": "A global reach connection resource",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/GlobalReachConnectionProperties",
-          "description": "The properties of a global reach connection resource"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "GlobalReachConnectionProperties": {
       "type": "object",
@@ -5689,27 +5676,21 @@
       "type": "object",
       "description": "An HCX Enterprise Site resource",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/HcxEnterpriseSiteProperties",
-          "description": "The properties of an HCX Enterprise Site resource",
-          "readOnly": true
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "HcxEnterpriseSiteProperties": {
       "type": "object",
@@ -6291,7 +6272,8 @@
           "description": "The WorkloadNetworkDnsService items on this page",
           "items": {
             "$ref": "#/definitions/WorkloadNetworkDnsService"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "nextLink": {
           "type": "string",
@@ -6454,26 +6436,21 @@
       "type": "object",
       "description": "A vSphere Distributed Resource Scheduler (DRS) placement policy",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/PlacementPolicyProperties",
-          "description": "placement policy properties"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "PlacementPolicyProperties": {
       "type": "object",
@@ -6674,39 +6651,18 @@
       "type": "object",
       "description": "A private cloud resource",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
-        "location": {
-          "type": "string",
-          "description": "Resource location"
-        },
-        "tags": {
-          "type": "object",
-          "description": "Resource tags",
-          "additionalProperties": {
-            "type": "string"
-          }
+        "properties": {
+          "$ref": "#/definitions/PrivateCloudProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         },
         "sku": {
           "$ref": "#/definitions/Sku",
           "description": "The private cloud SKU"
-        },
-        "properties": {
-          "$ref": "#/definitions/PrivateCloudProperties",
-          "description": "The properties of a private cloud resource"
         },
         "identity": {
           "$ref": "#/definitions/PrivateCloudIdentity",
@@ -6715,6 +6671,11 @@
       },
       "required": [
         "sku"
+      ],
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/TrackedResource"
+        }
       ]
     },
     "PrivateCloudIdentity": {
@@ -7035,26 +6996,21 @@
       "type": "object",
       "description": "A cmdlet available for script execution",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/ScriptCmdletProperties",
-          "description": "The properties of a script cmdlet resource"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "ScriptCmdletProperties": {
       "type": "object",
@@ -7085,26 +7041,21 @@
       "type": "object",
       "description": "An instance of a script executed by a user - custom or AVS",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/ScriptExecutionProperties",
-          "description": "The properties of a script execution resource"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "ScriptExecutionParameter": {
       "type": "object",
@@ -7325,26 +7276,21 @@
       "type": "object",
       "description": "Script Package resources available for execution",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/ScriptPackageProperties",
-          "description": "ScriptPackage resource properties"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "ScriptPackageProperties": {
       "type": "object",
@@ -7648,26 +7594,21 @@
       "type": "object",
       "description": "Virtual Machine",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/VirtualMachineProperties",
-          "description": "Virtual machine properties."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "VirtualMachineProperties": {
       "type": "object",
@@ -7827,47 +7768,41 @@
       "type": "object",
       "description": "Workload Network",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
+        "properties": {
+          "$ref": "#/definitions/WorkloadNetworkProperties",
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkDhcp": {
       "type": "object",
       "description": "NSX DHCP",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkDhcpEntity",
-          "description": "DHCP properties."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkDhcpEntity": {
       "type": "object",
@@ -7993,34 +7928,18 @@
       ],
       "x-ms-discriminator-value": "SERVER"
     },
+    "WorkloadNetworkDhcpUpdate": {
+      "type": "object",
+      "description": "NSX DHCP",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
     "WorkloadNetworkDnsService": {
       "type": "object",
       "description": "NSX DNS Service",
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
-        "properties": {
-          "$ref": "#/definitions/WorkloadNetworkDnsServiceProperties",
-          "description": "DNS Service properties"
-        }
-      }
-    },
-    "WorkloadNetworkDnsServiceProperties": {
-      "type": "object",
-      "description": "NSX DNS Service Properties",
       "properties": {
         "displayName": {
           "type": "string",
@@ -8054,6 +7973,48 @@
           "$ref": "#/definitions/WorkloadNetworkDnsServiceProvisioningState",
           "description": "The provisioning state",
           "readOnly": true
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "NSX revision number."
+        },
+        "name": {
+          "type": "string",
+          "description": "ID of the DNS service.",
+          "pattern": "^[-\\w\\._]+$"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "WorkloadNetworkDnsServiceCreateOrUpdate": {
+      "type": "object",
+      "description": "NSX DNS Service",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the DNS Service."
+        },
+        "dnsServiceIp": {
+          "type": "string",
+          "description": "DNS service IP of the DNS Service."
+        },
+        "defaultDnsZone": {
+          "type": "string",
+          "description": "Default DNS zone of the DNS Service."
+        },
+        "fqdnZones": {
+          "type": "array",
+          "description": "FQDN zones of the DNS Service.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "logLevel": {
+          "$ref": "#/definitions/DnsServiceLogLevelEnum",
+          "description": "DNS Service log level."
         },
         "revision": {
           "type": "integer",
@@ -8110,30 +8071,59 @@
         ]
       }
     },
+    "WorkloadNetworkDnsServiceUpdate": {
+      "type": "object",
+      "description": "NSX DNS Service",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the DNS Service."
+        },
+        "dnsServiceIp": {
+          "type": "string",
+          "description": "DNS service IP of the DNS Service."
+        },
+        "defaultDnsZone": {
+          "type": "string",
+          "description": "Default DNS zone of the DNS Service."
+        },
+        "fqdnZones": {
+          "type": "array",
+          "description": "FQDN zones of the DNS Service.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "logLevel": {
+          "$ref": "#/definitions/DnsServiceLogLevelEnum",
+          "description": "DNS Service log level."
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "NSX revision number."
+        }
+      }
+    },
     "WorkloadNetworkDnsZone": {
       "type": "object",
       "description": "NSX DNS Zone",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkDnsZoneProperties",
-          "description": "DNS Zone properties"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkDnsZoneProperties": {
       "type": "object",
@@ -8226,30 +8216,34 @@
         ]
       }
     },
+    "WorkloadNetworkDnsZoneUpdate": {
+      "type": "object",
+      "description": "NSX DNS Zone",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
     "WorkloadNetworkGateway": {
       "type": "object",
       "description": "NSX Gateway.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkGatewayProperties",
-          "description": "Gateway properties."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkGatewayProperties": {
       "type": "object",
@@ -8270,26 +8264,21 @@
       "type": "object",
       "description": "NSX Port Mirroring",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkPortMirroringProperties",
-          "description": "Port Mirroring Properties."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkPortMirroringProperties": {
       "type": "object",
@@ -8376,30 +8365,38 @@
         ]
       }
     },
+    "WorkloadNetworkPortMirroringUpdate": {
+      "type": "object",
+      "description": "NSX Port Mirroring",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
+    "WorkloadNetworkProperties": {
+      "type": "object",
+      "description": "The properties of a workload network"
+    },
     "WorkloadNetworkPublicIP": {
       "type": "object",
       "description": "NSX Public IP Block",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkPublicIPProperties",
-          "description": "Public IP Block properties"
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkPublicIPProperties": {
       "type": "object",
@@ -8478,26 +8475,21 @@
       "type": "object",
       "description": "NSX Segment",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkSegmentProperties",
-          "description": "The properties of a Workload Segment proxy resource."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkSegmentPortVif": {
       "type": "object",
@@ -8616,30 +8608,34 @@
         }
       }
     },
+    "WorkloadNetworkSegmentUpdate": {
+      "type": "object",
+      "description": "NSX Segment",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
     "WorkloadNetworkVMGroup": {
       "type": "object",
       "description": "NSX VM Group",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkVMGroupProperties",
-          "description": "VM Group properties."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkVMGroupProperties": {
       "type": "object",
@@ -8721,30 +8717,34 @@
         ]
       }
     },
+    "WorkloadNetworkVMGroupUpdate": {
+      "type": "object",
+      "description": "NSX VM Group",
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
+    },
     "WorkloadNetworkVirtualMachine": {
       "type": "object",
       "description": "NSX Virtual Machine",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Resource ID.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "Resource name.",
-          "readOnly": true
-        },
-        "type": {
-          "type": "string",
-          "description": "Resource type.",
-          "readOnly": true
-        },
         "properties": {
           "$ref": "#/definitions/WorkloadNetworkVirtualMachineProperties",
-          "description": "Virtual machine properties."
+          "description": "The resource-specific properties for this resource.",
+          "x-ms-client-flatten": true,
+          "x-ms-mutability": [
+            "read",
+            "create"
+          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+        }
+      ]
     },
     "WorkloadNetworkVirtualMachineProperties": {
       "type": "object",
