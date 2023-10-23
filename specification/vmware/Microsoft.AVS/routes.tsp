@@ -88,19 +88,7 @@ interface PrivateClouds {
 @armResourceOperations
 interface Clusters {
   list is ArmResourceListByParent<Cluster>;
-
-  @doc("Get a cluster by name in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-    },
-    Cluster
-  >;
+  get is ArmResourceRead<Cluster>;
 
   @doc("Create or update a cluster in a private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
