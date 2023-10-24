@@ -379,51 +379,19 @@ interface WorkloadNetworks {
   get is ArmResourceRead<WorkloadNetwork>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
-  @doc("List of workload networks in a private cloud.")
   @operationId("WorkloadNetworks_List")
   list is ArmResourceListByParent<WorkloadNetwork>;
 
-  @doc("List of segments in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments")
-  @get
-  listSegments is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkSegmentsList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListSegments")
+  listSegments is ArmResourceListByParent<WorkloadNetworkSegment>;
 
-  @doc("Get a segment by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
-  @get
-  getSegment is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...SegmentIdParameter;
-    },
-    WorkloadNetworkSegment
-  >;
-
-  @doc("Create a segment by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
-  @put
-  createSegments is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...SegmentIdParameter;
-
-      @doc("NSX Segment")
-      @body
-      workloadNetworkSegment: WorkloadNetworkSegment;
-    },
-    WorkloadNetworkSegment
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetSegment")
+  getSegment is ArmResourceRead<WorkloadNetworkSegment>;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_CreateSegments")
+  createSegment is ArmResourceCreateOrUpdateAsync<WorkloadNetworkSegment>;
 
   @doc("Create or update a segment by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
