@@ -266,12 +266,6 @@ enum GlobalReachConnectionStatus {
   Disconnected,
 }
 
-@doc("WorkloadNetworkName")
-enum WorkloadNetworkName {
-  @doc("default")
-  default,
-}
-
 @doc("SegmentStatusEnum")
 enum SegmentStatusEnum {
   @doc("SUCCESS")
@@ -1290,12 +1284,13 @@ global reach connection
 
 @doc("Workload Network")
 @parentResource(PrivateCloud)
+@singleton
 model WorkloadNetwork is ProxyResource<WorkloadNetworkProperties> {
   @doc("Name of the global reach connection")
   @key("workloadNetworkName")
   @path
   @segment("workloadNetworks")
-  name: WorkloadNetworkName;
+  name: string;
 }
 
 @doc("The properties of a workload network")

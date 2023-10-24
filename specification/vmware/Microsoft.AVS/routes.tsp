@@ -49,16 +49,7 @@ interface PrivateClouds {
   delete is ArmResourceDeleteAsync<PrivateCloud>;
 
   @doc("Rotate the vCenter password")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateVcenterPassword")
-  @post
-  rotateVcenterPassword is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
+  rotateVcenterPassword is ArmResourceActionNoContentAsync<PrivateCloud, {}>;
 
   @doc("Rotate the NSX-T Manager password")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateNsxtPassword")

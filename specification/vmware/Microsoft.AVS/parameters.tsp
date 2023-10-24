@@ -173,9 +173,9 @@ model ScriptOutputStreamTypeParameter {
 @doc("The parameter for the script cmdlet name.")
 model WorkloadNetworkNameParameter {
   @path
-  @doc("Name of the script cmdlet resource in the script package in the private cloud.")
-  // @pattern("^[-\\w\\._]+$")
-  workloadNetworkName: WorkloadNetworkName;
+  @doc("Name of the workload netowrk in the private cloud.")
+  @pattern("^[-\\w\\._]+$")
+  workloadNetworkName: string;
 }
 
 @doc("The parameter for the script cmdlet name.")
