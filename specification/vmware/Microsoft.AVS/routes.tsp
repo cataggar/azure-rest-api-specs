@@ -6,6 +6,7 @@ import "./parameters.tsp";
 using TypeSpec.Rest;
 using TypeSpec.Http;
 using Azure.ResourceManager;
+using OpenAPI;
 
 namespace Microsoft.AVS;
 
@@ -375,30 +376,12 @@ interface GlobalReachConnections {
 }
 
 interface WorkloadNetworks {
-  @doc("Get a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/{workloadNetworkName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...WorkloadNetworkNameParameter;
-    },
-    WorkloadNetwork
-  >;
+  get is ArmResourceRead<WorkloadNetwork>;
 
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @doc("List of workload networks in a private cloud.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkList
-  >;
+  @operationId("WorkloadNetworks_List")
+  list is ArmResourceListByParent<WorkloadNetwork>;
 
   @doc("List of segments in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments")
