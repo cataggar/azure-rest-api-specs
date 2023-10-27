@@ -43,10 +43,15 @@ interface Locations {
 @armResourceOperations
 interface PrivateClouds {
   list is ArmResourceListByParent<PrivateCloud>;
+
   listInSubscription is ArmListBySubscription<PrivateCloud>;
+
   get is ArmResourceRead<PrivateCloud>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<PrivateCloud>;
+
   update is ArmResourcePatchAsync<PrivateCloud, PrivateCloudUpdateProperties>;
+
   delete is ArmResourceDeleteAsync<PrivateCloud>;
 
   @doc("Rotate the vCenter password")
@@ -66,9 +71,13 @@ interface PrivateClouds {
 @armResourceOperations
 interface Clusters {
   list is ArmResourceListByParent<Cluster>;
+
   get is ArmResourceRead<Cluster>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<Cluster>;
+
   update is ArmResourcePatchAsync<Cluster, ClusterUpdateProperties>;
+
   delete is ArmResourceDeleteAsync<Cluster>;
 
   @doc("List hosts by zone in a cluster")
@@ -81,7 +90,9 @@ interface Datastores {
   list is ArmResourceListByParent<Datastore>;
 
   get is ArmResourceRead<Datastore>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<Datastore>;
+
   delete is ArmResourceDeleteAsync<Datastore>;
 }
 
@@ -91,7 +102,9 @@ interface HcxEnterpriseSites {
   list is ArmResourceListByParent<HcxEnterpriseSite>;
 
   get is ArmResourceRead<HcxEnterpriseSite>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<HcxEnterpriseSite>;
+
   delete is ArmResourceDeleteAsync<HcxEnterpriseSite>;
 }
 
@@ -101,7 +114,9 @@ interface Authorizations {
   list is ArmResourceListByParent<ExpressRouteAuthorization>;
 
   get is ArmResourceRead<ExpressRouteAuthorization>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<ExpressRouteAuthorization>;
+
   delete is ArmResourceDeleteAsync<ExpressRouteAuthorization>;
 }
 
@@ -317,7 +332,9 @@ interface CloudLinks {
   list is ArmResourceListByParent<CloudLink>;
 
   get is ArmResourceRead<CloudLink>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<CloudLink>;
+
   delete is ArmResourceDeleteAsync<CloudLink>;
 }
 
@@ -327,7 +344,9 @@ interface Addons {
   list is ArmResourceListByParent<Addon>;
 
   get is ArmResourceRead<Addon>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<Addon>;
+
   delete is ArmResourceDeleteAsync<Addon>;
 }
 
@@ -352,7 +371,9 @@ interface PlacementPolicies {
   list is ArmResourceListByParent<PlacementPolicy>;
 
   get is ArmResourceRead<PlacementPolicy>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<PlacementPolicy>;
+
   update is ArmResourcePatchAsync<PlacementPolicy, PlacementPolicyProperties>;
 }
 
@@ -378,7 +399,9 @@ interface ScriptExecutions {
   list is ArmResourceListByParent<ScriptExecution>;
 
   get is ArmResourceRead<ScriptExecution>;
+
   createOrUpdate is ArmResourceCreateOrUpdateAsync<ScriptExecution>;
+
   delete is ArmResourceDeleteAsync<ScriptExecution>;
 
   @doc("Return the logs for a script execution resource")
