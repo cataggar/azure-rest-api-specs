@@ -753,9 +753,6 @@ model Quota {
   quotaEnabled?: QuotaEnabled;
 }
 
-@doc("A paged list of private clouds")
-model PrivateCloudList is Azure.Core.Page<PrivateCloud>;
-
 @doc("A private cloud resource")
 model PrivateCloud is TrackedResource<PrivateCloudProperties> {
   @doc("Name of the private cloud")
@@ -1044,9 +1041,6 @@ model PrivateCloudUpdate {
   identity?: PrivateCloudIdentity;
 }
 
-@doc("A paged list of clusters")
-model ClusterList is Azure.Core.Page<Cluster>;
-
 @doc("A cluster resource")
 @parentResource(PrivateCloud)
 model Cluster is ProxyResource<ClusterProperties> {
@@ -1097,9 +1091,6 @@ model ClusterZone {
   @visibility("read")
   zone?: string;
 }
-
-@doc("A paged list of datastores")
-model DatastoreList is Azure.Core.Page<Datastore>;
 
 @doc("A datastore resource")
 @parentResource(Cluster)
@@ -1173,9 +1164,6 @@ model AdminCredentials {
   vcenterPassword?: string;
 }
 
-@doc("A paged list of HCX Enterprise Sites")
-model HcxEnterpriseSiteList is Azure.Core.Page<HcxEnterpriseSite>;
-
 @doc("An HCX Enterprise Site resource")
 @parentResource(PrivateCloud)
 model HcxEnterpriseSite is ProxyResource<HcxEnterpriseSiteProperties> {
@@ -1197,10 +1185,6 @@ model HcxEnterpriseSiteProperties {
   @visibility("read")
   status?: HcxEnterpriseSiteStatus;
 }
-
-@doc("A paged list of ExpressRoute Circuit Authorizations")
-model ExpressRouteAuthorizationList
-  is Azure.Core.Page<ExpressRouteAuthorization>;
 
 @doc("ExpressRoute Circuit Authorization")
 @parentResource(PrivateCloud)
@@ -1231,9 +1215,6 @@ model ExpressRouteAuthorizationProperties {
   @doc("The ID of the ExpressRoute Circuit")
   expressRouteId?: string;
 }
-
-@doc("A paged list of global reach connections")
-model GlobalReachConnectionList is Azure.Core.Page<GlobalReachConnection>;
 
 @doc("A global reach connection resource")
 @parentResource(PrivateCloud)
@@ -1296,12 +1277,6 @@ model WorkloadNetwork is ProxyResource<WorkloadNetworkProperties> {
 @doc("The properties of a workload network")
 model WorkloadNetworkProperties {}
 
-@doc("A list of workload networks")
-model WorkloadNetworkList is Azure.Core.Page<WorkloadNetwork>;
-
-@doc("A list of NSX Segments")
-model WorkloadNetworkSegmentsList is Azure.Core.Page<WorkloadNetworkSegment>;
-
 @doc("NSX Segment")
 @parentResource(WorkloadNetwork)
 model WorkloadNetworkSegment
@@ -1356,9 +1331,6 @@ model WorkloadNetworkSegmentPortVif {
   portName?: string;
 }
 
-@doc("A list of NSX dhcp entities")
-model WorkloadNetworkDhcpList is Azure.Core.Page<WorkloadNetworkDhcp>;
-
 @doc("NSX DHCP")
 @parentResource(WorkloadNetwork)
 model WorkloadNetworkDhcp is ProxyResource<WorkloadNetworkDhcpEntity> {
@@ -1391,9 +1363,6 @@ model WorkloadNetworkDhcpEntity {
   revision?: int32;
 }
 
-@doc("A list of NSX Gateways")
-model WorkloadNetworkGatewayList is Azure.Core.Page<WorkloadNetworkGateway>;
-
 @doc("NSX Gateway.")
 @parentResource(WorkloadNetwork)
 model WorkloadNetworkGateway
@@ -1415,10 +1384,6 @@ model WorkloadNetworkGatewayProperties {
   @visibility("read")
   path?: string;
 }
-
-@doc("A list of NSX Port Mirroring")
-model WorkloadNetworkPortMirroringList
-  is Azure.Core.Page<WorkloadNetworkPortMirroring>;
 
 @doc("NSX Port Mirroring")
 @parentResource(WorkloadNetwork)
@@ -1459,10 +1424,6 @@ model WorkloadNetworkPortMirroringProperties {
 }
 
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-@doc("A list of NSX VM Groups")
-model WorkloadNetworkVMGroupsList is Azure.Core.Page<WorkloadNetworkVMGroup>;
-
-#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX VM Group")
 @parentResource(WorkloadNetwork)
 model WorkloadNetworkVMGroup
@@ -1496,10 +1457,6 @@ model WorkloadNetworkVMGroupProperties {
   revision?: int32;
 }
 
-@doc("A list of NSX Virtual Machines")
-model WorkloadNetworkVirtualMachinesList
-  is Azure.Core.Page<WorkloadNetworkVirtualMachine>;
-
 @doc("NSX Virtual Machine")
 @parentResource(WorkloadNetwork)
 model WorkloadNetworkVirtualMachine
@@ -1521,10 +1478,6 @@ model WorkloadNetworkVirtualMachineProperties {
   @visibility("read")
   vmType?: VMTypeEnum;
 }
-
-@doc("A list of NSX DNS Services")
-model WorkloadNetworkDnsServicesList
-  is Azure.Core.Page<WorkloadNetworkDnsService>;
 
 @doc("NSX DNS Service")
 @parentResource(WorkloadNetwork)
@@ -1567,9 +1520,6 @@ model WorkloadNetworkDnsServiceProperties {
   revision?: int32;
 }
 
-@doc("A list of NSX DNS Zones")
-model WorkloadNetworkDnsZonesList is Azure.Core.Page<WorkloadNetworkDnsZone>;
-
 @doc("NSX DNS Zone")
 @parentResource(WorkloadNetwork)
 model WorkloadNetworkDnsZone
@@ -1608,10 +1558,6 @@ model WorkloadNetworkDnsZoneProperties {
 }
 
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-@doc("A list of NSX Public IP Blocks")
-model WorkloadNetworkPublicIPsList is Azure.Core.Page<WorkloadNetworkPublicIP>;
-
-#suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
 @doc("NSX Public IP Block")
 @parentResource(WorkloadNetwork)
 model WorkloadNetworkPublicIP
@@ -1642,9 +1588,6 @@ model WorkloadNetworkPublicIPProperties {
   provisioningState?: WorkloadNetworkPublicIPProvisioningState;
 }
 
-@doc("A paged list of cloud links")
-model CloudLinkList is Azure.Core.Page<CloudLink>;
-
 @doc("A cloud link resource")
 @parentResource(PrivateCloud)
 model CloudLink is ProxyResource<CloudLinkProperties> {
@@ -1666,9 +1609,6 @@ model CloudLinkProperties {
   linkedCloud?: string;
 }
 
-@doc("A paged list of addons")
-model AddonList is Azure.Core.Page<Addon>;
-
 @doc("An addon resource")
 @parentResource(PrivateCloud)
 model Addon is ProxyResource<AddonProperties> {
@@ -1687,9 +1627,6 @@ model AddonProperties {
   @visibility("read")
   provisioningState?: AddonProvisioningState;
 }
-
-@doc("A list of Virtual Machines")
-model VirtualMachinesList is Azure.Core.Page<VirtualMachine>;
 
 @doc("Virtual Machine")
 @parentResource(Cluster)
@@ -1726,9 +1663,6 @@ model VirtualMachineRestrictMovement {
   @doc("Whether VM DRS-driven movement is restricted (enabled) or not (disabled)")
   restrictMovement?: VirtualMachineRestrictMovementState;
 }
-
-@doc("Represents list of placement policies")
-model PlacementPoliciesList is Azure.Core.Page<PlacementPolicy>;
 
 @doc("A vSphere Distributed Resource Scheduler (DRS) placement policy")
 @parentResource(Cluster)
@@ -1779,9 +1713,6 @@ model PlacementPolicyUpdateProperties {
   azureHybridBenefitType?: AzureHybridBenefitType;
 }
 
-@doc("A list of the available script packages")
-model ScriptPackagesList is Azure.Core.Page<ScriptPackage>;
-
 @doc("Script Package resources available for execution")
 @parentResource(PrivateCloud)
 model ScriptPackage is ProxyResource<ScriptPackageProperties> {
@@ -1811,9 +1742,6 @@ model ScriptPackageProperties {
   @visibility("read")
   uri?: string;
 }
-
-@doc("Pageable list of scripts/cmdlets")
-model ScriptCmdletsList is Azure.Core.Page<ScriptCmdlet>;
 
 @doc("A cmdlet available for script execution")
 @parentResource(ScriptPackage)
@@ -1868,9 +1796,6 @@ when executing
   @visibility("read")
   optional?: OptionalParamEnum;
 }
-
-@doc("Pageable list of script executions")
-model ScriptExecutionsList is Azure.Core.Page<ScriptExecution>;
 
 @doc("An instance of a script executed by a user - custom or AVS")
 @parentResource(PrivateCloud)
