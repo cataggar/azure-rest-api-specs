@@ -725,10 +725,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations": {
       "get": {
         "operationId": "Authorizations_List",
-        "description": "List ExpressRoute Circuit Authorizations in a private cloud",
+        "description": "List ExpressRouteAuthorization resources by PrivateCloud",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -737,26 +737,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedExpressRouteAuthorization"
+              "$ref": "#/definitions/ExpressRouteAuthorizationListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -773,10 +772,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}": {
       "get": {
         "operationId": "Authorizations_Get",
-        "description": "Get an ExpressRoute Circuit Authorization by name in a private cloud",
+        "description": "Get a ExpressRouteAuthorization",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -785,15 +784,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/AuthorizationNameParameter"
+            "name": "authorizationName",
+            "in": "path",
+            "description": "Name of the ExpressRoute Circuit Authorization",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/ExpressRouteAuthorization"
             }
@@ -801,13 +810,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -819,10 +822,10 @@
       },
       "put": {
         "operationId": "Authorizations_CreateOrUpdate",
-        "description": "Create or update an ExpressRoute Circuit Authorization in a private cloud",
+        "description": "Create a ExpressRouteAuthorization",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -831,15 +834,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/AuthorizationNameParameter"
+            "name": "authorizationName",
+            "in": "path",
+            "description": "Name of the ExpressRoute Circuit Authorization",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "authorization",
+            "name": "resource",
             "in": "body",
-            "description": "An ExpressRoute Circuit Authorization",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/ExpressRouteAuthorization"
@@ -848,21 +861,28 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'ExpressRouteAuthorization' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/ExpressRouteAuthorization"
+            }
+          },
+          "201": {
+            "description": "Resource 'ExpressRouteAuthorization' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/ExpressRouteAuthorization"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -870,14 +890,18 @@
           "Authorizations_CreateOrUpdate": {
             "$ref": "./examples/Authorizations_CreateOrUpdate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "Authorizations_Delete",
-        "description": "Delete an ExpressRoute Circuit Authorization in a private cloud",
+        "description": "Delete a ExpressRouteAuthorization",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -886,26 +910,47 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/AuthorizationNameParameter"
+            "name": "authorizationName",
+            "in": "path",
+            "description": "Name of the ExpressRoute Circuit Authorization",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -913,7 +958,11 @@
           "Authorizations_Delete": {
             "$ref": "./examples/Authorizations_Delete.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks": {
@@ -1441,10 +1490,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores": {
       "get": {
         "operationId": "Datastores_List",
-        "description": "List datastores in a private cloud cluster",
+        "description": "List Datastore resources by Cluster",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1453,29 +1502,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedDatastore"
+              "$ref": "#/definitions/DatastoreListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1492,10 +1545,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}": {
       "get": {
         "operationId": "Datastores_Get",
-        "description": "Get a datastore in a private cloud cluster",
+        "description": "Get a Datastore",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1504,18 +1557,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DatastoreNameParameter"
+            "name": "datastoreName",
+            "in": "path",
+            "description": "Name of the datastore",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/Datastore"
             }
@@ -1523,13 +1591,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1541,10 +1603,10 @@
       },
       "put": {
         "operationId": "Datastores_CreateOrUpdate",
-        "description": "Create or update a datastore in a private cloud cluster",
+        "description": "Create a Datastore",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1553,18 +1615,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DatastoreNameParameter"
+            "name": "datastoreName",
+            "in": "path",
+            "description": "Name of the datastore",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "datastore",
+            "name": "resource",
             "in": "body",
-            "description": "A datastore in a private cloud cluster",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Datastore"
@@ -1573,21 +1650,28 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'Datastore' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/Datastore"
+            }
+          },
+          "201": {
+            "description": "Resource 'Datastore' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/Datastore"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1595,14 +1679,18 @@
           "Datastores_CreateOrUpdate": {
             "$ref": "./examples/Datastores_CreateOrUpdate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "Datastores_Delete",
-        "description": "Delete a datastore in a private cloud cluster",
+        "description": "Delete a Datastore",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1611,29 +1699,55 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DatastoreNameParameter"
+            "name": "datastoreName",
+            "in": "path",
+            "description": "Name of the datastore",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1641,7 +1755,11 @@
           "Datastores_Delete": {
             "$ref": "./examples/Datastores_Delete.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/listZones": {
@@ -2322,10 +2440,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites": {
       "get": {
         "operationId": "HcxEnterpriseSites_List",
-        "description": "List HCX on-premises key in a private cloud",
+        "description": "List HcxEnterpriseSite resources by PrivateCloud",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2334,26 +2452,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedHcxEnterpriseSite"
+              "$ref": "#/definitions/HcxEnterpriseSiteListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2370,10 +2487,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}": {
       "get": {
         "operationId": "HcxEnterpriseSites_Get",
-        "description": "Get an HCX on-premises key by name in a private cloud",
+        "description": "Get a HcxEnterpriseSite",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2382,15 +2499,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/HcxEnterpriseSiteNameParameter"
+            "name": "hcxEnterpriseSiteName",
+            "in": "path",
+            "description": "Name of the HCX Enterprise Site",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/HcxEnterpriseSite"
             }
@@ -2398,13 +2525,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2416,10 +2537,10 @@
       },
       "put": {
         "operationId": "HcxEnterpriseSites_CreateOrUpdate",
-        "description": "Create or update an activation key for on-premises HCX site",
+        "description": "Create a HcxEnterpriseSite",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2428,15 +2549,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/HcxEnterpriseSiteNameParameter"
+            "name": "hcxEnterpriseSiteName",
+            "in": "path",
+            "description": "Name of the HCX Enterprise Site",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "hcxEnterpriseSite",
+            "name": "resource",
             "in": "body",
-            "description": "The HCX Enterprise Site",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/HcxEnterpriseSite"
@@ -2445,21 +2576,28 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'HcxEnterpriseSite' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/HcxEnterpriseSite"
+            }
+          },
+          "201": {
+            "description": "Resource 'HcxEnterpriseSite' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/HcxEnterpriseSite"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2467,14 +2605,18 @@
           "HcxEnterpriseSites_CreateOrUpdate": {
             "$ref": "./examples/HcxEnterpriseSites_CreateOrUpdate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "HcxEnterpriseSites_Delete",
-        "description": "Delete HCX on-premises key in a private cloud",
+        "description": "Delete a HcxEnterpriseSite",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2483,26 +2625,47 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/HcxEnterpriseSiteNameParameter"
+            "name": "hcxEnterpriseSiteName",
+            "in": "path",
+            "description": "Name of the HCX Enterprise Site",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2510,7 +2673,11 @@
           "HcxEnterpriseSites_Delete": {
             "$ref": "./examples/HcxEnterpriseSites_Delete.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials": {
@@ -5718,6 +5885,27 @@
         }
       ]
     },
+    "DatastoreListResult": {
+      "type": "object",
+      "description": "The response of a Datastore list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The Datastore items on this page",
+          "items": {
+            "$ref": "#/definitions/Datastore"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "DatastoreProperties": {
       "type": "object",
       "description": "The properties of a datastore",
@@ -6109,6 +6297,27 @@
         }
       ]
     },
+    "ExpressRouteAuthorizationListResult": {
+      "type": "object",
+      "description": "The response of a ExpressRouteAuthorization list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The ExpressRouteAuthorization items on this page",
+          "items": {
+            "$ref": "#/definitions/ExpressRouteAuthorization"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "ExpressRouteAuthorizationProperties": {
       "type": "object",
       "description": "The properties of an ExpressRoute Circuit Authorization resource",
@@ -6307,6 +6516,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "HcxEnterpriseSiteListResult": {
+      "type": "object",
+      "description": "The response of a HcxEnterpriseSite list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The HcxEnterpriseSite items on this page",
+          "items": {
+            "$ref": "#/definitions/HcxEnterpriseSite"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "HcxEnterpriseSiteProperties": {
@@ -6607,48 +6837,6 @@
         "value"
       ]
     },
-    "PagedDatastore": {
-      "type": "object",
-      "description": "A paged list of datastores",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The Datastore items on this page",
-          "items": {
-            "$ref": "#/definitions/Datastore"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedExpressRouteAuthorization": {
-      "type": "object",
-      "description": "A paged list of ExpressRoute Circuit Authorizations",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The ExpressRouteAuthorization items on this page",
-          "items": {
-            "$ref": "#/definitions/ExpressRouteAuthorization"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
     "PagedGlobalReachConnection": {
       "type": "object",
       "description": "A paged list of global reach connections",
@@ -6658,27 +6846,6 @@
           "description": "The GlobalReachConnection items on this page",
           "items": {
             "$ref": "#/definitions/GlobalReachConnection"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedHcxEnterpriseSite": {
-      "type": "object",
-      "description": "A paged list of HCX Enterprise Sites",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The HcxEnterpriseSite items on this page",
-          "items": {
-            "$ref": "#/definitions/HcxEnterpriseSite"
           }
         },
         "nextLink": {
@@ -9334,15 +9501,6 @@
       "pattern": "^[-\\w\\._]+$",
       "x-ms-parameter-location": "method"
     },
-    "AuthorizationNameParameter": {
-      "name": "authorizationName",
-      "in": "path",
-      "description": "Name of the ExpressRoute Circuit Authorization in the private cloud.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
     "Azure.Core.Foundations.ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
@@ -9366,15 +9524,6 @@
       "name": "clusterName",
       "in": "path",
       "description": "Name of the cluster in the private cloud.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "DatastoreNameParameter": {
-      "name": "datastoreName",
-      "in": "path",
-      "description": "Name of the datastore in the private cloud cluster.",
       "required": true,
       "type": "string",
       "pattern": "^[-\\w\\._]+$",
@@ -9416,15 +9565,6 @@
       "name": "globalReachConnectionName",
       "in": "path",
       "description": "Name of the global reach connection in the private cloud.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "HcxEnterpriseSiteNameParameter": {
-      "name": "hcxEnterpriseSiteName",
-      "in": "path",
-      "description": "Name of the HCX Enterprise Site in the private cloud.",
       "required": true,
       "type": "string",
       "pattern": "^[-\\w\\._]+$",

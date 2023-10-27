@@ -76,178 +76,33 @@ interface Clusters {
 }
 
 interface Datastores {
-  @doc("List datastores in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-    },
-    DatastoreList
-  >;
-
-  @doc("Get a datastore in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...DatastoreNameParameter;
-    },
-    Datastore
-  >;
-
-  @doc("Create or update a datastore in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...DatastoreNameParameter;
-
-      @doc("A datastore in a private cloud cluster")
-      @body
-      datastore: Datastore;
-    },
-    Datastore
-  >;
-
-  @doc("Delete a datastore in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/datastores/{datastoreName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...DatastoreNameParameter;
-    },
-    void
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("Datastores_List")
+  list is ArmResourceListByParent<Datastore>;
+  
+  get is ArmResourceRead<Datastore>;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<Datastore>;
+  delete is ArmResourceDeleteAsync<Datastore>;
 }
 
 interface HcxEnterpriseSites {
-  @doc("List HCX on-premises key in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    HcxEnterpriseSiteList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("HcxEnterpriseSites_List")
+  list is ArmResourceListByParent<HcxEnterpriseSite>;
 
-  @doc("Get an HCX on-premises key by name in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...HcxEnterpriseSiteNameParameter;
-    },
-    HcxEnterpriseSite
-  >;
-
-  @doc("Create or update an activation key for on-premises HCX site")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...HcxEnterpriseSiteNameParameter;
-
-      @doc("The HCX Enterprise Site")
-      @body
-      hcxEnterpriseSite: HcxEnterpriseSite;
-    },
-    HcxEnterpriseSite
-  >;
-
-  @doc("Delete HCX on-premises key in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/hcxEnterpriseSites/{hcxEnterpriseSiteName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...HcxEnterpriseSiteNameParameter;
-    },
-    void
-  >;
+  get is ArmResourceRead<HcxEnterpriseSite>;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<HcxEnterpriseSite>;
+  delete is ArmResourceDeleteAsync<HcxEnterpriseSite>;
 }
 
 interface Authorizations {
-  @doc("List ExpressRoute Circuit Authorizations in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    ExpressRouteAuthorizationList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("Authorizations_List")
+  list is ArmResourceListByParent<ExpressRouteAuthorization>;
 
-  @doc("Get an ExpressRoute Circuit Authorization by name in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...AuthorizationNameParameter;
-    },
-    ExpressRouteAuthorization
-  >;
-
-  @doc("Create or update an ExpressRoute Circuit Authorization in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...AuthorizationNameParameter;
-
-      @doc("An ExpressRoute Circuit Authorization")
-      @body
-      authorization: ExpressRouteAuthorization;
-    },
-    ExpressRouteAuthorization
-  >;
-
-  @doc("Delete an ExpressRoute Circuit Authorization in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations/{authorizationName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...AuthorizationNameParameter;
-    },
-    void
-  >;
+  get is ArmResourceRead<ExpressRouteAuthorization>;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<ExpressRouteAuthorization>;
+  delete is ArmResourceDeleteAsync<ExpressRouteAuthorization>;
 }
 
 interface GlobalReachConnections {
