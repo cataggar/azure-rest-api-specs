@@ -123,7 +123,9 @@ interface WorkloadNetworks {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_List")
   list is ArmResourceListByParent<WorkloadNetwork>;
+}
 
+interface WorkloadNetworkSegments {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_ListSegments")
   listSegments is ArmResourceListByParent<WorkloadNetworkSegment>;
@@ -144,128 +146,51 @@ interface WorkloadNetworks {
   >;
 
   deleteSegment is ArmResourceDeleteAsync<WorkloadNetworkSegment>;
+}
 
-  @doc("List dhcp in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations")
-  @get
-  listDhcp is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkDhcpList
+interface WorkloadNetworkDhcps {
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListDhcp")
+  listDhcp is ArmResourceListByParent<WorkloadNetworkDhcp>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetDhcp")
+  getDhcp is ArmResourceRead<WorkloadNetworkDhcp>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_CreateDhcp")
+  createDhcp is ArmResourceCreateOrUpdateAsync<WorkloadNetworkDhcp>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_UpdateDhcp")
+  updateDhcp is ArmResourcePatchAsync<
+    WorkloadNetworkDhcp,
+    WorkloadNetworkDhcpEntity
   >;
 
-  @doc("Get dhcp by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
-  @get
-  getDhcp is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...DhcpIdParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkDhcp
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_DeleteDhcp")
+  deleteDhcp is ArmResourceDeleteAsync<WorkloadNetworkDhcp>;
+}
 
-  @doc("Create dhcp by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
-  @put
-  createDhcp is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DhcpIdParameter;
+interface WorkloadNetworkGateways {
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListGateways")
+  listGateways is ArmResourceListByParent<WorkloadNetworkGateway>;
 
-      @doc("NSX DHCP")
-      @body
-      workloadNetworkDhcp: WorkloadNetworkDhcp;
-    },
-    WorkloadNetworkDhcp
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetGateway")
+  getGateway is ArmResourceRead<WorkloadNetworkGateway>;
+}
 
-  @doc("Create or update dhcp by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
-  @patch
-  updateDhcp is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DhcpIdParameter;
+interface WorkloadNetworkPortMirroringProfiles {
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListPortMirroring")
+  listPortMirroring is ArmResourceListByParent<WorkloadNetworkPortMirroring>;
 
-      @doc("NSX DHCP")
-      @body
-      workloadNetworkDhcp: WorkloadNetworkDhcp;
-    },
-    WorkloadNetworkDhcp | void
-  >;
-
-  @doc("Delete dhcp by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}")
-  @delete
-  deleteDhcp is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DhcpIdParameter;
-    },
-    void
-  >;
-
-  @doc("List of gateways in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways")
-  @get
-  listGateways is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkGatewayList
-  >;
-
-  @doc("Get a gateway by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways/{gatewayId}")
-  @get
-  getGateway is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...GatewayIdParameter;
-    },
-    WorkloadNetworkGateway
-  >;
-
-  @doc("List of port mirroring profiles in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles")
-  @get
-  listPortMirroring is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkPortMirroringList
-  >;
-
-  @doc("Get a port mirroring profile by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
-  @get
-  getPortMirroring is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...PortMirroringIdParameter;
-    },
-    WorkloadNetworkPortMirroring
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetPortMirrroring")
+  getPortMirroring is ArmResourceRead<WorkloadNetworkPortMirroring>;
 
   @doc("Create a port mirroring profile by id in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
@@ -316,84 +241,34 @@ network.
     },
     void
   >;
+}
 
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("List of vm groups in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups")
-  @get
-  listVMGroups is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkVMGroupsList
+interface WorkloadNetworkVmGroups {
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListVMGroups")
+  list is ArmResourceListByParent<WorkloadNetworkVMGroup>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetVMGroup")
+  get is ArmResourceRead<WorkloadNetworkVMGroup>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_CreateVMGroup")
+  create is ArmResourceCreateOrUpdateAsync<WorkloadNetworkVMGroup>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_UpdateVMGroup")
+  update is ArmResourcePatchAsync<
+    WorkloadNetworkVMGroup,
+    WorkloadNetworkVMGroupProperties
   >;
 
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("Get a vm group by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
-  @get
-  getVMGroup is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...VmGroupIdParameter;
-    },
-    WorkloadNetworkVMGroup
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_DeleteVMGroup")
+  delete is ArmResourceDeleteAsync<WorkloadNetworkVMGroup>;
+}
 
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("Create a vm group by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
-  @put
-  createVMGroup is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...VmGroupIdParameter;
-
-      @doc("NSX VM Group")
-      @body
-      workloadNetworkVMGroup: WorkloadNetworkVMGroup;
-    },
-    WorkloadNetworkVMGroup
-  >;
-
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("Create or update a vm group by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
-  @patch
-  updateVMGroup is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...VmGroupIdParameter;
-
-      @doc("NSX VM Group")
-      @body
-      workloadNetworkVMGroup: WorkloadNetworkVMGroup;
-    },
-    WorkloadNetworkVMGroup | void
-  >;
-
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("Delete a vm group by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}")
-  @delete
-  deleteVMGroup is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...VmGroupIdParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
-
+interface WorkloadNetworkVirtualMachines {
   @doc("List of virtual machines in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines")
   @get
@@ -418,7 +293,9 @@ network.
     },
     WorkloadNetworkVirtualMachine
   >;
+}
 
+interface WorkloadNetworkDnsServices {
   @doc("List of DNS services in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices")
   @get
@@ -490,7 +367,9 @@ network.
     },
     void
   >;
+}
 
+interface WorkloadNetworkDnsZones {
   @doc("List of DNS zones in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones")
   @get
@@ -562,7 +441,9 @@ network.
     },
     void
   >;
+}
 
+interface WorkloadNetworkPublicIps {
   #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
   @doc("List of Public IP Blocks in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs")

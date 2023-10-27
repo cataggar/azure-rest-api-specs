@@ -3473,10 +3473,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations": {
       "get": {
         "operationId": "WorkloadNetworks_ListDhcp",
-        "description": "List dhcp in a private cloud workload network.",
+        "description": "List WorkloadNetworkDhcp resources by WorkloadNetwork",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3485,26 +3485,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkDhcp"
+              "$ref": "#/definitions/WorkloadNetworkDhcpListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3516,10 +3515,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations/{dhcpId}": {
       "get": {
         "operationId": "WorkloadNetworks_GetDhcp",
-        "description": "Get dhcp by id in a private cloud workload network.",
+        "description": "Get a WorkloadNetworkDhcp",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3528,15 +3527,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/DhcpIdParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "dhcpId",
+            "in": "path",
+            "description": "The ID of the DHCP configuration",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDhcp"
             }
@@ -3544,23 +3553,17 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         }
       },
       "put": {
         "operationId": "WorkloadNetworks_CreateDhcp",
-        "description": "Create dhcp by id in a private cloud workload network.",
+        "description": "Create a WorkloadNetworkDhcp",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3569,15 +3572,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DhcpIdParameter"
+            "name": "dhcpId",
+            "in": "path",
+            "description": "The ID of the DHCP configuration",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkDhcp",
+            "name": "resource",
             "in": "body",
-            "description": "NSX DHCP",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDhcp"
@@ -3586,31 +3599,42 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'WorkloadNetworkDhcp' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDhcp"
+            }
+          },
+          "201": {
+            "description": "Resource 'WorkloadNetworkDhcp' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkDhcp"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "patch": {
         "operationId": "WorkloadNetworks_UpdateDhcp",
-        "description": "Create or update dhcp by id in a private cloud workload network.",
+        "description": "Update a WorkloadNetworkDhcp",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3619,15 +3643,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DhcpIdParameter"
+            "name": "dhcpId",
+            "in": "path",
+            "description": "The ID of the DHCP configuration",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkDhcp",
+            "name": "properties",
             "in": "body",
-            "description": "NSX DHCP",
+            "description": "The resource properties to be updated.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDhcpUpdate"
@@ -3636,34 +3670,43 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDhcp"
             }
           },
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+          "202": {
+            "description": "Resource update request accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "WorkloadNetworks_DeleteDhcp",
-        "description": "Delete dhcp by id in a private cloud workload network.",
+        "description": "Delete a WorkloadNetworkDhcp",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3672,34 +3715,59 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DhcpIdParameter"
+            "name": "dhcpId",
+            "in": "path",
+            "description": "The ID of the DHCP configuration",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices": {
       "get": {
-        "operationId": "WorkloadNetworks_ListDnsServices",
+        "operationId": "WorkloadNetworkDnsServices_ListDnsServices",
         "description": "List of DNS services in a private cloud workload network.",
         "parameters": [
           {
@@ -3735,11 +3803,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "WorkloadNetworks_ListDnsServices": {
-            "$ref": "./examples/WorkloadNetworks_ListDnsServices.json"
-          }
-        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -3747,7 +3810,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}": {
       "get": {
-        "operationId": "WorkloadNetworks_GetDnsService",
+        "operationId": "WorkloadNetworkDnsServices_GetDnsService",
         "description": "Get a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3788,7 +3851,7 @@
         }
       },
       "put": {
-        "operationId": "WorkloadNetworks_CreateDnsService",
+        "operationId": "WorkloadNetworkDnsServices_CreateDnsService",
         "description": "Create a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3838,7 +3901,7 @@
         }
       },
       "patch": {
-        "operationId": "WorkloadNetworks_UpdateDnsService",
+        "operationId": "WorkloadNetworkDnsServices_UpdateDnsService",
         "description": "Create or update a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3891,7 +3954,7 @@
         }
       },
       "delete": {
-        "operationId": "WorkloadNetworks_DeleteDnsService",
+        "operationId": "WorkloadNetworkDnsServices_DeleteDnsService",
         "description": "Delete a DNS service by id in a private cloud workload network.",
         "parameters": [
           {
@@ -3931,7 +3994,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones": {
       "get": {
-        "operationId": "WorkloadNetworks_ListDnsZones",
+        "operationId": "WorkloadNetworkDnsZones_ListDnsZones",
         "description": "List of DNS zones in a private cloud workload network.",
         "parameters": [
           {
@@ -3967,11 +4030,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "WorkloadNetworks_ListDnsZones": {
-            "$ref": "./examples/WorkloadNetworks_ListDnsZones.json"
-          }
-        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -3979,7 +4037,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}": {
       "get": {
-        "operationId": "WorkloadNetworks_GetDnsZone",
+        "operationId": "WorkloadNetworkDnsZones_GetDnsZone",
         "description": "Get a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4020,7 +4078,7 @@
         }
       },
       "put": {
-        "operationId": "WorkloadNetworks_CreateDnsZone",
+        "operationId": "WorkloadNetworkDnsZones_CreateDnsZone",
         "description": "Create a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4070,7 +4128,7 @@
         }
       },
       "patch": {
-        "operationId": "WorkloadNetworks_UpdateDnsZone",
+        "operationId": "WorkloadNetworkDnsZones_UpdateDnsZone",
         "description": "Create or update a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4123,7 +4181,7 @@
         }
       },
       "delete": {
-        "operationId": "WorkloadNetworks_DeleteDnsZone",
+        "operationId": "WorkloadNetworkDnsZones_DeleteDnsZone",
         "description": "Delete a DNS zone by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4164,10 +4222,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways": {
       "get": {
         "operationId": "WorkloadNetworks_ListGateways",
-        "description": "List of gateways in a private cloud workload network.",
+        "description": "List WorkloadNetworkGateway resources by WorkloadNetwork",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4176,26 +4234,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkGateway"
+              "$ref": "#/definitions/WorkloadNetworkGatewayListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -4212,10 +4269,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways/{gatewayId}": {
       "get": {
         "operationId": "WorkloadNetworks_GetGateway",
-        "description": "Get a gateway by id in a private cloud workload network.",
+        "description": "Get a WorkloadNetworkGateway",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4224,15 +4281,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/GatewayIdParameter"
+            "name": "gatewayId",
+            "in": "path",
+            "description": "The ID of the NSX Gateway",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkGateway"
             }
@@ -4240,13 +4307,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -4260,10 +4321,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles": {
       "get": {
         "operationId": "WorkloadNetworks_ListPortMirroring",
-        "description": "List of port mirroring profiles in a private cloud workload network.",
+        "description": "List WorkloadNetworkPortMirroring resources by WorkloadNetwork",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4272,26 +4333,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkPortMirroring"
+              "$ref": "#/definitions/WorkloadNetworkPortMirroringListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -4302,11 +4362,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}": {
       "get": {
-        "operationId": "WorkloadNetworks_GetPortMirroring",
-        "description": "Get a port mirroring profile by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_GetPortMirrroring",
+        "description": "Get a WorkloadNetworkPortMirroring",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4315,15 +4375,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PortMirroringIdParameter"
+            "name": "portMirroringId",
+            "in": "path",
+            "description": "ID of the NSX port mirroring profile.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPortMirroring"
             }
@@ -4331,19 +4401,13 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         }
       },
       "put": {
-        "operationId": "WorkloadNetworks_CreatePortMirroring",
+        "operationId": "WorkloadNetworkPortMirroringProfiles_CreatePortMirroring",
         "description": "Create a port mirroring profile by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4393,7 +4457,7 @@
         }
       },
       "patch": {
-        "operationId": "WorkloadNetworks_UpdatePortMirroring",
+        "operationId": "WorkloadNetworkPortMirroringProfiles_UpdatePortMirroring",
         "description": "Create or update a port mirroring profile by id in a private cloud workload\nnetwork.",
         "parameters": [
           {
@@ -4446,7 +4510,7 @@
         }
       },
       "delete": {
-        "operationId": "WorkloadNetworks_DeletePortMirroring",
+        "operationId": "WorkloadNetworkPortMirroringProfiles_DeletePortMirroring",
         "description": "Delete a port mirroring profile by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4486,7 +4550,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs": {
       "get": {
-        "operationId": "WorkloadNetworks_ListPublicIPs",
+        "operationId": "WorkloadNetworkPublicIps_ListPublicIPs",
         "description": "List of Public IP Blocks in a private cloud workload network.",
         "parameters": [
           {
@@ -4522,11 +4586,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "WorkloadNetworks_ListPublicIPs": {
-            "$ref": "./examples/WorkloadNetworks_ListPublicIPs.json"
-          }
-        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -4534,7 +4593,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}": {
       "get": {
-        "operationId": "WorkloadNetworks_GetPublicIp",
+        "operationId": "WorkloadNetworkPublicIps_GetPublicIp",
         "description": "Get a Public IP Block by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4575,7 +4634,7 @@
         }
       },
       "put": {
-        "operationId": "WorkloadNetworks_CreatePublicIp",
+        "operationId": "WorkloadNetworkPublicIps_CreatePublicIp",
         "description": "Create a Public IP Block by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4625,7 +4684,7 @@
         }
       },
       "delete": {
-        "operationId": "WorkloadNetworks_DeletePublicIp",
+        "operationId": "WorkloadNetworkPublicIps_DeletePublicIp",
         "description": "Delete a Public IP Block by id in a private cloud workload network.",
         "parameters": [
           {
@@ -4910,7 +4969,7 @@
         "x-ms-long-running-operation": true
       },
       "delete": {
-        "operationId": "WorkloadNetworks_DeleteSegment",
+        "operationId": "WorkloadNetworkSegments_DeleteSegment",
         "description": "Delete a WorkloadNetworkSegment",
         "parameters": [
           {
@@ -4975,7 +5034,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines": {
       "get": {
-        "operationId": "WorkloadNetworks_ListVirtualMachines",
+        "operationId": "WorkloadNetworkVirtualMachines_ListVirtualMachines",
         "description": "List of virtual machines in a private cloud workload network.",
         "parameters": [
           {
@@ -5011,11 +5070,6 @@
             }
           }
         },
-        "x-ms-examples": {
-          "WorkloadNetworks_ListVirtualMachines": {
-            "$ref": "./examples/WorkloadNetworks_ListVirtualMachines.json"
-          }
-        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -5023,7 +5077,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines/{virtualMachineId}": {
       "get": {
-        "operationId": "WorkloadNetworks_GetVirtualMachine",
+        "operationId": "WorkloadNetworkVirtualMachines_GetVirtualMachine",
         "description": "Get a virtual machine by id in a private cloud workload network.",
         "parameters": [
           {
@@ -5061,21 +5115,16 @@
               }
             }
           }
-        },
-        "x-ms-examples": {
-          "WorkloadNetworks_GetVirtualMachine": {
-            "$ref": "./examples/WorkloadNetworks_GetVirtualMachine.json"
-          }
         }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups": {
       "get": {
         "operationId": "WorkloadNetworks_ListVmGroups",
-        "description": "List of vm groups in a private cloud workload network.",
+        "description": "List WorkloadNetworkVMGroup resources by WorkloadNetwork",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -5084,26 +5133,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkVMGroup"
+              "$ref": "#/definitions/WorkloadNetworkVMGroupListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -5115,10 +5163,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/vmGroups/{vmGroupId}": {
       "get": {
         "operationId": "WorkloadNetworks_GetVmGroup",
-        "description": "Get a vm group by id in a private cloud workload network.",
+        "description": "Get a WorkloadNetworkVMGroup",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -5127,15 +5175,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/VmGroupIdParameter"
+            "name": "vmGroupId",
+            "in": "path",
+            "description": "ID of the VM group.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkVMGroup"
             }
@@ -5143,23 +5201,17 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         }
       },
       "put": {
         "operationId": "WorkloadNetworks_CreateVmGroup",
-        "description": "Create a vm group by id in a private cloud workload network.",
+        "description": "Create a WorkloadNetworkVMGroup",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -5168,15 +5220,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/VmGroupIdParameter"
+            "name": "vmGroupId",
+            "in": "path",
+            "description": "ID of the VM group.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkVMGroup",
+            "name": "resource",
             "in": "body",
-            "description": "NSX VM Group",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkVMGroup"
@@ -5185,31 +5247,42 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'WorkloadNetworkVMGroup' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkVMGroup"
+            }
+          },
+          "201": {
+            "description": "Resource 'WorkloadNetworkVMGroup' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkVMGroup"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "patch": {
         "operationId": "WorkloadNetworks_UpdateVmGroup",
-        "description": "Create or update a vm group by id in a private cloud workload network.",
+        "description": "Update a WorkloadNetworkVMGroup",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -5218,15 +5291,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/VmGroupIdParameter"
+            "name": "vmGroupId",
+            "in": "path",
+            "description": "ID of the VM group.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkVMGroup",
+            "name": "properties",
             "in": "body",
-            "description": "NSX VM Group",
+            "description": "The resource properties to be updated.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkVMGroupUpdate"
@@ -5235,34 +5318,43 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkVMGroup"
             }
           },
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+          "202": {
+            "description": "Resource update request accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "WorkloadNetworks_DeleteVmGroup",
-        "description": "Delete a vm group by id in a private cloud workload network.",
+        "description": "Delete a WorkloadNetworkVMGroup",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -5271,29 +5363,54 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/VmGroupIdParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "vmGroupId",
+            "in": "path",
+            "description": "ID of the VM group.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     }
   },
@@ -7056,27 +7173,6 @@
         "value"
       ]
     },
-    "PagedWorkloadNetworkDhcp": {
-      "type": "object",
-      "description": "A list of NSX dhcp entities",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkDhcp items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkDhcp"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
     "PagedWorkloadNetworkDnsService": {
       "type": "object",
       "description": "A list of NSX DNS Services",
@@ -7119,48 +7215,6 @@
         "value"
       ]
     },
-    "PagedWorkloadNetworkGateway": {
-      "type": "object",
-      "description": "A list of NSX Gateways",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkGateway items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkGateway"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedWorkloadNetworkPortMirroring": {
-      "type": "object",
-      "description": "A list of NSX Port Mirroring",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkPortMirroring items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkPortMirroring"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
     "PagedWorkloadNetworkPublicIP": {
       "type": "object",
       "description": "A list of NSX Public IP Blocks",
@@ -7170,27 +7224,6 @@
           "description": "The WorkloadNetworkPublicIP items on this page",
           "items": {
             "$ref": "#/definitions/WorkloadNetworkPublicIP"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedWorkloadNetworkVMGroup": {
-      "type": "object",
-      "description": "A list of NSX VM Groups",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkVMGroup items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkVMGroup"
           }
         },
         "nextLink": {
@@ -8667,6 +8700,27 @@
         "dhcpType"
       ]
     },
+    "WorkloadNetworkDhcpListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkDhcp list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkDhcp items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkDhcp"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "WorkloadNetworkDhcpProvisioningState": {
       "type": "string",
       "description": "WorkloadNetworkDhcpProvisioningState",
@@ -8757,12 +8811,28 @@
     },
     "WorkloadNetworkDhcpUpdate": {
       "type": "object",
-      "description": "NSX DHCP",
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+      "description": "The type used for update operations of the WorkloadNetworkDhcp.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/WorkloadNetworkDhcpUpdateProperties",
+          "x-ms-client-flatten": true
         }
-      ]
+      }
+    },
+    "WorkloadNetworkDhcpUpdateProperties": {
+      "type": "object",
+      "description": "The updatable properties of the WorkloadNetworkDhcp.",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the DHCP entity."
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "NSX revision number."
+        }
+      }
     },
     "WorkloadNetworkDnsService": {
       "type": "object",
@@ -9025,6 +9095,27 @@
         }
       ]
     },
+    "WorkloadNetworkGatewayListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkGateway list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkGateway items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkGateway"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "WorkloadNetworkGatewayProperties": {
       "type": "object",
       "description": "Properties of a NSX Gateway.",
@@ -9079,6 +9170,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "WorkloadNetworkPortMirroringListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkPortMirroring list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkPortMirroring items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkPortMirroring"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "WorkloadNetworkPortMirroringProperties": {
@@ -9483,6 +9595,27 @@
         }
       ]
     },
+    "WorkloadNetworkVMGroupListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkVMGroup list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkVMGroup items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkVMGroup"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "WorkloadNetworkVMGroupProperties": {
       "type": "object",
       "description": "NSX VM Group Properties",
@@ -9565,12 +9698,35 @@
     },
     "WorkloadNetworkVMGroupUpdate": {
       "type": "object",
-      "description": "NSX VM Group",
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+      "description": "The type used for update operations of the WorkloadNetworkVMGroup.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/WorkloadNetworkVMGroupUpdateProperties",
+          "x-ms-client-flatten": true
         }
-      ]
+      }
+    },
+    "WorkloadNetworkVMGroupUpdateProperties": {
+      "type": "object",
+      "description": "The updatable properties of the WorkloadNetworkVMGroup.",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the VM group."
+        },
+        "members": {
+          "type": "array",
+          "description": "Virtual machine members of this group.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "NSX revision number."
+        }
+      }
     },
     "WorkloadNetworkVirtualMachine": {
       "type": "object",
@@ -9646,14 +9802,6 @@
       "pattern": "^[-\\w\\._]+$",
       "x-ms-parameter-location": "method"
     },
-    "DhcpIdParameter": {
-      "name": "dhcpId",
-      "in": "path",
-      "description": "NSX DHCP identifier. Generally the same as the DHCP display name.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
     "DnsServiceIdParameter": {
       "name": "dnsServiceId",
       "in": "path",
@@ -9666,14 +9814,6 @@
       "name": "dnsZoneId",
       "in": "path",
       "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "GatewayIdParameter": {
-      "name": "gatewayId",
-      "in": "path",
-      "description": "NSX Gateway identifier. Generally the same as the Gateway's display name.",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
@@ -9743,14 +9883,6 @@
       "name": "virtualMachineId",
       "in": "path",
       "description": "Virtual Machine identifier.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "VmGroupIdParameter": {
-      "name": "vmGroupId",
-      "in": "path",
-      "description": "NSX VM Group identifier. Generally the same as the VM Group's display name.",
       "required": true,
       "type": "string",
       "x-ms-parameter-location": "method"
