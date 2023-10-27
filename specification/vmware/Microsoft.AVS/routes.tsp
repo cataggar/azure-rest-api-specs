@@ -53,16 +53,7 @@ interface PrivateClouds {
   rotateVcenterPassword is ArmResourceActionNoContentAsync<PrivateCloud, {}>;
 
   @doc("Rotate the NSX-T Manager password")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/rotateNsxtPassword")
-  @post
-  rotateNsxtPassword is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
+  rotateNsxtPassword is ArmResourceActionNoContentAsync<PrivateCloud, {}>;
 
   @doc("List the admin credentials for the private cloud")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials")
