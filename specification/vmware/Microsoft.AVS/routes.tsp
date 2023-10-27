@@ -79,7 +79,7 @@ interface Datastores {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("Datastores_List")
   list is ArmResourceListByParent<Datastore>;
-  
+
   get is ArmResourceRead<Datastore>;
   createOrUpdate is ArmResourceCreateOrUpdateAsync<Datastore>;
   delete is ArmResourceDeleteAsync<Datastore>;
@@ -106,60 +106,15 @@ interface Authorizations {
 }
 
 interface GlobalReachConnections {
-  @doc("List global reach connections in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    GlobalReachConnectionList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("GlobalReachConnections_List")
+  list is ArmResourceListByParent<GlobalReachConnection>;
 
-  @doc("Get a global reach connection by name in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...GlobalReachConnectionNameParameter;
-    },
-    GlobalReachConnection
-  >;
+  get is ArmResourceRead<GlobalReachConnection>;
 
-  @doc("Create or update a global reach connection in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...GlobalReachConnectionNameParameter;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<GlobalReachConnection>;
 
-      @doc("A global reach connection in the private cloud")
-      @body
-      globalReachConnection: GlobalReachConnection;
-    },
-    GlobalReachConnection
-  >;
-
-  @doc("Delete a global reach connection in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections/{globalReachConnectionName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...GlobalReachConnectionNameParameter;
-    },
-    void
-  >;
+  delete is ArmResourceDeleteAsync<GlobalReachConnection>;
 }
 
 interface WorkloadNetworks {
@@ -176,39 +131,19 @@ interface WorkloadNetworks {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_GetSegment")
   getSegment is ArmResourceRead<WorkloadNetworkSegment>;
+
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_CreateSegments")
   createSegment is ArmResourceCreateOrUpdateAsync<WorkloadNetworkSegment>;
 
-  @doc("Create or update a segment by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
-  @patch
-  updateSegments is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...SegmentIdParameter;
-
-      @doc("NSX Segment")
-      @body
-      workloadNetworkSegment: WorkloadNetworkSegment;
-    },
-    WorkloadNetworkSegment | void
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_UpdateSegments")
+  updateSegment is ArmResourcePatchAsync<
+    WorkloadNetworkSegment,
+    WorkloadNetworkSegmentProperties
   >;
 
-  @doc("Delete a segment by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments/{segmentId}")
-  @delete
-  deleteSegment is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...SegmentIdParameter;
-    },
-    void
-  >;
+  deleteSegment is ArmResourceDeleteAsync<WorkloadNetworkSegment>;
 
   @doc("List dhcp in a private cloud workload network.")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dhcpConfigurations")
