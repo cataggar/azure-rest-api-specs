@@ -128,19 +128,19 @@ interface WorkloadNetworks {
 interface WorkloadNetworkSegments {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_ListSegments")
-  listSegments is ArmResourceListByParent<WorkloadNetworkSegment>;
+  list is ArmResourceListByParent<WorkloadNetworkSegment>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_GetSegment")
-  getSegment is ArmResourceRead<WorkloadNetworkSegment>;
+  get is ArmResourceRead<WorkloadNetworkSegment>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_CreateSegments")
-  createSegment is ArmResourceCreateOrUpdateAsync<WorkloadNetworkSegment>;
+  create is ArmResourceCreateOrUpdateAsync<WorkloadNetworkSegment>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_UpdateSegments")
-  updateSegment is ArmResourcePatchAsync<
+  update is ArmResourcePatchAsync<
     WorkloadNetworkSegment,
     WorkloadNetworkSegmentProperties
   >;
@@ -151,96 +151,61 @@ interface WorkloadNetworkSegments {
 interface WorkloadNetworkDhcps {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_ListDhcp")
-  listDhcp is ArmResourceListByParent<WorkloadNetworkDhcp>;
+  list is ArmResourceListByParent<WorkloadNetworkDhcp>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_GetDhcp")
-  getDhcp is ArmResourceRead<WorkloadNetworkDhcp>;
+  get is ArmResourceRead<WorkloadNetworkDhcp>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_CreateDhcp")
-  createDhcp is ArmResourceCreateOrUpdateAsync<WorkloadNetworkDhcp>;
+  create is ArmResourceCreateOrUpdateAsync<WorkloadNetworkDhcp>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_UpdateDhcp")
-  updateDhcp is ArmResourcePatchAsync<
+  update is ArmResourcePatchAsync<
     WorkloadNetworkDhcp,
     WorkloadNetworkDhcpEntity
   >;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_DeleteDhcp")
-  deleteDhcp is ArmResourceDeleteAsync<WorkloadNetworkDhcp>;
+  delete is ArmResourceDeleteAsync<WorkloadNetworkDhcp>;
 }
 
 interface WorkloadNetworkGateways {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_ListGateways")
-  listGateways is ArmResourceListByParent<WorkloadNetworkGateway>;
+  list is ArmResourceListByParent<WorkloadNetworkGateway>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_GetGateway")
-  getGateway is ArmResourceRead<WorkloadNetworkGateway>;
+  get is ArmResourceRead<WorkloadNetworkGateway>;
 }
 
 interface WorkloadNetworkPortMirroringProfiles {
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_ListPortMirroring")
-  listPortMirroring is ArmResourceListByParent<WorkloadNetworkPortMirroring>;
+  list is ArmResourceListByParent<WorkloadNetworkPortMirroring>;
 
   #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
   @operationId("WorkloadNetworks_GetPortMirrroring")
-  getPortMirroring is ArmResourceRead<WorkloadNetworkPortMirroring>;
+  get is ArmResourceRead<WorkloadNetworkPortMirroring>;
 
-  @doc("Create a port mirroring profile by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
-  @put
-  createPortMirroring is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...PortMirroringIdParameter;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_CreatePortMirroring")
+  create is ArmResourceCreateOrUpdateAsync<WorkloadNetworkPortMirroring>;
 
-      @doc("NSX port mirroring")
-      @body
-      workloadNetworkPortMirroring: WorkloadNetworkPortMirroring;
-    },
-    WorkloadNetworkPortMirroring
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_UpdatePortMirroring")
+  update is ArmResourcePatchAsync<
+    WorkloadNetworkPortMirroring,
+    WorkloadNetworkPortMirroringProperties
   >;
 
-  @doc("""
-Create or update a port mirroring profile by id in a private cloud workload
-network.
-""")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
-  @patch
-  updatePortMirroring is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...PortMirroringIdParameter;
-
-      @doc("NSX port mirroring")
-      @body
-      workloadNetworkPortMirroring: WorkloadNetworkPortMirroring;
-    },
-    WorkloadNetworkPortMirroring | void
-  >;
-
-  @doc("Delete a port mirroring profile by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/portMirroringProfiles/{portMirroringId}")
-  @delete
-  deletePortMirroring is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PortMirroringIdParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_DeletePortMirroring")
+  delete is ArmResourceDeleteAsync<WorkloadNetworkPortMirroring>;
 }
 
 interface WorkloadNetworkVmGroups {
@@ -269,618 +234,157 @@ interface WorkloadNetworkVmGroups {
 }
 
 interface WorkloadNetworkVirtualMachines {
-  @doc("List of virtual machines in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines")
-  @get
-  listVirtualMachines is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkVirtualMachinesList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListVirtualMachines")
+  list is ArmResourceListByParent<WorkloadNetworkVirtualMachine>;
 
-  @doc("Get a virtual machine by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines/{virtualMachineId}")
-  @get
-  getVirtualMachine is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...VirtualMachineIdParameter;
-    },
-    WorkloadNetworkVirtualMachine
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetVMGroup")
+  get is ArmResourceRead<WorkloadNetworkVirtualMachine>;
 }
 
 interface WorkloadNetworkDnsServices {
-  @doc("List of DNS services in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices")
-  @get
-  listDnsServices is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkDnsServicesList
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListDnsServices")
+  list is ArmResourceListByParent<WorkloadNetworkDnsService>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetDnsService")
+  get is ArmResourceRead<WorkloadNetworkDnsService>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_CreateDnsService")
+  create is ArmResourceCreateOrUpdateAsync<WorkloadNetworkDnsService>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_UpdateDnsService")
+  update is ArmResourcePatchAsync<
+    WorkloadNetworkDnsService,
+    WorkloadNetworkDnsServiceProperties
   >;
 
-  @doc("Get a DNS service by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
-  @get
-  getDnsService is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DnsServiceIdParameter;
-    },
-    WorkloadNetworkDnsService
-  >;
-
-  @doc("Create a DNS service by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
-  @put
-  createDnsService is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DnsServiceIdParameter;
-
-      @doc("NSX DNS Service")
-      @body
-      workloadNetworkDnsService: WorkloadNetworkDnsService;
-    },
-    WorkloadNetworkDnsService
-  >;
-
-  @doc("Create or update a DNS service by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
-  @patch
-  updateDnsService is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DnsServiceIdParameter;
-
-      @doc("NSX DNS Service")
-      @body
-      workloadNetworkDnsService: WorkloadNetworkDnsService;
-    },
-    WorkloadNetworkDnsService | void
-  >;
-
-  @doc("Delete a DNS service by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}")
-  @delete
-  deleteDnsService is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...DnsServiceIdParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_DeleteDnsService")
+  delete is ArmResourceDeleteAsync<WorkloadNetworkDnsService>;
 }
 
 interface WorkloadNetworkDnsZones {
-  @doc("List of DNS zones in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones")
-  @get
-  listDnsZones is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkDnsZonesList
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListDnsZones")
+  list is ArmResourceListByParent<WorkloadNetworkDnsZone>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetDnsZone")
+  get is ArmResourceRead<WorkloadNetworkDnsZone>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_CreateDnsZone")
+  create is ArmResourceCreateOrUpdateAsync<WorkloadNetworkDnsZone>;
+
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_UpdateDnsZone")
+  update is ArmResourcePatchAsync<
+    WorkloadNetworkDnsZone,
+    WorkloadNetworkDnsZoneProperties
   >;
 
-  @doc("Get a DNS zone by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
-  @get
-  getDnsZone is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DnsZoneIdParameter;
-    },
-    WorkloadNetworkDnsZone
-  >;
-
-  @doc("Create a DNS zone by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
-  @put
-  createDnsZone is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DnsZoneIdParameter;
-
-      @doc("NSX DNS Zone")
-      @body
-      workloadNetworkDnsZone: WorkloadNetworkDnsZone;
-    },
-    WorkloadNetworkDnsZone
-  >;
-
-  @doc("Create or update a DNS zone by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
-  @patch
-  updateDnsZone is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...DnsZoneIdParameter;
-
-      @doc("NSX DNS Zone")
-      @body
-      workloadNetworkDnsZone: WorkloadNetworkDnsZone;
-    },
-    WorkloadNetworkDnsZone | void
-  >;
-
-  @doc("Delete a DNS zone by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}")
-  @delete
-  deleteDnsZone is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...DnsZoneIdParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_DeleteDnsZone")
+  delete is ArmResourceDeleteAsync<WorkloadNetworkDnsZone>;
 }
 
 interface WorkloadNetworkPublicIps {
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("List of Public IP Blocks in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs")
-  @get
-  listPublicIPs is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    WorkloadNetworkPublicIPsList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_ListPublicIPs")
+  list is ArmResourceListByParent<WorkloadNetworkPublicIP>;
 
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("Get a Public IP Block by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
-  @get
-  getPublicIP is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...PublicIpIdParameter;
-    },
-    WorkloadNetworkPublicIP
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_GetPublicIP")
+  get is ArmResourceRead<WorkloadNetworkPublicIP>;
 
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("Create a Public IP Block by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
-  @put
-  createPublicIP is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...PublicIpIdParameter;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_CreatePublicIP")
+  create is ArmResourceCreateOrUpdateAsync<WorkloadNetworkPublicIP>;
 
-      @doc("NSX Public IP Block")
-      @body
-      workloadNetworkPublicIP: WorkloadNetworkPublicIP;
-    },
-    WorkloadNetworkPublicIP
-  >;
-
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "Can not change existing name."
-  @doc("Delete a Public IP Block by id in a private cloud workload network.")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}")
-  @delete
-  deletePublicIP is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PublicIpIdParameter;
-      ...PrivateCloudNameParameter;
-    },
-    void
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("WorkloadNetworks_DeletePublicIP")
+  delete is ArmResourceDeleteAsync<WorkloadNetworkPublicIP>;
 }
 
 interface CloudLinks {
-  @doc("List cloud link in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    CloudLinkList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("CloudLinks_List")
+  list is ArmResourceListByParent<CloudLink>;
 
-  @doc("Get an cloud link by name in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...CloudLinkNameParameter;
-    },
-    CloudLink
-  >;
-
-  @doc("Create or update a cloud link in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...CloudLinkNameParameter;
-
-      @doc("A cloud link in the private cloud")
-      @body
-      cloudLink: CloudLink;
-    },
-    CloudLink
-  >;
-
-  @doc("Delete a cloud link in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...CloudLinkNameParameter;
-    },
-    void
-  >;
+  get is ArmResourceRead<CloudLink>;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<CloudLink>;
+  delete is ArmResourceDeleteAsync<CloudLink>;
 }
 
 interface Addons {
-  @doc("List addons in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    AddonList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("CloudLinks_List")
+  list is ArmResourceListByParent<Addon>;
 
-  @doc("Get an addon by name in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...AddonNameParameter;
-    },
-    Addon
-  >;
-
-  @doc("Create or update a addon in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...AddonNameParameter;
-
-      @doc("A addon in the private cloud")
-      @body
-      addon: Addon;
-    },
-    Addon
-  >;
-
-  @doc("Delete a addon in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...AddonNameParameter;
-    },
-    void
-  >;
+  get is ArmResourceRead<Addon>;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<Addon>;
+  delete is ArmResourceDeleteAsync<Addon>;
 }
 
 interface VirtualMachines {
-  @summary("List of virtual machines in a private cloud cluster")
-  @doc("List of virtual machines in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-    },
-    VirtualMachinesList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("VirtualMachines_List")
+  list is ArmResourceListByParent<VirtualMachine>;
 
-  @doc("Get a virtual machine by id in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...VirtualMachineIdParameter;
-    },
-    VirtualMachine
-  >;
+  get is ArmResourceRead<VirtualMachine>;
 
   @doc("Enable or disable DRS-driven VM movement restriction")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}/restrictMovement")
-  @post
-  restrictMovement is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...VirtualMachineIdParameter;
-
-      @doc("Whether VM DRS-driven movement is restricted (Enabled) or not (Disabled)")
-      @body
-      restrictMovement: VirtualMachineRestrictMovement;
-    },
-    void
+  restrictMovement is ArmResourceActionAsync<
+    VirtualMachine,
+    VirtualMachineRestrictMovement,
+    {}
   >;
 }
 
 interface PlacementPolicies {
-  @doc("List placement policies in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-    },
-    PlacementPoliciesList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("PlacementPolicies_List")
+  list is ArmResourceListByParent<PlacementPolicy>;
 
-  @doc("Get a placement policy by name in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...PlacementPolicyNameParameter;
-    },
-    PlacementPolicy
-  >;
-
-  @doc("Create or update a placement policy in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...PlacementPolicyNameParameter;
-
-      @doc("A placement policy in the private cloud cluster")
-      @body
-      placementPolicy: PlacementPolicy;
-    },
-    PlacementPolicy
-  >;
-
-  @doc("Update a placement policy in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
-  @patch
-  update is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...PlacementPolicyNameParameter;
-
-      @doc("The placement policy properties that may be updated")
-      @body
-      placementPolicyUpdate: PlacementPolicyUpdate;
-    },
-    PlacementPolicy
-  >;
-
-  @doc("Delete a placement policy in a private cloud cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-      ...PlacementPolicyNameParameter;
-    },
-    void
-  >;
+  get is ArmResourceRead<PlacementPolicy>;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<PlacementPolicy>;
+  update is ArmResourcePatchAsync<PlacementPolicy, PlacementPolicyProperties>;
 }
 
 interface ScriptPackages {
-  @doc("List script packages available to run on the private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    ScriptPackagesList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("ScriptPackages_List")
+  list is ArmResourceListByParent<ScriptPackage>;
 
-  @doc("Get a script package available to run on a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ScriptPackageNameParameter;
-    },
-    ScriptPackage
-  >;
+  get is ArmResourceRead<ScriptPackage>;
 }
 
 interface ScriptCmdlets {
-  @doc("""
-List script cmdlet resources available for a private cloud to create a script
-execution resource on a private cloud
-""")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}/scriptCmdlets")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ScriptPackageNameParameter;
-    },
-    ScriptCmdletsList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("ScriptCmdlets_List")
+  list is ArmResourceListByParent<ScriptCmdlet>;
 
-  @doc("""
-Return information about a script cmdlet resource in a specific package on a
-private cloud
-""")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}/scriptCmdlets/{scriptCmdletName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ScriptPackageNameParameter;
-      ...ScriptCmdletNameParameter;
-    },
-    ScriptCmdlet
-  >;
+  get is ArmResourceRead<ScriptCmdlet>;
 }
 
 interface ScriptExecutions {
-  @doc("List script executions in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions")
-  @get
-  list is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
-    ScriptExecutionsList
-  >;
+  #suppress "@azure-tools/typespec-azure-core/no-operation-id" "Can not change existing operationId."
+  @operationId("ScriptExecutions_List")
+  list is ArmResourceListByParent<ScriptExecution>;
 
-  @doc("Get an script execution by name in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
-  @get
-  get is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ScriptExecutionNameParameter;
-    },
-    ScriptExecution
-  >;
-
-  @doc("Create or update a script execution in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ScriptExecutionNameParameter;
-
-      @doc("A script running in the private cloud")
-      @body
-      scriptExecution: ScriptExecution;
-    },
-    ScriptExecution
-  >;
-
-  @doc("Cancel a ScriptExecution in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ScriptExecutionNameParameter;
-    },
-    void
-  >;
+  get is ArmResourceRead<ScriptExecution>;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<ScriptExecution>;
+  delete is ArmResourceDeleteAsync<ScriptExecution>;
 
   @doc("Return the logs for a script execution resource")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}/getExecutionLogs")
-  @post
-  getExecutionLogs is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ScriptExecutionNameParameter;
-
-      #suppress "@azure-tools/typespec-azure-core/request-body-problem" "Can not change existing response."
-      @doc("""
-Name of the desired output stream to return. If not provided, will return all.
-An empty array will return nothing
-""")
-      @body
-      scriptOutputStreamType: ScriptOutputStreamType[];
-    },
+  getExecutionLogs is ArmResourceActionSync<
+    ScriptExecution,
+    ScriptOutputStreamType[],
     ScriptExecution
   >;
 }

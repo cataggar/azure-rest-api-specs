@@ -512,11 +512,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons": {
       "get": {
-        "operationId": "Addons_List",
-        "description": "List addons in a private cloud",
+        "operationId": "CloudLinks_List",
+        "description": "List Addon resources by PrivateCloud",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -525,32 +525,31 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedAddon"
+              "$ref": "#/definitions/AddonListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
         "x-ms-examples": {
-          "Addons_List": {
-            "$ref": "./examples/Addons_List.json"
+          "CloudLinks_List": {
+            "$ref": "./examples/CloudLinks_List.json"
           }
         },
         "x-ms-pageable": {
@@ -561,10 +560,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/addons/{addonName}": {
       "get": {
         "operationId": "Addons_Get",
-        "description": "Get an addon by name in a private cloud",
+        "description": "Get a Addon",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -573,15 +572,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/AddonNameParameter"
+            "name": "addonName",
+            "in": "path",
+            "description": "Name of the addon.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/Addon"
             }
@@ -589,13 +598,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -616,10 +619,10 @@
       },
       "put": {
         "operationId": "Addons_CreateOrUpdate",
-        "description": "Create or update a addon in a private cloud",
+        "description": "Create a Addon",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -628,15 +631,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/AddonNameParameter"
+            "name": "addonName",
+            "in": "path",
+            "description": "Name of the addon.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "addon",
+            "name": "resource",
             "in": "body",
-            "description": "A addon in the private cloud",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Addon"
@@ -645,21 +658,28 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'Addon' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/Addon"
+            }
+          },
+          "201": {
+            "description": "Resource 'Addon' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/Addon"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -676,14 +696,18 @@
           "Addons_CreateOrUpdate_VR": {
             "$ref": "./examples/Addons_CreateOrUpdate_VR.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "Addons_Delete",
-        "description": "Delete a addon in a private cloud",
+        "description": "Delete a Addon",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -692,26 +716,47 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/AddonNameParameter"
+            "name": "addonName",
+            "in": "path",
+            "description": "Name of the addon.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -719,7 +764,11 @@
           "Addons_Delete": {
             "$ref": "./examples/Addons_Delete.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/authorizations": {
@@ -968,10 +1017,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks": {
       "get": {
         "operationId": "CloudLinks_List",
-        "description": "List cloud link in a private cloud",
+        "description": "List CloudLink resources by PrivateCloud",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -980,26 +1029,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedCloudLink"
+              "$ref": "#/definitions/CloudLinkListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1016,10 +1064,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/cloudLinks/{cloudLinkName}": {
       "get": {
         "operationId": "CloudLinks_Get",
-        "description": "Get an cloud link by name in a private cloud",
+        "description": "Get a CloudLink",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1028,15 +1076,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/CloudLinkNameParameter"
+            "name": "cloudLinkName",
+            "in": "path",
+            "description": "Name of the cloud link.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/CloudLink"
             }
@@ -1044,13 +1102,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1062,10 +1114,10 @@
       },
       "put": {
         "operationId": "CloudLinks_CreateOrUpdate",
-        "description": "Create or update a cloud link in a private cloud",
+        "description": "Create a CloudLink",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1074,15 +1126,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/CloudLinkNameParameter"
+            "name": "cloudLinkName",
+            "in": "path",
+            "description": "Name of the cloud link.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "cloudLink",
+            "name": "resource",
             "in": "body",
-            "description": "A cloud link in the private cloud",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/CloudLink"
@@ -1091,31 +1153,42 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'CloudLink' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/CloudLink"
+            }
+          },
+          "201": {
+            "description": "Resource 'CloudLink' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/CloudLink"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "CloudLinks_Delete",
-        "description": "Delete a cloud link in a private cloud",
+        "description": "Delete a CloudLink",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1124,26 +1197,47 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/CloudLinkNameParameter"
+            "name": "cloudLinkName",
+            "in": "path",
+            "description": "Name of the cloud link.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1151,7 +1245,11 @@
           "CloudLinks_Delete": {
             "$ref": "./examples/CloudLinks_Delete.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters": {
@@ -1832,10 +1930,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies": {
       "get": {
         "operationId": "PlacementPolicies_List",
-        "description": "List placement policies in a private cloud cluster",
+        "description": "List PlacementPolicy resources by Cluster",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1844,29 +1942,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedPlacementPolicy"
+              "$ref": "#/definitions/PlacementPolicyListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1883,10 +1985,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/placementPolicies/{placementPolicyName}": {
       "get": {
         "operationId": "PlacementPolicies_Get",
-        "description": "Get a placement policy by name in a private cloud cluster",
+        "description": "Get a PlacementPolicy",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1895,18 +1997,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PlacementPolicyNameParameter"
+            "name": "placementPolicyName",
+            "in": "path",
+            "description": "Name of the placement policy.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/PlacementPolicy"
             }
@@ -1914,13 +2031,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1932,10 +2043,10 @@
       },
       "put": {
         "operationId": "PlacementPolicies_CreateOrUpdate",
-        "description": "Create or update a placement policy in a private cloud cluster",
+        "description": "Create a PlacementPolicy",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -1944,18 +2055,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PlacementPolicyNameParameter"
+            "name": "placementPolicyName",
+            "in": "path",
+            "description": "Name of the placement policy.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "placementPolicy",
+            "name": "resource",
             "in": "body",
-            "description": "A placement policy in the private cloud cluster",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/PlacementPolicy"
@@ -1964,21 +2090,28 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'PlacementPolicy' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/PlacementPolicy"
+            }
+          },
+          "201": {
+            "description": "Resource 'PlacementPolicy' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/PlacementPolicy"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -1986,14 +2119,18 @@
           "PlacementPolicies_CreateOrUpdate": {
             "$ref": "./examples/PlacementPolicies_CreateOrUpdate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "patch": {
         "operationId": "PlacementPolicies_Update",
-        "description": "Update a placement policy in a private cloud cluster",
+        "description": "Update a PlacementPolicy",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2002,18 +2139,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PlacementPolicyNameParameter"
+            "name": "placementPolicyName",
+            "in": "path",
+            "description": "Name of the placement policy.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "placementPolicyUpdate",
+            "name": "properties",
             "in": "body",
-            "description": "The placement policy properties that may be updated",
+            "description": "The resource properties to be updated.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/PlacementPolicyUpdate"
@@ -2022,21 +2174,29 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/PlacementPolicy"
+            }
+          },
+          "202": {
+            "description": "Resource update request accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2044,63 +2204,20 @@
           "PlacementPolicies_Update": {
             "$ref": "./examples/PlacementPolicies_Update.json"
           }
-        }
-      },
-      "delete": {
-        "operationId": "PlacementPolicies_Delete",
-        "description": "Delete a placement policy in a private cloud cluster",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
-          },
-          {
-            "$ref": "#/parameters/ClusterNameParameter"
-          },
-          {
-            "$ref": "#/parameters/PlacementPolicyNameParameter"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
-            }
-          }
         },
-        "x-ms-examples": {
-          "PlacementPolicies_Delete": {
-            "$ref": "./examples/PlacementPolicies_Delete.json"
-          }
-        }
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines": {
       "get": {
         "operationId": "VirtualMachines_List",
-        "summary": "List of virtual machines in a private cloud cluster",
-        "description": "List of virtual machines in a private cloud cluster",
+        "description": "List VirtualMachine resources by Cluster",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2109,29 +2226,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedVirtualMachine"
+              "$ref": "#/definitions/VirtualMachineListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2148,10 +2269,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/virtualMachines/{virtualMachineId}": {
       "get": {
         "operationId": "VirtualMachines_Get",
-        "description": "Get a virtual machine by id in a private cloud cluster",
+        "description": "Get a VirtualMachine",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2160,18 +2281,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/VirtualMachineIdParameter"
+            "name": "virtualMachineId",
+            "in": "path",
+            "description": "ID of the virtual machine.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/VirtualMachine"
             }
@@ -2179,13 +2315,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2202,7 +2332,7 @@
         "description": "Enable or disable DRS-driven VM movement restriction",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2211,18 +2341,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ClusterNameParameter"
+            "name": "clusterName",
+            "in": "path",
+            "description": "Name of the cluster",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/VirtualMachineIdParameter"
+            "name": "virtualMachineId",
+            "in": "path",
+            "description": "ID of the virtual machine.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "restrictMovement",
+            "name": "body",
             "in": "body",
-            "description": "Whether VM DRS-driven movement is restricted (Enabled) or not (Disabled)",
+            "description": "The content of the action request",
             "required": true,
             "schema": {
               "$ref": "#/definitions/VirtualMachineRestrictMovement"
@@ -2230,22 +2375,37 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+          "200": {
+            "description": "ARM operation completed successfully.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/globalReachConnections": {
@@ -2930,10 +3090,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions": {
       "get": {
         "operationId": "ScriptExecutions_List",
-        "description": "List script executions in a private cloud",
+        "description": "List ScriptExecution resources by PrivateCloud",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2942,26 +3102,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedScriptExecution"
+              "$ref": "#/definitions/ScriptExecutionListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -2978,10 +3137,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}": {
       "get": {
         "operationId": "ScriptExecutions_Get",
-        "description": "Get an script execution by name in a private cloud",
+        "description": "Get a ScriptExecution",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2990,15 +3149,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ScriptExecutionNameParameter"
+            "name": "scriptExecutionName",
+            "in": "path",
+            "description": "Name of the script cmdlet.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/ScriptExecution"
             }
@@ -3006,13 +3175,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3024,10 +3187,10 @@
       },
       "put": {
         "operationId": "ScriptExecutions_CreateOrUpdate",
-        "description": "Create or update a script execution in a private cloud",
+        "description": "Create a ScriptExecution",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3036,15 +3199,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ScriptExecutionNameParameter"
+            "name": "scriptExecutionName",
+            "in": "path",
+            "description": "Name of the script cmdlet.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "scriptExecution",
+            "name": "resource",
             "in": "body",
-            "description": "A script running in the private cloud",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/ScriptExecution"
@@ -3053,21 +3226,28 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'ScriptExecution' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/ScriptExecution"
+            }
+          },
+          "201": {
+            "description": "Resource 'ScriptExecution' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/ScriptExecution"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3075,14 +3255,18 @@
           "ScriptExecutions_CreateOrUpdate": {
             "$ref": "./examples/ScriptExecutions_CreateOrUpdate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "ScriptExecutions_Delete",
-        "description": "Cancel a ScriptExecution in a private cloud",
+        "description": "Delete a ScriptExecution",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3091,26 +3275,47 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ScriptExecutionNameParameter"
+            "name": "scriptExecutionName",
+            "in": "path",
+            "description": "Name of the script cmdlet.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3118,7 +3323,11 @@
           "ScriptExecutions_Delete": {
             "$ref": "./examples/ScriptExecutions_Delete.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptExecutions/{scriptExecutionName}/getExecutionLogs": {
@@ -3127,7 +3336,7 @@
         "description": "Return the logs for a script execution resource",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3136,15 +3345,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ScriptExecutionNameParameter"
+            "name": "scriptExecutionName",
+            "in": "path",
+            "description": "Name of the script cmdlet.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "scriptOutputStreamType",
+            "name": "body",
             "in": "body",
-            "description": "Name of the desired output stream to return. If not provided, will return all.\nAn empty array will return nothing",
+            "description": "The content of the action request",
             "required": true,
             "schema": {
               "type": "array",
@@ -3156,21 +3375,29 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/ScriptExecution"
+            }
+          },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3178,16 +3405,20 @@
           "ScriptExecutions_GetExecutionLogs": {
             "$ref": "./examples/ScriptExecutions_GetExecutionLogs.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages": {
       "get": {
         "operationId": "ScriptPackages_List",
-        "description": "List script packages available to run on the private cloud",
+        "description": "List ScriptPackage resources by PrivateCloud",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3196,26 +3427,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedScriptPackage"
+              "$ref": "#/definitions/ScriptPackageListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3232,10 +3462,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}": {
       "get": {
         "operationId": "ScriptPackages_Get",
-        "description": "Get a script package available to run on a private cloud",
+        "description": "Get a ScriptPackage",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3244,15 +3474,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ScriptPackageNameParameter"
+            "name": "scriptPackageName",
+            "in": "path",
+            "description": "Name of the script package.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._@]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/ScriptPackage"
             }
@@ -3260,13 +3500,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3280,10 +3514,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}/scriptCmdlets": {
       "get": {
         "operationId": "ScriptCmdlets_List",
-        "description": "List script cmdlet resources available for a private cloud to create a script\nexecution resource on a private cloud",
+        "description": "List ScriptCmdlet resources by ScriptPackage",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3292,29 +3526,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ScriptPackageNameParameter"
+            "name": "scriptPackageName",
+            "in": "path",
+            "description": "Name of the script package.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._@]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedScriptCmdlet"
+              "$ref": "#/definitions/ScriptCmdletListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3331,10 +3569,10 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/scriptPackages/{scriptPackageName}/scriptCmdlets/{scriptCmdletName}": {
       "get": {
         "operationId": "ScriptCmdlets_Get",
-        "description": "Return information about a script cmdlet resource in a specific package on a\nprivate cloud",
+        "description": "Get a ScriptCmdlet",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3343,18 +3581,33 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/ScriptPackageNameParameter"
+            "name": "scriptPackageName",
+            "in": "path",
+            "description": "Name of the script package.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._@]+$"
           },
           {
-            "$ref": "#/parameters/ScriptCmdletNameParameter"
+            "name": "scriptCmdletName",
+            "in": "path",
+            "description": "Name of the script cmdlet.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/ScriptCmdlet"
             }
@@ -3362,13 +3615,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -3767,11 +4014,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices": {
       "get": {
-        "operationId": "WorkloadNetworkDnsServices_ListDnsServices",
-        "description": "List of DNS services in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_ListDnsServices",
+        "description": "List WorkloadNetworkDnsService resources by WorkloadNetwork",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3780,27 +4027,31 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkDnsService"
+              "$ref": "#/definitions/WorkloadNetworkDnsServiceListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "WorkloadNetworks_ListDnsServices": {
+            "$ref": "./examples/WorkloadNetworks_ListDnsServices.json"
           }
         },
         "x-ms-pageable": {
@@ -3810,11 +4061,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsServices/{dnsServiceId}": {
       "get": {
-        "operationId": "WorkloadNetworkDnsServices_GetDnsService",
-        "description": "Get a DNS service by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_GetDnsService",
+        "description": "Get a WorkloadNetworkDnsService",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3823,15 +4074,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DnsServiceIdParameter"
+            "name": "dnsServiceId",
+            "in": "path",
+            "description": "ID of the DNS service.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsService"
             }
@@ -3839,23 +4100,17 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         }
       },
       "put": {
-        "operationId": "WorkloadNetworkDnsServices_CreateDnsService",
-        "description": "Create a DNS service by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_CreateDnsService",
+        "description": "Create a WorkloadNetworkDnsService",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3864,15 +4119,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DnsServiceIdParameter"
+            "name": "dnsServiceId",
+            "in": "path",
+            "description": "ID of the DNS service.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkDnsService",
+            "name": "resource",
             "in": "body",
-            "description": "NSX DNS Service",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsService"
@@ -3881,31 +4146,42 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'WorkloadNetworkDnsService' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsService"
+            }
+          },
+          "201": {
+            "description": "Resource 'WorkloadNetworkDnsService' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkDnsService"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "patch": {
-        "operationId": "WorkloadNetworkDnsServices_UpdateDnsService",
-        "description": "Create or update a DNS service by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_UpdateDnsService",
+        "description": "Update a WorkloadNetworkDnsService",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3914,15 +4190,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DnsServiceIdParameter"
+            "name": "dnsServiceId",
+            "in": "path",
+            "description": "ID of the DNS service.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkDnsService",
+            "name": "properties",
             "in": "body",
-            "description": "NSX DNS Service",
+            "description": "The resource properties to be updated.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsServiceUpdate"
@@ -3931,34 +4217,43 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsService"
             }
           },
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+          "202": {
+            "description": "Resource update request accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
-        "operationId": "WorkloadNetworkDnsServices_DeleteDnsService",
-        "description": "Delete a DNS service by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_DeleteDnsService",
+        "description": "Delete a WorkloadNetworkDnsService",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -3967,67 +4262,96 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/DnsServiceIdParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones": {
-      "get": {
-        "operationId": "WorkloadNetworkDnsZones_ListDnsZones",
-        "description": "List of DNS zones in a private cloud workload network.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "dnsServiceId",
+            "in": "path",
+            "description": "ID of the DNS service.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
+          "204": {
+            "description": "Resource deleted successfully."
+          },
+          "default": {
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkDnsZone"
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones": {
+      "get": {
+        "operationId": "WorkloadNetworks_ListDnsZones",
+        "description": "List WorkloadNetworkDnsZone resources by WorkloadNetwork",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ARM operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkDnsZoneListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "WorkloadNetworks_ListDnsZones": {
+            "$ref": "./examples/WorkloadNetworks_ListDnsZones.json"
           }
         },
         "x-ms-pageable": {
@@ -4037,11 +4361,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/dnsZones/{dnsZoneId}": {
       "get": {
-        "operationId": "WorkloadNetworkDnsZones_GetDnsZone",
-        "description": "Get a DNS zone by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_GetDnsZone",
+        "description": "Get a WorkloadNetworkDnsZone",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4050,15 +4374,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DnsZoneIdParameter"
+            "name": "dnsZoneId",
+            "in": "path",
+            "description": "ID of the DNS zone.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsZone"
             }
@@ -4066,23 +4400,17 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         }
       },
       "put": {
-        "operationId": "WorkloadNetworkDnsZones_CreateDnsZone",
-        "description": "Create a DNS zone by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_CreateDnsZone",
+        "description": "Create a WorkloadNetworkDnsZone",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4091,15 +4419,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DnsZoneIdParameter"
+            "name": "dnsZoneId",
+            "in": "path",
+            "description": "ID of the DNS zone.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkDnsZone",
+            "name": "resource",
             "in": "body",
-            "description": "NSX DNS Zone",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsZone"
@@ -4108,31 +4446,42 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'WorkloadNetworkDnsZone' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsZone"
+            }
+          },
+          "201": {
+            "description": "Resource 'WorkloadNetworkDnsZone' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkDnsZone"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "patch": {
-        "operationId": "WorkloadNetworkDnsZones_UpdateDnsZone",
-        "description": "Create or update a DNS zone by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_UpdateDnsZone",
+        "description": "Update a WorkloadNetworkDnsZone",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4141,15 +4490,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/DnsZoneIdParameter"
+            "name": "dnsZoneId",
+            "in": "path",
+            "description": "ID of the DNS zone.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkDnsZone",
+            "name": "properties",
             "in": "body",
-            "description": "NSX DNS Zone",
+            "description": "The resource properties to be updated.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsZoneUpdate"
@@ -4158,34 +4517,43 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkDnsZone"
             }
           },
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+          "202": {
+            "description": "Resource update request accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
-        "operationId": "WorkloadNetworkDnsZones_DeleteDnsZone",
-        "description": "Delete a DNS zone by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_DeleteDnsZone",
+        "description": "Delete a WorkloadNetworkDnsZone",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4194,29 +4562,54 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/DnsZoneIdParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "dnsZoneId",
+            "in": "path",
+            "description": "ID of the DNS zone.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/gateways": {
@@ -4407,11 +4800,11 @@
         }
       },
       "put": {
-        "operationId": "WorkloadNetworkPortMirroringProfiles_CreatePortMirroring",
-        "description": "Create a port mirroring profile by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_CreatePortMirroring",
+        "description": "Create a WorkloadNetworkPortMirroring",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4420,15 +4813,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PortMirroringIdParameter"
+            "name": "portMirroringId",
+            "in": "path",
+            "description": "ID of the NSX port mirroring profile.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkPortMirroring",
+            "name": "resource",
             "in": "body",
-            "description": "NSX port mirroring",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPortMirroring"
@@ -4437,31 +4840,42 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'WorkloadNetworkPortMirroring' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPortMirroring"
+            }
+          },
+          "201": {
+            "description": "Resource 'WorkloadNetworkPortMirroring' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkPortMirroring"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "patch": {
-        "operationId": "WorkloadNetworkPortMirroringProfiles_UpdatePortMirroring",
-        "description": "Create or update a port mirroring profile by id in a private cloud workload\nnetwork.",
+        "operationId": "WorkloadNetworks_UpdatePortMirroring",
+        "description": "Update a WorkloadNetworkPortMirroring",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4470,15 +4884,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PortMirroringIdParameter"
+            "name": "portMirroringId",
+            "in": "path",
+            "description": "ID of the NSX port mirroring profile.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkPortMirroring",
+            "name": "properties",
             "in": "body",
-            "description": "NSX port mirroring",
+            "description": "The resource properties to be updated.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPortMirroringUpdate"
@@ -4487,34 +4911,43 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPortMirroring"
             }
           },
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+          "202": {
+            "description": "Resource update request accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
-        "operationId": "WorkloadNetworkPortMirroringProfiles_DeletePortMirroring",
-        "description": "Delete a port mirroring profile by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_DeletePortMirroring",
+        "description": "Delete a WorkloadNetworkPortMirroring",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4523,67 +4956,96 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PortMirroringIdParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
-            }
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs": {
-      "get": {
-        "operationId": "WorkloadNetworkPublicIps_ListPublicIPs",
-        "description": "List of Public IP Blocks in a private cloud workload network.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "portMirroringId",
+            "in": "path",
+            "description": "ID of the NSX port mirroring profile.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
+          "204": {
+            "description": "Resource deleted successfully."
+          },
+          "default": {
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkPublicIP"
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs": {
+      "get": {
+        "operationId": "WorkloadNetworks_ListPublicIPs",
+        "description": "List WorkloadNetworkPublicIP resources by WorkloadNetwork",
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ARM operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkPublicIPListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "WorkloadNetworks_ListPublicIPs": {
+            "$ref": "./examples/WorkloadNetworks_ListPublicIPs.json"
           }
         },
         "x-ms-pageable": {
@@ -4593,11 +5055,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/publicIPs/{publicIPId}": {
       "get": {
-        "operationId": "WorkloadNetworkPublicIps_GetPublicIp",
-        "description": "Get a Public IP Block by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_GetPublicIp",
+        "description": "Get a WorkloadNetworkPublicIP",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4606,15 +5068,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PublicIpIdParameter"
+            "name": "publicIPId",
+            "in": "path",
+            "description": "ID of the DNS zone.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPublicIP"
             }
@@ -4622,23 +5094,17 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         }
       },
       "put": {
-        "operationId": "WorkloadNetworkPublicIps_CreatePublicIp",
-        "description": "Create a Public IP Block by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_CreatePublicIp",
+        "description": "Create a WorkloadNetworkPublicIP",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4647,15 +5113,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PublicIpIdParameter"
+            "name": "publicIPId",
+            "in": "path",
+            "description": "ID of the DNS zone.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "name": "workloadNetworkPublicIP",
+            "name": "resource",
             "in": "body",
-            "description": "NSX Public IP Block",
+            "description": "Resource create parameters.",
             "required": true,
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPublicIP"
@@ -4664,31 +5140,42 @@
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "Resource 'WorkloadNetworkPublicIP' update operation succeeded",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkPublicIP"
+            }
+          },
+          "201": {
+            "description": "Resource 'WorkloadNetworkPublicIP' create operation succeeded",
+            "schema": {
+              "$ref": "#/definitions/WorkloadNetworkPublicIP"
+            },
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "azure-async-operation"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
-        "operationId": "WorkloadNetworkPublicIps_DeletePublicIp",
-        "description": "Delete a Public IP Block by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_DeletePublicIp",
+        "description": "Delete a WorkloadNetworkPublicIP",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -4697,29 +5184,54 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PublicIpIdParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "publicIPId",
+            "in": "path",
+            "description": "ID of the DNS zone.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Resource deleted successfully."
+          },
+          "202": {
+            "description": "Resource deletion accepted.",
+            "headers": {
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
+            "description": "Resource deleted successfully."
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/segments": {
@@ -5034,11 +5546,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines": {
       "get": {
-        "operationId": "WorkloadNetworkVirtualMachines_ListVirtualMachines",
-        "description": "List of virtual machines in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_ListVirtualMachines",
+        "description": "List WorkloadNetworkVirtualMachine resources by WorkloadNetwork",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -5047,27 +5559,31 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PagedWorkloadNetworkVirtualMachine"
+              "$ref": "#/definitions/WorkloadNetworkVirtualMachineListResult"
             }
           },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "WorkloadNetworks_ListVirtualMachines": {
+            "$ref": "./examples/WorkloadNetworks_ListVirtualMachines.json"
           }
         },
         "x-ms-pageable": {
@@ -5077,11 +5593,11 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/workloadNetworks/default/virtualMachines/{virtualMachineId}": {
       "get": {
-        "operationId": "WorkloadNetworkVirtualMachines_GetVirtualMachine",
-        "description": "Get a virtual machine by id in a private cloud workload network.",
+        "operationId": "WorkloadNetworks_GetVmGroup",
+        "description": "Get a WorkloadNetworkVirtualMachine",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -5090,15 +5606,25 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           },
           {
-            "$ref": "#/parameters/VirtualMachineIdParameter"
+            "name": "virtualMachineId",
+            "in": "path",
+            "description": "ID of the virtual machine.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/WorkloadNetworkVirtualMachine"
             }
@@ -5106,13 +5632,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         }
@@ -5470,6 +5990,27 @@
       ],
       "x-ms-discriminator-value": "HCX"
     },
+    "AddonListResult": {
+      "type": "object",
+      "description": "The response of a Addon list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The Addon items on this page",
+          "items": {
+            "$ref": "#/definitions/Addon"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "AddonProperties": {
       "type": "object",
       "description": "The properties of an addon",
@@ -5826,6 +6367,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "CloudLinkListResult": {
+      "type": "object",
+      "description": "The response of a CloudLink list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The CloudLink items on this page",
+          "items": {
+            "$ref": "#/definitions/CloudLink"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "CloudLinkProperties": {
@@ -7026,237 +7588,6 @@
       ],
       "x-ms-discriminator-value": "Credential"
     },
-    "PagedAddon": {
-      "type": "object",
-      "description": "A paged list of addons",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The Addon items on this page",
-          "items": {
-            "$ref": "#/definitions/Addon"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedCloudLink": {
-      "type": "object",
-      "description": "A paged list of cloud links",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The CloudLink items on this page",
-          "items": {
-            "$ref": "#/definitions/CloudLink"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedPlacementPolicy": {
-      "type": "object",
-      "description": "Represents list of placement policies",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The PlacementPolicy items on this page",
-          "items": {
-            "$ref": "#/definitions/PlacementPolicy"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedScriptCmdlet": {
-      "type": "object",
-      "description": "Pageable list of scripts/cmdlets",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The ScriptCmdlet items on this page",
-          "items": {
-            "$ref": "#/definitions/ScriptCmdlet"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedScriptExecution": {
-      "type": "object",
-      "description": "Pageable list of script executions",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The ScriptExecution items on this page",
-          "items": {
-            "$ref": "#/definitions/ScriptExecution"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedScriptPackage": {
-      "type": "object",
-      "description": "A list of the available script packages",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The ScriptPackage items on this page",
-          "items": {
-            "$ref": "#/definitions/ScriptPackage"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedVirtualMachine": {
-      "type": "object",
-      "description": "A list of Virtual Machines",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The VirtualMachine items on this page",
-          "items": {
-            "$ref": "#/definitions/VirtualMachine"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedWorkloadNetworkDnsService": {
-      "type": "object",
-      "description": "A list of NSX DNS Services",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkDnsService items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkDnsService"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedWorkloadNetworkDnsZone": {
-      "type": "object",
-      "description": "A list of NSX DNS Zones",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkDnsZone items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkDnsZone"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedWorkloadNetworkPublicIP": {
-      "type": "object",
-      "description": "A list of NSX Public IP Blocks",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkPublicIP items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkPublicIP"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
-    "PagedWorkloadNetworkVirtualMachine": {
-      "type": "object",
-      "description": "A list of NSX Virtual Machines",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The WorkloadNetworkVirtualMachine items on this page",
-          "items": {
-            "$ref": "#/definitions/WorkloadNetworkVirtualMachine"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
     "PlacementPolicy": {
       "type": "object",
       "description": "A vSphere Distributed Resource Scheduler (DRS) placement policy",
@@ -7275,6 +7606,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "PlacementPolicyListResult": {
+      "type": "object",
+      "description": "The response of a PlacementPolicy list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The PlacementPolicy items on this page",
+          "items": {
+            "$ref": "#/definitions/PlacementPolicy"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "PlacementPolicyProperties": {
@@ -7378,43 +7730,25 @@
     },
     "PlacementPolicyUpdate": {
       "type": "object",
-      "description": "An update of a DRS placement policy resource",
+      "description": "The type used for update operations of the PlacementPolicy.",
       "properties": {
         "properties": {
           "$ref": "#/definitions/PlacementPolicyUpdateProperties",
-          "description": "The properties of a placement policy resource that may be updated"
+          "x-ms-client-flatten": true
         }
       }
     },
     "PlacementPolicyUpdateProperties": {
       "type": "object",
-      "description": "The properties of a placement policy resource that may be updated",
+      "description": "The updatable properties of the PlacementPolicy.",
       "properties": {
         "state": {
           "$ref": "#/definitions/PlacementPolicyState",
           "description": "Whether the placement policy is enabled or disabled"
         },
-        "vmMembers": {
-          "type": "array",
-          "description": "Virtual machine members list",
-          "items": {
-            "type": "string"
-          }
-        },
-        "hostMembers": {
-          "type": "array",
-          "description": "Host members list",
-          "items": {
-            "type": "string"
-          }
-        },
-        "affinityStrength": {
-          "$ref": "#/definitions/AffinityStrength",
-          "description": "vm-host placement policy affinity strength (should/must)"
-        },
-        "azureHybridBenefitType": {
-          "$ref": "#/definitions/AzureHybridBenefitType",
-          "description": "placement policy azure hybrid benefit opt-in type"
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the placement policy"
         }
       }
     },
@@ -7862,6 +8196,27 @@
         }
       ]
     },
+    "ScriptCmdletListResult": {
+      "type": "object",
+      "description": "The response of a ScriptCmdlet list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The ScriptCmdlet items on this page",
+          "items": {
+            "$ref": "#/definitions/ScriptCmdlet"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "ScriptCmdletProperties": {
       "type": "object",
       "description": "Properties of a pre-canned script",
@@ -7905,6 +8260,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "ScriptExecutionListResult": {
+      "type": "object",
+      "description": "The response of a ScriptExecution list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The ScriptExecution items on this page",
+          "items": {
+            "$ref": "#/definitions/ScriptExecution"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "ScriptExecutionParameter": {
@@ -8140,6 +8516,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "ScriptPackageListResult": {
+      "type": "object",
+      "description": "The response of a ScriptPackage list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The ScriptPackage items on this page",
+          "items": {
+            "$ref": "#/definitions/ScriptPackage"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "ScriptPackageProperties": {
@@ -8468,6 +8865,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "VirtualMachineListResult": {
+      "type": "object",
+      "description": "The response of a VirtualMachine list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The VirtualMachine items on this page",
+          "items": {
+            "$ref": "#/definitions/VirtualMachine"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "VirtualMachineProperties": {
@@ -8854,6 +9272,27 @@
         }
       ]
     },
+    "WorkloadNetworkDnsServiceListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkDnsService list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkDnsService items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkDnsService"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "WorkloadNetworkDnsServiceProperties": {
       "type": "object",
       "description": "NSX DNS Service Properties",
@@ -8948,12 +9387,47 @@
     },
     "WorkloadNetworkDnsServiceUpdate": {
       "type": "object",
-      "description": "NSX DNS Service",
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+      "description": "The type used for update operations of the WorkloadNetworkDnsService.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/WorkloadNetworkDnsServiceUpdateProperties",
+          "x-ms-client-flatten": true
         }
-      ]
+      }
+    },
+    "WorkloadNetworkDnsServiceUpdateProperties": {
+      "type": "object",
+      "description": "The updatable properties of the WorkloadNetworkDnsService.",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the DNS Service."
+        },
+        "dnsServiceIp": {
+          "type": "string",
+          "description": "DNS service IP of the DNS Service."
+        },
+        "defaultDnsZone": {
+          "type": "string",
+          "description": "Default DNS zone of the DNS Service."
+        },
+        "fqdnZones": {
+          "type": "array",
+          "description": "FQDN zones of the DNS Service.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "logLevel": {
+          "$ref": "#/definitions/DnsServiceLogLevelEnum",
+          "description": "DNS Service log level."
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "NSX revision number."
+        }
+      }
     },
     "WorkloadNetworkDnsZone": {
       "type": "object",
@@ -8973,6 +9447,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "WorkloadNetworkDnsZoneListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkDnsZone list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkDnsZone items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkDnsZone"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "WorkloadNetworkDnsZoneProperties": {
@@ -9068,12 +9563,51 @@
     },
     "WorkloadNetworkDnsZoneUpdate": {
       "type": "object",
-      "description": "NSX DNS Zone",
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+      "description": "The type used for update operations of the WorkloadNetworkDnsZone.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/WorkloadNetworkDnsZoneUpdateProperties",
+          "x-ms-client-flatten": true
         }
-      ]
+      }
+    },
+    "WorkloadNetworkDnsZoneUpdateProperties": {
+      "type": "object",
+      "description": "The updatable properties of the WorkloadNetworkDnsZone.",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the DNS Zone."
+        },
+        "domain": {
+          "type": "array",
+          "description": "Domain names of the DNS Zone.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dnsServerIps": {
+          "type": "array",
+          "description": "DNS Server IP array of the DNS Zone.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceIp": {
+          "type": "string",
+          "description": "Source IP of the DNS Zone."
+        },
+        "dnsServices": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of DNS Services using the DNS zone."
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "NSX revision number."
+        }
+      }
     },
     "WorkloadNetworkGateway": {
       "type": "object",
@@ -9280,12 +9814,40 @@
     },
     "WorkloadNetworkPortMirroringUpdate": {
       "type": "object",
-      "description": "NSX Port Mirroring",
-      "allOf": [
-        {
-          "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
+      "description": "The type used for update operations of the WorkloadNetworkPortMirroring.",
+      "properties": {
+        "properties": {
+          "$ref": "#/definitions/WorkloadNetworkPortMirroringUpdateProperties",
+          "x-ms-client-flatten": true
         }
-      ]
+      }
+    },
+    "WorkloadNetworkPortMirroringUpdateProperties": {
+      "type": "object",
+      "description": "The updatable properties of the WorkloadNetworkPortMirroring.",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the port mirroring profile."
+        },
+        "direction": {
+          "$ref": "#/definitions/PortMirroringDirectionEnum",
+          "description": "Direction of port mirroring profile."
+        },
+        "source": {
+          "type": "string",
+          "description": "Source VM Group."
+        },
+        "destination": {
+          "type": "string",
+          "description": "Destination VM Group."
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32",
+          "description": "NSX revision number."
+        }
+      }
     },
     "WorkloadNetworkProperties": {
       "type": "object",
@@ -9309,6 +9871,27 @@
         {
           "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
+      ]
+    },
+    "WorkloadNetworkPublicIPListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkPublicIP list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkPublicIP items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkPublicIP"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "WorkloadNetworkPublicIPProperties": {
@@ -9748,6 +10331,27 @@
         }
       ]
     },
+    "WorkloadNetworkVirtualMachineListResult": {
+      "type": "object",
+      "description": "The response of a WorkloadNetworkVirtualMachine list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The WorkloadNetworkVirtualMachine items on this page",
+          "items": {
+            "$ref": "#/definitions/WorkloadNetworkVirtualMachine"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    },
     "WorkloadNetworkVirtualMachineProperties": {
       "type": "object",
       "description": "NSX Virtual Machine Properties",
@@ -9765,15 +10369,6 @@
     }
   },
   "parameters": {
-    "AddonNameParameter": {
-      "name": "addonName",
-      "in": "path",
-      "description": "Name of the addon for the private cloud.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
     "Azure.Core.Foundations.ApiVersionParameter": {
       "name": "api-version",
       "in": "query",
@@ -9783,109 +10378,6 @@
       "minLength": 1,
       "x-ms-parameter-location": "method",
       "x-ms-client-name": "apiVersion"
-    },
-    "CloudLinkNameParameter": {
-      "name": "cloudLinkName",
-      "in": "path",
-      "description": "Name of the cloud link resource.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "ClusterNameParameter": {
-      "name": "clusterName",
-      "in": "path",
-      "description": "Name of the cluster in the private cloud.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "DnsServiceIdParameter": {
-      "name": "dnsServiceId",
-      "in": "path",
-      "description": "NSX DNS Service identifier. Generally the same as the DNS Service's display name.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "DnsZoneIdParameter": {
-      "name": "dnsZoneId",
-      "in": "path",
-      "description": "NSX DNS Zone identifier. Generally the same as the DNS Zone's display name.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "PlacementPolicyNameParameter": {
-      "name": "placementPolicyName",
-      "in": "path",
-      "description": "Name of the VMware vSphere Distributed Resource Scheduler (DRS) placement policy.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "PortMirroringIdParameter": {
-      "name": "portMirroringId",
-      "in": "path",
-      "description": "NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "PrivateCloudNameParameter": {
-      "name": "privateCloudName",
-      "in": "path",
-      "description": "Name of the private cloud",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "PublicIpIdParameter": {
-      "name": "publicIPId",
-      "in": "path",
-      "description": "NSX Public IP Block identifier. Generally the same as the Public IP Block's display name.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
-    },
-    "ScriptCmdletNameParameter": {
-      "name": "scriptCmdletName",
-      "in": "path",
-      "description": "Name of the script cmdlet resource in the script package in the private cloud.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "ScriptExecutionNameParameter": {
-      "name": "scriptExecutionName",
-      "in": "path",
-      "description": "Name of the user-invoked script execution resource.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "ScriptPackageNameParameter": {
-      "name": "scriptPackageName",
-      "in": "path",
-      "description": "Name of the script package in the private cloud.",
-      "required": true,
-      "type": "string",
-      "pattern": "^[-\\w\\._@]+$",
-      "x-ms-parameter-location": "method"
-    },
-    "VirtualMachineIdParameter": {
-      "name": "virtualMachineId",
-      "in": "path",
-      "description": "Virtual Machine identifier.",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method"
     }
   }
 }
