@@ -56,14 +56,9 @@ interface PrivateClouds {
   rotateNsxtPassword is ArmResourceActionNoContentAsync<PrivateCloud, {}>;
 
   @doc("List the admin credentials for the private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials")
-  @post
-  listAdminCredentials is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-    },
+  listAdminCredentials is ArmResourceActionSync<
+    PrivateCloud,
+    {},
     AdminCredentials
   >;
 }

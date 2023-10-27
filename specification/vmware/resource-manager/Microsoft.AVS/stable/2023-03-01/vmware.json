@@ -2434,7 +2434,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{privateCloudName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/listAdminCredentials": {
       "post": {
         "operationId": "PrivateClouds_ListAdminCredentials",
         "tags": [
@@ -2443,7 +2443,7 @@
         "description": "List the admin credentials for the private cloud",
         "parameters": [
           {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
+            "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
           },
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter"
@@ -2452,12 +2452,26 @@
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "$ref": "#/parameters/PrivateCloudNameParameter"
+            "name": "privateCloudName",
+            "in": "path",
+            "description": "Name of the private cloud",
+            "required": true,
+            "type": "string",
+            "pattern": "^[-\\w\\._]+$"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The content of the action request",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "The request has succeeded.",
+            "description": "ARM operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/AdminCredentials"
             }
@@ -2465,13 +2479,7 @@
           "default": {
             "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/Azure.Core.Foundations.ErrorResponse"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "String error code indicating what went wrong."
-              }
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
