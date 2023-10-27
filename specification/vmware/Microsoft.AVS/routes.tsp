@@ -67,66 +67,12 @@ interface PrivateClouds {
 interface Clusters {
   list is ArmResourceListByParent<Cluster>;
   get is ArmResourceRead<Cluster>;
-
-  @doc("Create or update a cluster in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
-  @put
-  createOrUpdate is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-
-      @doc("A cluster in the private cloud")
-      @body
-      cluster: Cluster;
-    },
-    Cluster
-  >;
-
-  @doc("Update a cluster in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
-  @patch
-  update is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-
-      @doc("The cluster properties to be updated")
-      @body
-      clusterUpdate: ClusterUpdate;
-    },
-    Cluster
-  >;
-
-  @doc("Delete a cluster in a private cloud")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}")
-  @delete
-  delete is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-    },
-    void
-  >;
+  createOrUpdate is ArmResourceCreateOrUpdateAsync<Cluster>;
+  update is ArmResourcePatchAsync<Cluster, ClusterUpdateProperties>;
+  delete is ArmResourceDeleteAsync<Cluster>;
 
   @doc("List hosts by zone in a cluster")
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AVS/privateClouds/{privateCloudName}/clusters/{clusterName}/listZones")
-  @post
-  listZones is Azure.Core.Foundations.Operation<
-    {
-      ...SubscriptionIdParameter;
-      ...ResourceGroupParameter;
-      ...PrivateCloudNameParameter;
-      ...ClusterNameParameter;
-    },
-    ClusterZoneList
-  >;
+  listZones is ArmResourceActionSync<Cluster, {}, ClusterZoneList>;
 }
 
 interface Datastores {
